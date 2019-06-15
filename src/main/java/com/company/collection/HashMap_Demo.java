@@ -2,10 +2,8 @@ package com.company.collection;
 
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class HashMap_Demo {
 
@@ -71,6 +69,53 @@ public class HashMap_Demo {
         }*/
         System.out.println("==============================");
         map.forEach((a,b)-> System.out.println(a+":"+b));
+    }
+
+    @Test
+    public void sortByKeys() {
+        HashMap<Integer, String> hMapNumbers = new HashMap<>();
+        hMapNumbers.put(4, "Four");
+        hMapNumbers.put(10, "Ten");
+        hMapNumbers.put(3, "Three");
+        hMapNumbers.put(2, "Two");
+        hMapNumbers.put(1, "One");
+        System.out.println("HashMap contains...");
+
+        for (Integer key : hMapNumbers.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + hMapNumbers.get(key));
+        }
+        System.out.println("");
+        /*To sort HashMap by keys, simply use TreeMap's constructor which accepts Map*/
+        //convert HashMap to TreeMap
+        TreeMap<Integer, String> treeMapNumbers = new TreeMap<>(hMapNumbers);
+        //print TreeMap which is sorted by keys
+        System.out.println("TreeMap contains...");
+        for (Integer key : treeMapNumbers.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + treeMapNumbers.get(key));
+        }
+
+        Map<Integer, String> sortedMap =
+                hMapNumbers.entrySet().stream()
+                        .sorted(Map.Entry.comparingByKey())
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                                (e1, e2) -> e1, LinkedHashMap::new));
+        System.out.println(sortedMap);
+    }
+
+    @Test
+    public void sortByValue() {
+        HashMap<Integer, String> hMapNumbers = new HashMap<>();
+        hMapNumbers.put(4, "Four");
+        hMapNumbers.put(10, "Ten");
+        hMapNumbers.put(3, "Three");
+        hMapNumbers.put(2, "Two");
+        hMapNumbers.put(1, "One");
+        Map<Integer, String> sortedMap =
+                hMapNumbers.entrySet().stream()
+                        .sorted(Map.Entry.comparingByValue())
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                                (e1, e2) -> e1, LinkedHashMap::new));
+        System.out.println(sortedMap);
     }
 
 
