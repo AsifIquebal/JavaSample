@@ -6,8 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Set_Demo 
-{
+public class Set_Demo {
 
     @Test
     public void demo1() {
@@ -82,5 +81,6 @@ public class Set_Demo
             System.out.println(s);
         }
     }
+
 
 } 

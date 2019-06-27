@@ -2,7 +2,12 @@ package com.company.array;
 
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Demo1 {
     @Test
@@ -46,6 +51,38 @@ public class Demo1 {
         for(int x=0;x<result.length;x++){
             System.out.print(result[x]+" ");
         }
+    }
+
+    @Test
+    public void printArray(){
+        int[] array1 = {1,2,3,4,5,6,7,8,9};
+        System.out.println(Arrays.toString(array1));
+        int[][] array2 = {{1, 2}, {3, 4}, {5, 6, 7}};
+        System.out.println(Arrays.deepToString(array2));
+    }
+
+    @Test
+    public void intToIntergerArray(){
+        int[] array = {1,2,3,4,5,6,7,8,9};
+        System.out.println("Class/Type: " + array.getClass().toGenericString());
+        Integer[] boxedArray = IntStream.of(array).boxed().toArray(Integer[]::new);
+        System.out.println(Arrays.toString(boxedArray));
+        System.out.println("Class/Type : " + boxedArray.getClass().toGenericString());
+
+
+
+        Set<Integer> set = IntStream.of(array).boxed().collect(Collectors.toSet());
+        //or if you need a HashSet specifically
+        HashSet<Integer> hashset = IntStream.of(array).boxed().collect(Collectors.toCollection(HashSet::new));
+    }
+
+    @Test
+    public void splitArrayAndGetMax(){
+        Integer[] array = {1,200,3,4,5,6,700,8};
+        TreeSet<Integer> set1 = new TreeSet<>(Arrays.asList(Arrays.copyOfRange(array,0,(array.length+1)/2)));
+        TreeSet<Integer> set2 = new TreeSet<>(Arrays.asList(Arrays.copyOfRange(array,(array.length+1)/2,array.length)));
+        System.out.println(set1.last());
+        System.out.println(set2.last());
     }
 
 }
