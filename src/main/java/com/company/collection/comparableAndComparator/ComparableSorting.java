@@ -42,6 +42,16 @@ public class ComparableSorting {
         System.out.println(list);
     }
 
+    @Test
+    public void demo3_usingMethodReference(){
+        List<String> list = new ArrayList<>(Arrays.asList("Sarkar","Asif","asif","sarkar"));
+        list.sort(String::compareToIgnoreCase);
+        System.out.println(list);
+        List<Integer> l1 = new ArrayList<>(Arrays.asList(20,0,15,5,10,25,30));
+        l1.sort(Integer::compare);
+        System.out.println(l1);
+    }
+
 
 
 }

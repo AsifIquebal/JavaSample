@@ -27,6 +27,8 @@ public class Lambda_02 {
     public void lambda_02(){
         StringLengthLambda myLambDa = (str)-> str.length();
         System.out.println(myLambDa.getLength("Asif"));
+        StringLengthLambda myLambDa1 = String::length;
+        System.out.println(myLambDa1.getLength("Asif Iquebal Sarkar"));
         // if there is only one input argument you don't need to have the parenthesis
         StringLengthLambda m = s->s.length();
         System.out.println(m.getLength("PASAM"));

@@ -7,19 +7,18 @@ public class GenericClass {
         String a = myGenericClass.getItem1();
         int b = myGenericClass.getItem2();
         System.out.println(a + " : " + b);
-        // the following is not allowed;
-        //MyGenericClass<Integer, Integer> myGenericClass1 = new MyGenericClass<Integer, Integer>("Test1",1);
 
-        /*int a1 = myGenericClass1.getItem1();
+        MyGenericClass<Integer, Integer> myGenericClass1 = new MyGenericClass<Integer, Integer>(2, 1);
+        int a1 = myGenericClass1.getItem1();
         int b1 = myGenericClass1.getItem2();
-        System.out.println(a1 + " : " + b1);*/
+        System.out.println(a1 + " : " + b1);
 
     }
 
 }
 
 
-class MyGenericClass<I1,I2>{
+class MyGenericClass<I1, I2> {
     I1 item1;
     I2 item2;
 

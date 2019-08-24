@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Demo1 {
+
     @Test
     public void t1(){
         int i = 4;
@@ -17,7 +18,6 @@ public class Demo1 {
         System.out.println(ia.length);
         System.out.println(ia[0].length);
         System.out.println(ia[0][0].length);
-
     }
 
     @Test
@@ -68,8 +68,6 @@ public class Demo1 {
         Integer[] boxedArray = IntStream.of(array).boxed().toArray(Integer[]::new);
         System.out.println(Arrays.toString(boxedArray));
         System.out.println("Class/Type : " + boxedArray.getClass().toGenericString());
-
-
 
         Set<Integer> set = IntStream.of(array).boxed().collect(Collectors.toSet());
         //or if you need a HashSet specifically
