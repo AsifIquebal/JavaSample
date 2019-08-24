@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class ComparableSorting {
+public class Sorting {
 
     @Test
     public void demo1(){
@@ -47,11 +47,33 @@ public class ComparableSorting {
         List<String> list = new ArrayList<>(Arrays.asList("Sarkar","Asif","asif","sarkar"));
         list.sort(String::compareToIgnoreCase);
         System.out.println(list);
+
         List<Integer> l1 = new ArrayList<>(Arrays.asList(20,0,15,5,10,25,30));
         l1.sort(Integer::compare);
-        System.out.println(l1);
+        System.out.println("Ascending/Natural Order:  " + l1);
+    }
+
+    @Test
+    public void others(){
+        List<Integer> l1 = new ArrayList<>(Arrays.asList(20,0,15,5,10,25,30));
+        Comparator<Integer> C = (i1,i2) -> (i1<i2)?1:(i1==i2)?0:-1;
+        Collections.sort(l1,C);
+        System.out.println("Descending Order: " + l1);
+
+        List<Integer> l2 = new ArrayList<>(Arrays.asList(20,0,15,5,10,25,30));
+        Comparator<Integer> C1 = (i1,i2) -> i2.compareTo(i1);
+        Collections.sort(l2,C1);
+        System.out.println("Descending Order: " + l2);
+
+        List<Integer> l3 = new ArrayList<>(Arrays.asList(20,0,15,5,10,25,30));
+        Comparator<Integer> C3 = Comparator.reverseOrder();
+        l3.sort(C3);
+        System.out.println("Descending Order: " + l3);
     }
 
 
 
 }
+
+
+
