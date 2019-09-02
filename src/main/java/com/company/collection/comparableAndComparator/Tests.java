@@ -132,6 +132,20 @@ public class Tests {
                 (l1.getRam()<l2.getRam())?-1:(l1.getRam()>l2.getRam())?1:0;
         Collections.sort(laptops, ramSizeComparator);
         laptops.forEach(System.out::println);
+
+        //Sort by brand
+        laptops.sort(Comparator.comparing(e -> e.getBrand()));
+        System.out.println("Sort by Brand Name============================");
+        laptops.forEach(System.out::println);
+
+        //OR you can use below
+        laptops.sort(Comparator.comparing(Laptops::getBrand));
+        laptops.forEach(System.out::println);
+
+        //Sort by brand in reverse order
+        Comparator<Laptops> comparator = Comparator.comparing(e -> e.getBrand());
+        laptops.sort(comparator.reversed());
+        laptops.forEach(System.out::println);
     }
 
 
