@@ -13,11 +13,11 @@ public class Lambda_03 {
     @Test
     public void lambda_01() {
         List<Persons> personsList = Arrays.asList(
-                new Persons("Picasso", "Bhowmick", 32),
-                new Persons("Asif", "Sarkar",33),
-                new Persons("Sudip", "Paul", 31),
-                new Persons("Amlan", "Chackroborty", 30),
-                new Persons("Manish", "Agarwal", 29)
+                new Persons("Picasso", "Bhowmick", 32,""),
+                new Persons("Asif", "Sarkar",33,""),
+                new Persons("Sudip", "Paul", 31,""),
+                new Persons("Amlan", "Chackroborty", 30,""),
+                new Persons("Manish", "Agarwal", 29,"")
                 );
 
         //int foundIndex = Arrays.binarySearch(names, "Mary");
@@ -56,12 +56,11 @@ public class Lambda_03 {
         // using lambda
         System.out.println("-----------------------------------");
         printConditionally(personsList, p->p.getLname().startsWith("A"));
+
         System.out.println("Printing all person where first name starts with A");
         printConditionally(personsList, p -> p.getName().startsWith("A"));
         // print all
-        printConditionally(personsList, p->true);
-
-
+        //printConditionally(personsList, p->true);
     }
 
     /*private void printConditionally(List<Persons> personsList, Condition condition){
@@ -80,8 +79,6 @@ public class Lambda_03 {
             }
         }
     }
-
-
 }
 
 interface Condition{

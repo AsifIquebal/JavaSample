@@ -4,11 +4,21 @@ public class Persons {
     private String fname;
     private String lname;
     private int age;
+    private String location;
 
-    public Persons(String fname, String lname, int age){
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Persons(String fname, String lname, int age, String location){
         this.fname = fname;
         this.lname = lname;
         this.age = age;
+        this.location = location;
     }
 
     public String getName() {
