@@ -71,7 +71,7 @@ public class Lambda_03 {
         }
     }*/
 
-    //there already a interface present in java.utilfunction package
+    //there already a interface present in java.util.function package
     private void printConditionally(List<Persons> personsList, Predicate<Persons> predicate){
         for (Persons p : personsList){
             if(predicate.test(p)){

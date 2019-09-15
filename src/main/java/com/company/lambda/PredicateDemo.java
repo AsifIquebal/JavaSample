@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class PredicateDemo {
@@ -31,6 +32,9 @@ public class PredicateDemo {
                 System.out.println(p.getName());
             }
         }
+
+
+
     }
 
     @Test
@@ -74,4 +78,13 @@ public class PredicateDemo {
         Arrays.stream(x).filter(p1.and(p2)).forEach(System.out::println);
 
     }
+
+    @Test
+    public void test05(){
+        BiPredicate<Integer, Integer> p = (a,b) -> (a+b)%2==0;
+        System.out.println(p.test(10,20));
+        System.out.println(p.test(15,10));
+    }
+
+
 }

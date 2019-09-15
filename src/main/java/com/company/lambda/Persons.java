@@ -51,9 +51,9 @@ public class Persons {
     @Override
     public String toString() {
         return "Persons{" +
-                "fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", age=" + age +
+                "Name='" + fname + " " + lname +
+                "', age=" + age +
+                ", location='" + location + '\'' +
                 '}';
     }
 }
