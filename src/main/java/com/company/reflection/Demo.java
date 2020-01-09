@@ -24,6 +24,7 @@ public class Demo {
         Other.class.getDeclaredMethod("m_pub2", int.class).invoke(obj, 1);
     }
 
+    
     @Test
     public void test01() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Other other = new Other();
