@@ -13,6 +13,10 @@ public class Other {
     public void m_pub2(int n)  {
         System.out.println("The number is " + n);
     }
+    // an static method
+    public static void staticMethod(){
+        System.out.println("this is an static method...");
+    }
     // creating a private method
     private void m_pri1() {
         System.out.println("Private method invoked");

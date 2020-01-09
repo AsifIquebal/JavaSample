@@ -51,7 +51,7 @@ public class Reverse_String
 
     @Test
     public void reverseUsingStringBuffer(){
-	    reverse_method3("Hello World");
+	    reverse_method3("Demo World");
     }
     public void reverse_method3(String string){
         char[] chars = string.toCharArray();

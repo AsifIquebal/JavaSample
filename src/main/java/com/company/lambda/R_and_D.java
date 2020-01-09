@@ -21,7 +21,7 @@ public class R_and_D {
             System.out.println("key " + k + ": "
                     + map1.get(k).equals(map2.get(k)));
             /*if("E".equals(k)){
-                System.out.println("Hello E");
+                System.out.println("Demo E");
             }*/
         });
     }

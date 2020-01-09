@@ -8,7 +8,7 @@ interface BeginingInterface {
     int X = 10;
 
     public static void main(String[] args) {
-        System.out.println("Hello, I am inside interface");
+        System.out.println("Demo, I am inside interface");
     }
 }
 public class Begining implements BeginingInterface{

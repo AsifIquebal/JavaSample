@@ -107,24 +107,24 @@ public class StringFunctions {
 
     @Test(description = "This explains why Strings are Immutable and SB is Mutable")
     public void concatVsAppend(){
-        String s = new String("Hello");
+        String s = new String("Demo");
         s.concat(" World");
         System.out.println(s);
 
-        StringBuffer sb = new StringBuffer("Hello");
+        StringBuffer sb = new StringBuffer("Demo");
         sb.append(" World");
         System.out.println(sb);
     }
 
     @Test
     public void equalsOfStringAndStringBuffer(){
-        String a = new String("Hello");
-        String b = new String("Hello");
+        String a = new String("Demo");
+        String b = new String("Demo");
         System.out.println(a==b);
         System.out.println(a.equals(b));// true, String class overrides equals method of object and checks for content comparison
 
-        StringBuffer sb1 = new StringBuffer("Hello");
-        StringBuffer sb2 = new StringBuffer("Hello");
+        StringBuffer sb1 = new StringBuffer("Demo");
+        StringBuffer sb2 = new StringBuffer("Demo");
         System.out.println(sb1==sb2);
         System.out.println(sb1.equals(sb2));
         // false, SB doesn't override equals of Object.

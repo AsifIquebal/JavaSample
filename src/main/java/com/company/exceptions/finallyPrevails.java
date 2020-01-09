@@ -23,7 +23,7 @@ public class finallyPrevails {
     @Test
     public void demo2(){
         try{
-            System.out.println("Hello");
+            System.out.println("Demo");
             System.exit(0);
         }finally {
             System.out.println("World");

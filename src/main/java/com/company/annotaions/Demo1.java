@@ -20,8 +20,8 @@ public class Demo1 {
         System.out.println("method 2");
     }
     public static void main(String args[]) throws NoSuchMethodException {
-        System.out.println("Hello");
-        //Hello h=new Hello();
+        System.out.println("Demo");
+        //Demo h=new Demo();
         Demo1 demo1 = new Demo1();
         Method m = demo1.getClass().getMethod("fun2");
         //Method m=h.getClass().getMethod("sayHello");

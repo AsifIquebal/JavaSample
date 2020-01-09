@@ -22,7 +22,7 @@ public class ConsumerDemo {
 
         System.out.println("\n");
         Consumer<String> cc = c1.andThen(c2).andThen(c3);
-        cc.accept("Hello World");
+        cc.accept("Demo World");
 
     }
 

@@ -10,7 +10,7 @@ public class Lambda_02 {
 
         Hello hello = new Hello(){
             public void method(){
-                System.out.println("Hello Bob");
+                System.out.println("Demo Bob");
             }
         };
         hello.method();
@@ -45,7 +45,7 @@ public class Lambda_02 {
         });
         thread.run();
 
-        Thread thread1 = new Thread(()-> System.out.println("Hello"));
+        Thread thread1 = new Thread(()-> System.out.println("Demo"));
         thread1.run();
 
     }

@@ -50,7 +50,7 @@ public class t {
     @Test
     public void throwNullPointerExceptionWithMessage(){
         try {
-            throw new NullPointerException("Hello");
+            throw new NullPointerException("Demo");
         }catch (NullPointerException ex){
             ex.printStackTrace();
         }
@@ -59,7 +59,7 @@ public class t {
     /*@Test
     public void throwNullPointerExceptionWithMessage1 throws NullPointerException(){
         try {
-            throw new NullPointerException("Hello");
+            throw new NullPointerException("Demo");
         }catch (NullPointerException ex){
             ex.printStackTrace();
         }

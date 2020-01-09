@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Demo1 {
+public class Basic {
 
     @Test
     public void t1(){

@@ -11,7 +11,7 @@ public class CustomException {
     @Test
     public void test1(){
         try{
-            throw new Asus("Hello Exception");
+            throw new Asus("Demo Exception");
         }catch (Asus asus){
             System.out.println(asus.getMessage());
         }

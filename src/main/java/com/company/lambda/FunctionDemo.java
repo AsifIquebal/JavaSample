@@ -2,6 +2,7 @@ package com.company.lambda;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -14,7 +15,7 @@ public class FunctionDemo {
         System.out.println("square of 4: " + f.apply(4));
 
         Function<String, Integer> f1 = s -> s.length();
-        System.out.println(f1.apply("Hello World"));
+        System.out.println(f1.apply("Demo World"));
     }
 
     @Test
@@ -37,7 +38,6 @@ public class FunctionDemo {
     @Test
     public void test04() {
         MyPersonInterface<String,String,Integer,String,Persons> m = (fName,lname, age, location) -> new Persons(fName,lname, age, location);
-
         List<Persons> personsList = Arrays.asList(
                 m.myApply("Picasso", "Bhowmick", 32, "Kolkata"),
                 m.myApply("Asif", "Sarkar", 33, "Pune"),

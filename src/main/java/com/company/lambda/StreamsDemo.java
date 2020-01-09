@@ -63,6 +63,7 @@ public class StreamsDemo {
                 .map(String::toUpperCase)
                 .peek(e -> System.out.println("Mapped value: " + e))
                 .collect(Collectors.toList());
+        System.out.println(result);
     }
 
     @Test
@@ -131,5 +132,23 @@ public class StreamsDemo {
     // The map operations allows us to apply a function, that takes in a parameter of one type, and returns something else.
     // Filter is used for filtering the data , it always returns the boolean value . If it returns true , the item is added to list else its filtered out (ignored)
 
+
+    @Test
+    public void test03(){
+        List<Integer> l = Arrays.asList(1, 2, 13, 4, 15, 6, 17, 8, 19);
+        System.out.println("List: " + l);
+        l.stream().forEach(System.out::println);
+        Integer[] a = l.stream().toArray(Integer[]::new);
+        Arrays.stream(a).forEach(System.out::println);
+        Stream.of(a).forEach(System.out::println);
+    }
+
+
+    @Test
+    public void test04(){
+        String s = "hello";
+        System.out.println(s.substring(5));
+        //System.out.println(s.substring(6,1));
+    }
 
 }

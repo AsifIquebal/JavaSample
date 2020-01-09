@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiPredicate;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class PredicateDemo {
 
@@ -86,5 +88,12 @@ public class PredicateDemo {
         System.out.println(p.test(15,10));
     }
 
+    @Test
+    public void test06(){
+        int[] x = {0,5,10,15,20,25,30,35};
+        IntPredicate p = i->i%2==0;
+
+        Arrays.stream(x).filter(p).forEach(System.out::println);
+    }
 
 }
