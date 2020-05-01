@@ -5,13 +5,24 @@ package com.company.inheritance;
  */
 
 class Base {
+    int i = 0;
 
     Base() {
-        System.out.println("A Class Constructor Called ");
+        System.out.println("Base Class Constructor Called ");
+        value();
+    }
+
+    public void value() {
+        System.out.println("Base Class value method");
+        i = i + 10;
+    }
+
+    public int display() {
+        return i;
     }
 
     Base(int a) {
-        System.out.println("A Class Constructor Called ");
+        System.out.println("Base Class Constructor Called ");
     }
 
 }
@@ -20,14 +31,26 @@ class Derived extends Base {
 
     Derived() {
         System.out.println("Derived Class Constructor Called ");
+        value();
+    }
+
+    public void value() {
+        System.out.println("Child value method");
+        i = i + 20;
+    }
+
+    public int display() {
+        return i;
     }
 
 }
 
 public class InheritanceConstructor_1 {
     public static void main(String[] args) {
-        Derived d = new Derived();
+        Base b = new Derived();
+        System.out.println(b.display());
     }
+
 }
 
 

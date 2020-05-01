@@ -48,7 +48,6 @@ public class MethodOverriding {
         // simple use of super
         B b1 = new B();
         // this will call the overriding method
-
         b1.m1();
         System.out.println("---------------------");
 

@@ -1,12 +1,10 @@
 package com.company.inheritance;
 
-
 class Outter {
     private static int var1 = 12;
     private void hello(){
         System.out.println("Private member of outter class");
     }
-
 
     static class Inner{
 
@@ -17,10 +15,7 @@ class Outter {
     }
 }
 
-
 class Another extends Outter.Inner {
-
-
 
     public void test1(){
 
@@ -28,12 +23,6 @@ class Another extends Outter.Inner {
 
 }
 
-
-
-
 public class Main {
-
-
-
 
 }
