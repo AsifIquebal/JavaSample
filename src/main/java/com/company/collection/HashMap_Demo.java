@@ -9,7 +9,7 @@ public class HashMap_Demo {
 
     @Test
     public void demo1() {
-        Map<Integer, String> hm = new HashMap<Integer, String>();
+        Map<Integer, String> hm = new HashMap<>();
         hm.put(1, "A");
         hm.put(2, "B");
         hm.put(3, "C");

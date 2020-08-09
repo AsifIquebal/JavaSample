@@ -30,6 +30,7 @@ class Base {
 class Derived extends Base {
 
     Derived() {
+        //super(1,2);
         System.out.println("Derived Class Constructor Called ");
         value();
     }
@@ -48,6 +49,8 @@ class Derived extends Base {
 public class InheritanceConstructor_1 {
     public static void main(String[] args) {
         Base b = new Derived();
+        //Derived d = (Derived) new Base();
+
         System.out.println(b.display());
     }
 
