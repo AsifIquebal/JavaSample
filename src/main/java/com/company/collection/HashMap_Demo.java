@@ -2,6 +2,7 @@ package com.company.collection;
 
 import org.testng.annotations.Test;
 
+import java.net.Inet4Address;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class HashMap_Demo {
     @Test
     public void demo1() {
         Map<Integer, String> hm = getMap();
-        for (Map.Entry m : hm.entrySet()) {
+        for (Map.Entry<Integer, String> m : hm.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
         }
         // using java 8
@@ -31,15 +32,11 @@ public class HashMap_Demo {
     public void demo2() {
         Map<Integer, String> map = getMap();
         /* Display content using Iterator*/
-        Set<Map.Entry<Integer, String>> set = map.entrySet();
-        Iterator iterator = set.iterator();
+        Iterator<Map.Entry<Integer, String>> iterator = map.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry entry = (Map.Entry) iterator.next();
-            System.out.print("key is: " + entry.getKey() + " & Value is: ");
-            System.out.println(entry.getValue());
+            Map.Entry<Integer, String> entry = iterator.next();
+            System.out.println("key is: " + entry.getKey() + " & Value is: " + entry.getValue());
         }
-        System.out.println("==============================");
-        map.forEach((a, b) -> System.out.println(a + ":" + b));
     }
 
     @Test
@@ -51,17 +48,9 @@ public class HashMap_Demo {
             System.out.println(pair.getKey() + " = " + pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
         }*/
-        Iterator iterator = map.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> iterator = map.entrySet().iterator();
         /* Display content using Iterator*/
         Set<Map.Entry<Integer, String>> set = map.entrySet();
-        /*Iterator iterator = set.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry entry = (Map.Entry)iterator.next();
-            System.out.print("key is: "+ entry.getKey() + " & Value is: ");
-            System.out.println(entry.getValue());
-        }*/
-        System.out.println("==============================");
-        map.forEach((a, b) -> System.out.println(a + ":" + b));
     }
 
     @Test
