@@ -42,15 +42,13 @@ public class HashMap_Demo {
     @Test
     public void iterating_1() {
         Map<Integer, String> map = getMap();
-        /*Iterator it = mp.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> it = map.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
+            Map.Entry<Integer, String> pair = it.next();
             System.out.println(pair.getKey() + " = " + pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
-        }*/
-        Iterator<Map.Entry<Integer, String>> iterator = map.entrySet().iterator();
-        /* Display content using Iterator*/
-        Set<Map.Entry<Integer, String>> set = map.entrySet();
+        }
+        System.out.println(map.size());
     }
 
     @Test
