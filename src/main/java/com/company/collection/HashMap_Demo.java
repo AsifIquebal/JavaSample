@@ -1,5 +1,7 @@
 package com.company.collection;
 
+import com.google.common.base.Predicates;
+import com.google.common.collect.Iterables;
 import org.testng.annotations.Test;
 
 import java.net.Inet4Address;
@@ -16,6 +18,16 @@ public class HashMap_Demo {
         hm.put(4, "D");
         hm.put(5, "E");
         return hm;
+    }
+
+    @Test
+    public void testPutIfAbsent(){
+        Map<Integer, String> hm = getMap();
+        // checking with existing keys
+        System.out.println("Key already exists: " + hm.putIfAbsent(3, "Three"));
+        // checking with non-existing keys
+        System.out.println("Key is new: " + hm.putIfAbsent(6, "Six"));
+        hm.forEach((k,v)-> System.out.println(k + " -> " + v));
     }
 
     @Test
@@ -98,5 +110,14 @@ public class HashMap_Demo {
         System.out.println(sortedMap);
     }
 
+    public static <K,V>boolean containsNullKeysOrValues(Map<K,V> map){
+        return containsNullKeys(map)|| containsNullValues(map);
+    }
+    public static <K, V> boolean containsNullKeys(Map<K, V> map) {
+        return Iterables.tryFind(map.keySet(), Predicates.isNull()).isPresent();
+    }
+    public static <K, V> boolean containsNullValues(Map<K, V> map) {
+        return Iterables.tryFind(map.values(), Predicates.isNull()).isPresent();
+    }
 
 }
