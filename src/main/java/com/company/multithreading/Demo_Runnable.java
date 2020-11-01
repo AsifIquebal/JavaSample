@@ -30,14 +30,19 @@ class RunnableThread2 implements Runnable{
 public class Demo_Runnable {
     public static void main(String[] args) {
         Runnable a = new RunnableThread1();
-        Runnable b = new RunnableThread2();
 
-        Thread t1 = new Thread(a);
-        Thread t2 = new Thread(b);
+        Thread t1 =  new Thread();
+        Thread t2 = new Thread(a);
 
         t1.start();
         t2.start();
+
+        Runnable b = new RunnableThread2();
+
+        //Thread t1 = new Thread(a);
+        //Thread t2 = new Thread(b);
     }
+
 }
 
 

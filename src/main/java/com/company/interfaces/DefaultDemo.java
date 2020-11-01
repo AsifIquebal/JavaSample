@@ -29,7 +29,6 @@ public class DefaultDemo implements Drawable{
         Drawable d = new Rectangle();
         d.draw(); //drawing rectangle
         d.msg(); //default method
-
     }
 
     @Test

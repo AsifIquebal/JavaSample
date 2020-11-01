@@ -1,30 +1,36 @@
 package com.company.multithreading;
 
-
-class Thread1 extends Thread{
+class Thread1 extends Thread {
 
     private String caller;
+
     public Thread1(String caller) {
         this.caller = caller;
     }
 
     @Override
-    public void run(){
+    public void run() {
         try {
-            System.out.println(" Currently running Thread id: " + Thread.currentThread().getId());
-            System.out.println("Caller : " +caller+", code on this Thread is executed by: " + Thread.currentThread().getName());
-        }catch (Exception e){
+            System.out.println("Currently running Thread id: " + Thread.currentThread().getId());
+            System.out.println("Caller : " + caller + ", code on this Thread is executed by: " + Thread.currentThread().getName());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-}
-class Thread2 extends Thread{
-    @Override
+
+    /*@Override
     public void run(){
+        System.out.println("Argumented run() method...");
+    }*/
+}
+
+class Thread2 extends Thread {
+    @Override
+    public void run() {
 
         try {
             System.out.println(" Currently running Thread id: " + Thread.currentThread().getId());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -32,18 +38,16 @@ class Thread2 extends Thread{
 
 public class Demo1 {
     public static void main(String[] args) {
-        /*int n = 8;
-        for(int i=0; i<n; i++){
-            Thread1 thread1 = new Thread1();
-            thread1.start();
-        }*/
+        System.out.println("GetName: " + Thread.currentThread().getName());
 
-        //creating two threads for start and run method call
         Thread startThread = new Thread(new Thread1("start"));
-        Thread runThread = new Thread(new Thread1("run"));
+        System.out.println("GetName: " + startThread.getName());
 
+        Thread.currentThread().setName("changed name");
+        System.out.println("GetName: " + startThread.getName());
+        Thread runThread = new Thread(new Thread1("run"));
         startThread.start();
-        runThread.run();
+        //runThread.run();
 
     }
 }
