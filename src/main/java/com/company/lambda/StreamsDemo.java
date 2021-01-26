@@ -151,4 +151,17 @@ public class StreamsDemo {
         //System.out.println(s.substring(6,1));
     }
 
+    // You can pass Collectors.toList() to Stream.collect() method to convert Stream to List in java.
+    // Stream’s collect method performs mutable reduction operation on elements of Stream and Collectors.toList() provides a collector which accumulates elements of Stream into the list.
+    @Test
+    public void streamToList(){
+        Stream<String> countriesStream = Stream.of("India", "China", "France", "Germany");
+        List<String> listOfCountiesName = countriesStream.collect(Collectors.toList());
+        System.out.println(listOfCountiesName);
+
+        // Accumulate names into a List
+        // List<String> list = people.stream().map(Person::getName).collect(Collectors.toList());
+    }
+
+
 }
