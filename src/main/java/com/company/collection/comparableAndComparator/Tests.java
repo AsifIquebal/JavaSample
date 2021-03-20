@@ -73,13 +73,13 @@ public class Tests {
         Laptop laptop1 = new Laptop("Apple", 16, 1200);
         Laptop laptop3 = new Laptop("Lenovo", 12, 1000);
         Laptop laptop4 = new Laptop("HP",4,900);
-
         List<Laptop> laptops = new ArrayList<>();
-        laptops.add(laptop);
+        /*laptops.add(laptop);
         laptops.add(laptop1);
         laptops.add(laptop3);
-        laptops.add(laptop4);
-
+        laptops.add(laptop4);*/
+        // addAll method of Collections class
+        Collections.addAll(laptops,laptop,laptop1,laptop3,laptop4);
         // the overridden compareTo method of Laptop sorts only on RAM size
         Collections.sort(laptops);
         laptops.forEach(System.out::println);

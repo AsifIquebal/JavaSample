@@ -10,9 +10,9 @@ public class MainAsFinal {
 
 // below will not be possible as parent has final main method
 class WillInherit extends MainAsFinal{
-    public static void main(String[] args) {
-
-    }
+//    public static void main(String[] args) {
+//
+//    }
 }
 
 
