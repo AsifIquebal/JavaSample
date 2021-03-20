@@ -2,99 +2,87 @@ package com.company.lambda;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Lambda_02 {
 
-    // here is a anonymous inner class
     @Test
-    public void anonymousInnerClass(){
-
-        Hello hello = new Hello(){
-            public void method(){
-                System.out.println("Demo Bob");
-            }
-        };
-        hello.method();
-    }
-
-    // now change the anonymous inner class to lambda
-    @Test
-    public void lambda_01(){
-        Hello h = ()-> System.out.println("Hi Asif");
-        h.method();
+    public void count_empty_strings() {
+        List<String> list = Arrays.asList("abc", "", "bcd", "", "defg", "jk");
+        long count = list.stream().filter(x -> x.isEmpty()).count();
+        System.out.printf("List %s has %d empty strings %n", list, count);
     }
 
     @Test
-    public void lambda_02(){
-        StringLengthLambda myLambDa = (str)-> str.length();
-        System.out.println(myLambDa.getLength("Asif"));
-        StringLengthLambda myLambDa1 = String::length;
-        System.out.println(myLambDa1.getLength("Asif Iquebal Sarkar"));
-        // if there is only one input argument you don't need to have the parenthesis
-        StringLengthLambda m = s->s.length();
-        System.out.println(m.getLength("PASAM"));
-
+    public void check_length_of_string_elements() {
+        List<String> list = Arrays.asList("abc", "", "bcd", "", "defg", "jk");
+        long count = list.stream().filter(x -> x.length() >= 3).count();
+        System.out.println("Elements of specified length: " + count);//3
     }
 
     @Test
-    public void lambda_03(){
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Printed inside of runnable");
-            }
-        });
-        thread.run();
-
-        Thread thread1 = new Thread(()-> System.out.println("Demo"));
-        thread1.run();
-
+    public void fetch_non_empty_strings() {
+        List<String> list = Arrays.asList("abc", "", "bcd", "", "defg", "jk");
+        List<String> l = list.stream().filter(x -> !x.isEmpty()).collect(Collectors.toList());
+        System.out.println("Non Empty String list: " + l);
     }
 
     @Test
-    public void basic(){
-        // Multiple parameters in lambda expression
-        Addition ad1 = (a,b)->(a+b);
-        System.out.println(ad1.add(10,20));
-
-        // Multiple parameters with data type in lambda expression
-        Addition ad2 = (int a,int b)->(a+b);
-        System.out.println(ad2.add(100,200));
-
-        Multiplication multiplication = (a,b) -> (a*b);
-        System.out.println(multiplication.multiply(10,20));
-
-        Arithmatic arithmatic = (a,b) -> (a+b);
-        System.out.println(arithmatic.math(1,2));
-
-        Arithmatic arithmatic1 = (a,b) -> (a-b);
-        System.out.println(arithmatic1.math(10,2));
-
-        Arithmatic arithmatic2 = (a,b) -> (a%b);
-        System.out.println(arithmatic2.math(10,2));
+    public void map_01() {
+        List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.", "Canada");
+        String G7Countries = G7.stream().map(x -> x.toUpperCase()).collect(Collectors.joining(", "));
+        System.out.println(G7Countries);
     }
+
+    @Test
+    public void map_02() {
+        List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.", "Canada");
+        G7.stream().map(x -> x.toLowerCase()).forEach(System.out::println);
+        G7.stream().map(x -> x.toLowerCase()).forEach(x -> System.out.print(x.charAt(0)));
+    }
+
+    @Test
+    public void forEach_01() {
+        List<String> list = Arrays.asList("PICASSO", "ASIF", "SUDIP", "AMLAN", "MANISH");
+        list.stream().map(str -> str.length()).forEach(System.out::println);
+        list.forEach(x -> System.out.print(x.charAt(0)));//PASAM
+    }
+
+    @Test
+    public void square_distinct_numbers() {
+        List<Integer> numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
+        List<Integer> distinct = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
+        System.out.println(distinct);//[81, 100, 9, 16, 49]
+    }
+
+
+    @Test
+    public void test() {
+        List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.", "Canada");
+        Stream<String> stringStream = G7.stream();
+
+        // Create an array
+        Integer[] myArray = {1, 5, 8};
+        // Convert it into a Stream
+        Stream<Integer> integerStream = Arrays.stream(myArray);
+    }
+
+    @Test
+    public void simpleFilter() {
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(2, 4, 6, 8, 10));
+
+        Integer integer = numbers.stream()
+                .filter(n -> n > 4)
+                .filter(n -> n % 2 == 0)
+                .findFirst()
+                .get();
+        System.out.println(integer);
+
+    }
+
+
 }
-
-@FunctionalInterface
-interface Hello{
-    void method();
-    // we added the annotation @FunctionalInterface so that when anyone else
-    // tries to add another method declaration it throws an error and
-    // prevent the same
-}
-
-@FunctionalInterface
-interface StringLengthLambda{
-    int getLength(String s);
-}
-
-@FunctionalInterface
-interface Addition{
-    int add(int a, int b);
-}
-
-@FunctionalInterface
-interface Multiplication{int multiply(int a, int b);}
-
-@FunctionalInterface
-interface Arithmatic{int math(int a, int b);}
-
