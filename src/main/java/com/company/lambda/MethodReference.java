@@ -26,10 +26,20 @@ public class MethodReference {
     }*/
 
     @Test
-    public void test_withoutMethodRef() {
+    public void test_withoutMethodRef_lambda() {
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 9, 17, 23));
         List<Integer> collect = numbers.stream()
                 .filter(number -> IntStream.range(2, number).noneMatch(index -> number % index == 0))
+                .collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
+    @Test
+    public void test_withoutMethodRef_justDirectMethodCall() {
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 9, 17, 23));
+        List<Integer> collect = numbers.stream()
+                .filter(number -> isPrime(number))
+                //.filter(MethodReference::isPrime)
                 .collect(Collectors.toList());
         System.out.println(collect);
     }
