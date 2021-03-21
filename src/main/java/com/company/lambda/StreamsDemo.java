@@ -54,7 +54,6 @@ public class StreamsDemo {
         random.ints().limit(10).sorted().forEach(System.out::println);
     }
 
-
     @Test
     public void test02() {
         List<String> result = Stream.of("one", "two", "three", "four")
@@ -98,7 +97,7 @@ public class StreamsDemo {
     }
 
     @Test
-    public void puzzle01(){
+    public void puzzle01() {
         Stream.of("d2", "a2", "b1", "b3", "c")
                 .map(s -> {
                     System.out.println("map: " + s);
@@ -111,7 +110,7 @@ public class StreamsDemo {
     }
 
     @Test
-    public void puzzle02(){
+    public void puzzle02() {
         Stream.of("d2", "a2", "b1", "b3", "c")
                 .map(s -> {
                     System.out.println("map: " + s);
@@ -123,18 +122,8 @@ public class StreamsDemo {
                 });
     }
 
-    // Collectors are used to combine the result of processing on the elements of a stream. Collectors can be used to return a list or a string.
-    // The collect() method is one of the stream processing methods on the Stream interface. When this method is invoked, the filtering and mapping will take place and the object resulting from those actions will be collected
-    // The ‘sorted’ method is used to sort the stream.
-    // The ‘filter’ method is used to eliminate elements based on a criteria.
-    // The ‘map’ method is used to map each element to its corresponding result.
-    // By using map , you are transforming the object values .
-    // The map operations allows us to apply a function, that takes in a parameter of one type, and returns something else.
-    // Filter is used for filtering the data , it always returns the boolean value . If it returns true , the item is added to list else its filtered out (ignored)
-
-
     @Test
-    public void test03(){
+    public void test03() {
         List<Integer> l = Arrays.asList(1, 2, 13, 4, 15, 6, 17, 8, 19);
         System.out.println("List: " + l);
         l.stream().forEach(System.out::println);
@@ -143,18 +132,15 @@ public class StreamsDemo {
         Stream.of(a).forEach(System.out::println);
     }
 
-
     @Test
-    public void test04(){
+    public void test04() {
         String s = "hello";
         System.out.println(s.substring(5));
         //System.out.println(s.substring(6,1));
     }
 
-    // You can pass Collectors.toList() to Stream.collect() method to convert Stream to List in java.
-    // Stream’s collect method performs mutable reduction operation on elements of Stream and Collectors.toList() provides a collector which accumulates elements of Stream into the list.
     @Test
-    public void streamToList(){
+    public void streamToList() {
         Stream<String> countriesStream = Stream.of("India", "China", "France", "Germany");
         List<String> listOfCountiesName = countriesStream.collect(Collectors.toList());
         System.out.println(listOfCountiesName);
