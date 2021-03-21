@@ -53,4 +53,15 @@ public class MethodReference {
         System.out.println(collect);
     }
 
+    @Test
+    public void test_compilerIsNotSuggestingForMethodRef() {
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 9, 17, 23));
+        // compiler is not suggesting for Method Reference as the filer is receiving something and changing it
+        List<Integer> collect = numbers.stream()
+                .filter(number -> isPrime(number * 3))
+                //.filter(MethodReference::isPrime)
+                .collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
 }
