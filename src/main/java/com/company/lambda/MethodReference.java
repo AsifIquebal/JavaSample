@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class MethodReference {
 
-    //Traditional approach: just for understanding, logic is not full proff
+    //Traditional approach: just for understanding, logic is not full proof
     private static boolean isPrime(int number) {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) return false;
