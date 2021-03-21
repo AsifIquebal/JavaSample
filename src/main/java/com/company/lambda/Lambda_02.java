@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -83,6 +84,19 @@ public class Lambda_02 {
                 .get();
         System.out.println(integer);
 
+    }
+
+
+    @Test
+    public void getLargest(){
+        Integer a[] = {100,34,26,786};
+        Optional<Integer> maxNumber = Arrays.asList(a).stream()
+                .max((i, j) -> i.compareTo(j));
+        System.out.println(maxNumber.get());
+        ArrayList<Integer> b = new ArrayList<>(Arrays.asList(100,20,30,40));
+        Optional<Integer> max = b.stream()
+                .max((i, j) -> i.compareTo(j));
+        System.out.println(max.get());
     }
 
 }
