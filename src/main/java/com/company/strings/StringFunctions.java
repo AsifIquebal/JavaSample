@@ -36,8 +36,6 @@ public class StringFunctions {
         for (String x : strings)
             System.out.println(x);
         System.out.println(strings.length);
-
-
         System.out.println("Tester".substring(0,4));
     }
 
@@ -51,8 +49,6 @@ public class StringFunctions {
             System.out.println("Found R in: " + start);
             start = word.indexOf(letter, ++start);
         }*/
-
-
         String str = "Asif";
         System.out.println(str.indexOf('g'));
     }
@@ -69,12 +65,10 @@ public class StringFunctions {
         System.out.println(""+x+y);
     }
 
-
     @Test
     public void stringLengthWithoutLengthmethod(){
         String a = "Asif";
         System.out.println(a.length());
-
         char[] chars = a.toCharArray();
         System.out.println(chars.length);
         int c = 0;
@@ -82,10 +76,8 @@ public class StringFunctions {
             c+=1;
         }
         System.out.println(c);
-
         String x = "ABC";
         //String x = "ab";
-
     }
 
     @Test
@@ -105,7 +97,7 @@ public class StringFunctions {
     }
 
 
-    @Test(description = "This explains why Strings are Immutable and SB is Mutable")
+    @Test(description = "This explains why Strings are Immutable and StringBuffer is Mutable")
     public void concatVsAppend(){
         String s = new String("Demo");
         s.concat(" World");
@@ -129,6 +121,17 @@ public class StringFunctions {
         System.out.println(sb1.equals(sb2));
         // false, SB doesn't override equals of Object.
         // So equals of objects gets called, which is just for reference equality check
+    }
+
+    @Test
+    public void useOfNew(){
+        String s1 = "Java";
+        String s2 = "Java";
+        System.out.println(s1==s2);// true; both refers to SCP
+        String s3 = new String("Java");
+        System.out.println(s1==s3);//false; as new is used s3 is on heap
+        String s4 = new String("Java");
+        System.out.println(s1==s4);// false; new always creates new objects on heap
     }
 
     @Test

@@ -116,4 +116,19 @@ public class HashMap_Demo {
         return hm;
     }
 
+    @Test
+    public void countDuplicatesInArrayList(){
+       ArrayList<String> list = new ArrayList<>(Arrays.asList("AB","AB","BA","C","CD","C"));
+       HashMap<String,Integer> hashMap = new HashMap<>();
+       for (String item : list){
+           if(!hashMap.containsKey(item)){
+               hashMap.put(item,1);
+           }else {
+               hashMap.put(item,hashMap.get(item)+1);
+           }
+       }
+        System.out.println(hashMap);
+    }
+
+
 }

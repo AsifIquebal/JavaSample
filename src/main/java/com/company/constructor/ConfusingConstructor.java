@@ -1,4 +1,4 @@
-package com.company.designPatterns;
+package com.company.constructor;
 
 public class ConfusingConstructor {
 
