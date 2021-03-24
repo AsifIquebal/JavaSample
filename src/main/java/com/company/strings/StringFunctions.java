@@ -66,7 +66,7 @@ public class StringFunctions {
     }
 
     @Test
-    public void stringLengthWithoutLengthmethod(){
+    public void stringLengthWithoutLength_01(){
         String a = "Asif";
         System.out.println(a.length());
         char[] chars = a.toCharArray();
@@ -78,6 +78,23 @@ public class StringFunctions {
         System.out.println(c);
         String x = "ABC";
         //String x = "ab";
+    }
+
+    @Test
+    public void stringLengthWithoutLength_02(){
+        String a = "Asif";
+        int count = 0;
+        for (int i=0;;i++){
+            try{
+                a.charAt(i);
+                i++;
+            }catch (StringIndexOutOfBoundsException e){
+                String[] split = e.getMessage().split(":");
+                System.out.println("Exception gives me length: " + split[1]);
+                System.out.println("Length is: " + i);
+                break;
+            }
+        }
     }
 
     @Test
@@ -138,6 +155,7 @@ public class StringFunctions {
     public void checkRotationOfString(){
         /*If "JavaJ2eeStrutsHibernate" is a string then below are some rotated versions of this string.
         "StrutsHibernateJavaJ2ee", "J2eeStrutsHibernateJava", "HibernateJavaJ2eeStruts".*/
+        // make circle..join end with start
         String s1 = "JavaJ2eeStrutsHibernate";
         String s2 = "StrutsHibernateJavaJ2ee";
         //Step 1

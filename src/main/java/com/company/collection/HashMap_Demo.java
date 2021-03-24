@@ -130,5 +130,16 @@ public class HashMap_Demo {
         System.out.println(hashMap);
     }
 
+    @Test
+    public void verifyPutMethod(){
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        System.out.println(hashMap.put("A",123));
+        System.out.println(hashMap.put("A",321));
+
+        System.out.println(hashMap);
+
+        System.out.println(hashMap.get("A"));
+        System.out.println(hashMap.get("B"));
+    }
 
 }
