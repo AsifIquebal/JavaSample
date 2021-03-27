@@ -1,4 +1,4 @@
-package com.company.ds;
+package com.company.ds.linkedlist;
 
 import org.testng.annotations.Test;
 

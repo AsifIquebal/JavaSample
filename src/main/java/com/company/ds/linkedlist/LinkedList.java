@@ -1,4 +1,4 @@
-package com.company.ds;
+package com.company.ds.linkedlist;
 
 public class LinkedList {
     public static LinkedListDemo linkedListDemo;

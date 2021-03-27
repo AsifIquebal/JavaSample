@@ -1,4 +1,4 @@
-package com.company.ds;
+package com.company.ds.linkedlist;
 
 public class MyNode {
     public int data;
@@ -6,10 +6,11 @@ public class MyNode {
 
     public MyNode(int data) {
         this.data = data;
+        // below is not needed as next is by default null
         this.next = null;
     }
 
-    /*public int getData() {
+    public int getData() {
         return data;
     }
 
@@ -23,7 +24,7 @@ public class MyNode {
 
     public void setNext(MyNode next) {
         this.next = next;
-    }*/
+    }
 
 
     /*@Override
