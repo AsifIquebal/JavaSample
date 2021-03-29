@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -18,7 +19,6 @@ public class FileOps {
     @Test
     public void test01() {
         File file = new File("src/main/java/com/company/fileHandling/test.txt");
-
         if (file.exists()) {
             getFileAttributes(file);
             System.out.println(readFile(file));
@@ -39,13 +39,21 @@ public class FileOps {
     }
 
     @Test
-    public void test02() {
+    public void test02() throws IOException {
+        String s = "src/main/java/com/company/fileHandling/test.txt";
+        List<String> lines = Files.readAllLines(Paths.get(s));
+        System.out.println(lines.size());
+        System.out.println(lines);
+    }
+
+    @Test
+    public void test03() {
         File file = new File("src/main/java/com/company/fileHandling/test.txt");
         posixFilePermission(file);
     }
 
     @Test
-    public void test03() {
+    public void test04() {
         File file = new File("src/main/java/com/company/fileHandling/test.txt");
         boolean delete = file.delete();
         System.out.println("File deleted = " + delete);
@@ -80,7 +88,7 @@ public class FileOps {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(file);
-            fileWriter.write("Java is the prominent programming language of the millenium!");
+            fileWriter.write("Java is the prominent programming language of the millennium!");
         } catch (IOException e) {
 
         } finally {
