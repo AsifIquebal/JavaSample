@@ -1,4 +1,4 @@
-package com.company.sorting;
+package com.company.ds.sorting;
 
 public class SelectionSort {
     //The selection sort algorithm works in a very simple way. It maintains two subarray for the given array.
@@ -34,11 +34,11 @@ public class SelectionSort {
         }
     }
 
-    public int get(int i){
+    /*public int get(int i){
         return 10;
     }
     public String get(int i){
         return "ABC";
-    }
+    }*/
 
 }
