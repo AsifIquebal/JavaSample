@@ -1,4 +1,4 @@
-package com.company.ds.sorting;
+package com.company.ds.sortingSearching;
 
 import org.testng.annotations.Test;
 
