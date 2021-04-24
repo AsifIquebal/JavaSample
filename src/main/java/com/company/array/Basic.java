@@ -60,6 +60,7 @@ public class Basic {
         System.out.println(Arrays.toString(array1));
         int[][] array2 = {{1, 2}, {3, 4}, {5, 6, 7}};
         System.out.println(Arrays.deepToString(array2));
+        System.out.println(array1);
     }
 
     @Test

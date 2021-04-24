@@ -1,11 +1,11 @@
-package com.company.ds;
+package com.company.ds.array;
 
 import org.testng.annotations.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Array {
+public class DuplicateElement {
 
     // Brute force
     // Traversing the array, 2 loops, time O(n^2)
