@@ -1,6 +1,30 @@
 package com.company.collection;
 
+import org.testng.annotations.Test;
+
+import java.util.Arrays;
+
 public class DistinctElements {
+
+    @Test
+    public void test_01() {
+        int[] nums = {1,1,3,3,4,6};
+        usingSortGetDistinct(nums);
+    }
+
+    public void usingSortGetDistinct(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            // Move the index ahead while there are duplicates
+            while (i < arr.length - 1 && arr[i] == arr[i + 1]) {
+                i++;
+            }
+            // print last occurrence of the current element
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+
     public static void printDistinctElements(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             boolean isDistinct = true;

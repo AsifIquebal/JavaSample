@@ -9,7 +9,7 @@ public class CollectionClassDemo {
     public static void main(String[] args) {
         //Converting array to ArrayList
         String[] ary = {"D","F","I","Y","V","D","W","B","A"};
-        ArrayList<String> al = new ArrayList<String>();
+        ArrayList<String> al = new ArrayList<>();
         Collections.addAll(al, ary);
         System.out.println("Before Sorting: "+al);
         //Ascending order Sorting
