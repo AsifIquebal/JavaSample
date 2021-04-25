@@ -16,45 +16,31 @@ public class ArrayListExamples {
     }
 
     @Test
-    public void test1() {
-        List<String> my_list = new ArrayList<String>();
-        my_list.add("text1");
-        my_list.add("text2");
-        my_list.add(0, "1st element");
-        my_list.add("1");
-        my_list.add("2");
-        my_list.add("3");
-        my_list.add("1");
-        my_list.add("2");
-        my_list.add("3");
-        System.out.println("\n==> Foreach Example...");
-        for (Object element : my_list) {
-            System.out.println(element);
-        }
-        System.out.println("List size is: " + my_list.size());
-        System.out.println(my_list.indexOf("text2"));
-        System.out.println("\n==> While Example...");
+    public void test_01() {
+        List<String> list = new ArrayList<>();
+        list.add("text1");
+        list.add("text2");
+        list.add(0, "1st element");
+        list.add("1");
+        list.add("1");
+        System.out.println(list + " contains " + list.size() + " elements");
+        System.out.println("Index of method [index of text2 element]: " + list.indexOf("text1"));
         int i = 0;
-        while (i < my_list.size()) {
-            System.out.println("Index: " + i + " Element: " + my_list.get(i));
+        while (i < list.size()) {
+            System.out.println("Index: " + i + " Element: " + list.get(i));
             i++;
         }
-        System.out.println("\n==> All at once without loop Example...");
-        System.out.println("ArrayList Elements: " + my_list);
-        // iterate via "iterator loop"
-        System.out.println("\n==> Iterator Example...");
-        Iterator<String> my_list_iterator = my_list.iterator();
-        while (my_list_iterator.hasNext()) {
-            System.out.println(my_list_iterator.next());
+        Iterator<String> list_iterator = list.iterator();
+        while (list_iterator.hasNext()) {
+            System.out.println(list_iterator.next());
         }
-
-        Set<String> my_set = new HashSet<String>(my_list);
+        Set<String> my_set = new HashSet<>(list);
         System.out.println("After converting to Set, the size is: " + my_set.size());
-        System.out.println("Unique Values are as follows: \n" + my_set);
+        System.out.println("Unique Values are as follows[order is not guaranteed in Set]: \n" + my_set);
     }
 
     @Test
-    public void demo1() {
+    public void test_02() {
         //Converting array to ArrayList
         String[] ary = {"D", "F", "I", "Y", "V", "D", "W", "B", "A"};
         ArrayList<String> al = new ArrayList<>();
@@ -69,84 +55,43 @@ public class ArrayListExamples {
         Collections.sort(al2, Collections.reverseOrder());
         //Collections.reverse(al);
         System.out.println("After Reverse Sorting: " + al2);
-
-    }
-
-    @Test
-    public void iterateList() {
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("Picasso", "Asif", "Sudip", "Amlan", "Manish"));
-        Iterator<String> iterator = arrayList.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
-
-    @Test
-    public void iterateList2() {
-        String[] strings = {"Picasso", "Asif", "Sudip", "Amlan", "Manish"};
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(strings));
-        Iterator<String> iterator = arrayList.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
     }
 
     @Test
     public void trimToSizeDemo() throws NoSuchFieldException, IllegalAccessException {
-        List<Integer> list = new ArrayList<>(5);
-        list.add(10);
-        list.add(20);
-        list.add(30);
+        ArrayList<Integer> list = new ArrayList<>(5);
+        list.add(10);list.add(20);list.add(30);
         Field field = ArrayList.class.getDeclaredField("elementData");
+        field.setAccessible(true);
         System.out.println(field.getName());
-        System.out.println(((Object[]) field.get(list)).length);
-        for (Integer value : list) {
-            System.out.println(value);
-        }
-
+        System.out.println("Length Before Trimming is: " + ((Object[]) field.get(list)).length);
+        System.out.println(list);
+        list.trimToSize();
+        System.out.println(list);
+        System.out.println("Length After Trimming is: " + ((Object[]) field.get(list)).length);
+        //elementData.length;
     }
 
     @Test
     public void listToSet() {
         List<String> list = new ArrayList<>(Arrays.asList("One", "Two", "Two", "Three"));
-        // using for loop
+        // using add method in for loop
         Set<String> stringSet1 = new HashSet<>();
         for (String x : list) {
             stringSet1.add(x);
         }
-        System.out.println("Created HashSet is");
-        for (String x : stringSet1) {
-            System.out.println(x);
-        }
+        System.out.println("Created HashSet is" + stringSet1);
         // using hashset constructor
         Set<String> stringSet2 = new HashSet<>(list);
-        System.out.println("Created HashSet using constructor: ");
-        for (String x : stringSet2) {
-            System.out.println(x);
-        }
-
+        System.out.println("Created HashSet using constructor: " + stringSet2);
         //using addAll method
         Set<String> stringSet3 = new HashSet<>();
         stringSet3.addAll(list);
-        System.out.println("Created HashSet using addAll(): ");
-        for (String x : stringSet3) {
-            System.out.println(x);
-        }
-
+        System.out.println("Created HashSet using addAll(): " + stringSet3);
         //using stream
         Set<String> stringSet4 = list.stream().collect(Collectors.toSet());
         System.out.println("Created HashSet using stream(): ");
         stringSet4.forEach((a) -> System.out.println(a));
-    }
-
-    @Test
-    public void trimDemo() {
-        List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
-        System.out.println("Size: " + list.size());
-        // Trims the capacity of this ArrayList instance to be the list's current size.
-        System.out.println(list.get(8));
-        ((ArrayList<String>) list).trimToSize();
-
     }
 
     @Test
