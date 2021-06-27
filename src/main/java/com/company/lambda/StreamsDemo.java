@@ -15,9 +15,6 @@ public class StreamsDemo {
         List<String> list = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl", "");
         System.out.println("List: " + list);
 
-        System.out.println("Using Java 8: ");
-        System.out.println("List: " + list);
-
         long count = list.stream().filter(string -> string.isEmpty()).count();
         System.out.println("Empty Strings: " + count);
         long count1 = list.stream().filter(String::isEmpty).count();
@@ -133,21 +130,10 @@ public class StreamsDemo {
     }
 
     @Test
-    public void test04() {
-        String s = "hello";
-        System.out.println(s.substring(5));
-        //System.out.println(s.substring(6,1));
-    }
-
-    @Test
     public void streamToList() {
         Stream<String> countriesStream = Stream.of("India", "China", "France", "Germany");
         List<String> listOfCountiesName = countriesStream.collect(Collectors.toList());
         System.out.println(listOfCountiesName);
-
-        // Accumulate names into a List
-        // List<String> list = people.stream().map(Person::getName).collect(Collectors.toList());
     }
-
 
 }
