@@ -9,10 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class FileOps {
 
@@ -34,6 +31,20 @@ public class FileOps {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    @Test
+    public void findDuplicateWord(){
+        File file = new File("src/main/java/com/company/fileHandling/test.txt");
+        String totalContent = readFile(file);
+        String[] words = totalContent.split("\\s");
+        System.out.println(Arrays.toString(words));
+        Set<String> stringSet = new HashSet<>();
+        for (String str : words) {
+            if (!stringSet.add(str)) {
+                System.out.println("Found Duplicate: " + str);
             }
         }
     }
@@ -70,18 +81,18 @@ public class FileOps {
     }
 
     public String readFile(File file) {
-        String str = null;
+        StringBuilder str = new StringBuilder();
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
-                str = scanner.nextLine();
+                str.append(scanner.nextLine()).append(", ");
             }
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return str;
+        return str.toString();
     }
 
     public void writeInFile(File file) {
