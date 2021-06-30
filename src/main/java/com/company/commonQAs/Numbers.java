@@ -106,8 +106,7 @@ public class Numbers {
             else if (numbers[i] < smallest)
                 smallest = numbers[i];
         }
-        System.out.println("Largest Number is : " + largest);
-        System.out.println("Smallest Number is : " + smallest);
+        System.out.println("Largest Number is : " + largest + "Smallest Number is : " + smallest);
     }
 
     @Test
@@ -123,8 +122,7 @@ public class Numbers {
                 maxTwo = n;
             }
         }
-        System.out.println("Max1 - " + maxOne);
-        System.out.println("Max2 - " + maxTwo);
+        System.out.println("Max1 - " + maxOne + "Max2 - " + maxTwo);
     }
 
     /*
@@ -165,7 +163,7 @@ public class Numbers {
         } catch(NumberFormatException ex) {
             b = false;
         }
-        if(b == true){
+        if(b){
             System.out.println("Input is number");
         }else {
             System.out.println("Input is NOT a number");
