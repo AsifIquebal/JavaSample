@@ -3,9 +3,6 @@ package com.company.commonQAs;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by user on 28-May-17.
- */
 public class CountRepeats {
     public static void main(String[] args) {
         int nums[] = {655, 578, 786};

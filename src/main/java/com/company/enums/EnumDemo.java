@@ -1,8 +1,5 @@
 package com.company.enums;
 
-/**
- * Created by user on 19-Nov-16.
- */
 enum Apple{
     Jonathan, GoldenDel, RedDel, Winesap, Cortland
 }

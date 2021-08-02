@@ -4,9 +4,6 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-/**
- * Created by user on 19-May-17.
- */
 public class StringFunctions {
 
     @Test
@@ -174,7 +171,3 @@ public class StringFunctions {
     }
 
 }
-
-
-
-

@@ -2,9 +2,6 @@ package com.company.commonQAs;
 
 import java.util.Arrays;
 
-/**
- * Created by user on 20-Dec-16.
- */
 public class ArrayCopy {
     public static void main(String[] args) {
         int[] scores = {1,2,3,4,5,6};

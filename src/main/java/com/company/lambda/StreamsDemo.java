@@ -52,12 +52,28 @@ public class StreamsDemo {
     }
 
     @Test
-    public void test02() {
+    public void test02_peek() {
         List<String> result = Stream.of("one", "two", "three", "four")
                 .filter(e -> e.length() > 3)
                 .peek(e -> System.out.println("Filtered value: " + e))
                 .map(String::toUpperCase)
                 .peek(e -> System.out.println("Mapped value: " + e))
+                .collect(Collectors.toList());
+        System.out.println(result);
+    }
+
+    @Test
+    public void test03_distinct() {
+        List<Integer> result = Stream.of(1,2,3,4,1,2,3)
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(result);
+    }
+
+    @Test
+    public void test04_limit() {
+        List<Integer> result = Stream.of(1,2,3,4,1,2,3)
+                .limit(2)
                 .collect(Collectors.toList());
         System.out.println(result);
     }
@@ -95,13 +111,13 @@ public class StreamsDemo {
 
     @Test
     public void puzzle01() {
-        Stream.of("d2", "a2", "b1", "b3", "c")
+        Stream.of("d2", "e2","a2", "b1", "b3", "c")
                 .map(s -> {
                     System.out.println("map: " + s);
                     return s.toUpperCase();
                 })
                 .anyMatch(s -> {
-                    System.out.println("anyMatch: " + s);
+                    //System.out.println("anyMatch: " + s);
                     return s.startsWith("A");
                 });
     }

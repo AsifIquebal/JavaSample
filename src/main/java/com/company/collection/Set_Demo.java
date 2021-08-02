@@ -29,19 +29,19 @@ public class Set_Demo {
     }
 
     @Test
-    public void demo2(){
+    public void demo2() {
         Set<Integer> set = new HashSet<>();
-        for(int i=1; i<=5; i++){
+        for (int i = 1; i <= 5; i++) {
             set.add(i);
         }
-        for (int j=3; j<=7; j++ ){
+        for (int j = 3; j <= 7; j++) {
             System.out.println("inserting " + j + ", result: " + set.add(j));
         }
         System.out.println(set);
     }
 
     @Test
-    public void test(){
+    public void test() {
         Set<Integer> set = new HashSet<>();
         int a = 10;
         int b = 20;
@@ -57,13 +57,13 @@ public class Set_Demo {
     }
 
     @Test
-    public void nullInHashSet(){
+    public void nullInHashSet() {
         Set<Integer> set = new HashSet<>();
         int a = 10;
         set.add(a);
         set.add(null);
         set.add(null);
-        for(Integer s:set){
+        for (Integer s : set) {
             System.out.println(s);
         }
     }
@@ -71,13 +71,13 @@ public class Set_Demo {
 
     // TreeSet doesn't allow even a single null element. On doing so Null Pointer Exception on run time will be thrown
     @Test
-    public void nullInTreeSet(){
+    public void nullInTreeSet() {
         Set<Integer> set = new TreeSet<>();
         int a = 10;
         set.add(a);
         set.add(null);
         set.add(null);
-        for(Integer s:set){
+        for (Integer s : set) {
             System.out.println(s);
         }
     }

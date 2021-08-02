@@ -2,6 +2,8 @@ package com.company.strings;
 
 import org.testng.annotations.Test;
 
+import java.util.StringTokenizer;
+
 public class FindingWordInString {
 
 
@@ -45,6 +47,17 @@ public class FindingWordInString {
         while(i >= 0) {
             System.out.println(i);
             i = str.indexOf('x', i+1);
+        }
+    }
+
+    @Test
+    public void countWordsUsingStringTokenizer() {
+        String sentence = "I love India. India is a great country.";
+        if (sentence == null || sentence.isEmpty()) {
+            System.out.println("null or empty");
+        }else {
+            StringTokenizer tokens = new StringTokenizer(sentence);
+            System.out.println(tokens.countTokens());
         }
     }
 }

@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 public class FizzBujj {
 
-
     @Test
     public void bestApproach() {
         int c3 = 0, c5 = 0;

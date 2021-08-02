@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Created by user on 14-Mar-17.
- */
 public class FirstNonRepeatingChar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

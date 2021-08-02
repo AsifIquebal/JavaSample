@@ -91,7 +91,7 @@ public class ArrayListExamples {
         //using stream
         Set<String> stringSet4 = list.stream().collect(Collectors.toSet());
         System.out.println("Created HashSet using stream(): ");
-        stringSet4.forEach((a) -> System.out.println(a));
+        stringSet4.forEach(System.out::println);
     }
 
     @Test

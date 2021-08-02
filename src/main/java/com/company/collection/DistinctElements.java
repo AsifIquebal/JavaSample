@@ -6,8 +6,13 @@ import java.util.Arrays;
 
 public class DistinctElements {
 
+    public  static final String CONS = "ABC,DEF,GHI,JKL";
+
     @Test
     public void test_01() {
+        String[] a = CONS.split(",");
+        System.out.println(Arrays.toString(a));
+        System.out.println(a[1]);
         int[] nums = {1,1,3,3,4,6};
         usingSortGetDistinct(nums);
     }

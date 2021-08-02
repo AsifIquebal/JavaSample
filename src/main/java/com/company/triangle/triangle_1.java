@@ -77,6 +77,37 @@ public class triangle_1
         }
     }
 
+	/*
+        * 	1
+            2 3
+            4 5 6
+            7 8 9 10
+            11 12 13 14 15
+        * */
+	@Test
+	public void floydTriangle01() {
+		int rownum = 5;
+		int x = 0;
+		for (int i = 0; i < rownum; i++) {
+			for (int j = 0; j <= i; j++) {
+				x = x + 1;
+				System.out.print(x + " ");
+			}
+			System.out.println("");
+		}
+	}
 
-
+	//*
+	//**
+	//***
+	@Test
+	public void floydTriangle02() {
+		int row = 5;
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j <= i; j++) {
+				System.out.print("* ");
+			}
+			System.out.println("");
+		}
+	}
 }
