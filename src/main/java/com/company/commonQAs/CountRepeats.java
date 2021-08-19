@@ -1,5 +1,6 @@
 package com.company.commonQAs;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,4 +23,5 @@ public class CountRepeats {
         }
         System.out.println(map);
     }
+
 }

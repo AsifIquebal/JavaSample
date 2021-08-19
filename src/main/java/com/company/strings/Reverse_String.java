@@ -68,7 +68,7 @@ public class Reverse_String {
 
     @Test
     public void printInReverse() {
-        String s = "Asif  Sarkar";
+        String s = "Hello World!";
         String[] strings = s.split("\\s");
         String[] result = new String[strings.length];
         int j = 0;
@@ -106,6 +106,37 @@ public class Reverse_String {
                 System.out.print(list.get(i - 1));
             }
         }
+    }
+
+    @Test
+    public void test_01() {
+        String str = "Hello World!";
+        String a[] = str.split(" ");
+        String x = "";
+        for (int i = 0; i < a.length; i++) {
+            String s = a[i];
+            String rev = "";
+            for (int j = s.length() - 1; j >= 0; j--) {
+                rev = rev + s.charAt(j);
+            }
+            x = x + " " + rev;
+        }
+        System.out.println("Original: " + str);
+        System.out.println("Words reverse: " + x);
+    }
+
+    @Test
+    public void usingSwap() {
+        String str = "Hello World!";
+        char[] s = str.toCharArray();
+        int n = s.length;
+        int halfLength = n / 2;
+        for (int i = 0; i < halfLength; i++) {
+            char temp = s[i];
+            s[i] = s[n - 1 - i];
+            s[n - 1 - i] = temp;
+        }
+        System.out.println(new String(s));
     }
 
 }
