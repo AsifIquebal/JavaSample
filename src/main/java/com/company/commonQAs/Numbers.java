@@ -9,18 +9,18 @@ import java.util.Set;
 public class Numbers {
 
     @Test
-    public void conversion(){
+    public void conversion() {
         Integer.parseInt("12");
         Integer.valueOf("25");
 
     }
 
     @Test
-    public void printFibonacci(){
+    public void printFibonacci() {
         int i = 8; // generating upto 8th character
-        int num1=0, num2=1, nextNum;
+        int num1 = 0, num2 = 1, nextNum;
         System.out.print(num1 + " " + num2);
-        for(int x=2; x<i; x++){
+        for (int x = 2; x < i; x++) {
             nextNum = num1 + num2;
             System.out.print(" " + nextNum);
             num1 = num2;
@@ -28,33 +28,35 @@ public class Numbers {
         }
     }
 
+
+
     // A Perfect Number is sum of its positive divisors, excluding the number itself. The First Perfect number is 6,
     // For example 6 is a perfect number as 1,2 and3 are its divisors and the sum of divisors= ( 1 + 2 + 3)  = 6.
     // 28 also
     @Test
-    public void isTheGivenAPerfectNumber(){
+    public void isTheGivenAPerfectNumber() {
         int n = 6;
-        int sum=0;
-        for(int i=1; i<n; i++){
-            if(n%i==0){
+        int sum = 0;
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
                 sum = sum + i;
                 System.out.println(i);
             }
         }
-        if(sum==n){
-            System.out.println(n+" is a Perfect number...");
-        }else {
+        if (sum == n) {
+            System.out.println(n + " is a Perfect number...");
+        } else {
             System.out.println("NOT a Perfect Number");
         }
     }
 
     @Test
-    public void sumOfDigits(){
-        int num = 786, sum=0;
-        while (num>0){
-            int remainder = num%10;
+    public void sumOfDigits() {
+        int num = 786, sum = 0;
+        while (num > 0) {
+            int remainder = num % 10;
             sum = sum + remainder;
-            int quotient = num /10;
+            int quotient = num / 10;
             num = quotient;
         }
         System.out.println(sum);
@@ -62,46 +64,49 @@ public class Numbers {
     }
 
     @Test
-    public void reverseANum(){
-        int number = 71;
+    public void palindrome() {
+
+    }
+
+    public int reverseANum(int number) {
         int revNum = 0;
-        while (number > 0)
-        {
+        while (number > 0) {
             revNum = (revNum * 10) + number % 10;
             number = number / 10;
         }
         System.out.println(revNum);
+        return revNum;
     }
 
     @Test
-    public void armstrongNumber(){
+    public void armstrongNumber() {
         // Armstrong Number in Java: A positive number is called armstrong number if it is equal to the sum of cubes of
         // its digits for example 0, 1, 153, 370, 371, 407 etc.
         int num = 153;
         int cubeSum = 0, temp;
         temp = num;
-        while(num>0){
+        while (num > 0) {
             int remainder = num % 10;
-            int quotient = num/10;
+            int quotient = num / 10;
             System.out.println(remainder);
             num = quotient;
             cubeSum = cubeSum + (remainder * remainder * remainder);
         }
-        if(temp==cubeSum){
+        if (temp == cubeSum) {
             System.out.println("Number " + temp + " is Armstrong");
-        }else {
+        } else {
             System.out.println("Number " + temp + " is NOT Armstrong");
         }
     }
 
     @Test
-    public void largestAndSmallest(){
-        int numbers[] = new int[]{32,43,53,54,32,65,63,98,43,23};
+    public void largestAndSmallest() {
+        int numbers[] = new int[]{32, 43, 53, 54, 32, 65, 63, 98, 43, 23};
         //assign first element of an array to largest and smallest
         int smallest = numbers[0];
         int largest = numbers[0];
-        for(int i=1; i< numbers.length; i++){
-            if(numbers[i] > largest)
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest)
                 largest = numbers[i];
             else if (numbers[i] < smallest)
                 smallest = numbers[i];
@@ -110,8 +115,8 @@ public class Numbers {
     }
 
     @Test
-    public void firstTwoMaxValue(){
-        int nums[] = { 15, 24, 95, 21, 43, 11, 79, 93 };
+    public void firstTwoMaxValue() {
+        int nums[] = {15, 24, 95, 21, 43, 11, 79, 93};
         int maxOne = 0;
         int maxTwo = 0;
         for (int n : nums) {
@@ -160,12 +165,12 @@ public class Numbers {
         boolean b = true;
         try {
             Integer.parseInt(i);
-        } catch(NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             b = false;
         }
-        if(b){
+        if (b) {
             System.out.println("Input is number");
-        }else {
+        } else {
             System.out.println("Input is NOT a number");
         }
     }
