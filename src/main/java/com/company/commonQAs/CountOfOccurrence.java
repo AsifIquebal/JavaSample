@@ -4,64 +4,82 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-/**
- * Created by user on 27-Apr-17.
- */
 public class CountOfOccurrence {
+
     @Test
-    public void countStringCharacters(){
+    public void countArray() {
+        String str = "ababc"; // a2 b2 c1
+        int[] charCount = new int[26];
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            int x = c - 'a';
+            charCount[x] = charCount[x] + 1;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (charCount[str.charAt(i) - 'a'] != 0) {
+                System.out.print(str.charAt(i));
+                System.out.print(charCount[str.charAt(i) - 'a'] + " ");
+                charCount[str.charAt(i) - 'a'] = 0;
+            }
+        }
+    }
+
+    @Test
+    public void countStringCharacters() {
         CountOfOccurrence countOfOccurrence = new CountOfOccurrence();
         countOfOccurrence.forString("ababdzzy");
     }
 
     @Test
-    public void countIntegers(){
+    public void countIntegers() {
         CountOfOccurrence countOfOccurrence = new CountOfOccurrence();
-        int[] num = {1,2,2,1,3};
+        int[] num = {1, 2, 2, 1, 3};
         countOfOccurrence.forInts(num);
     }
 
     @Test
-    public void count3(){
-        List<String> list = new ArrayList<>(Arrays.asList("1","2","3","1","2","4","5"));
+    public void count3() {
+        List<String> list = new ArrayList<>(Arrays.asList("1", "2", "3", "1", "2", "4", "5"));
         Map<String, Integer> map = new HashMap<>();
-        for (String elem : list){
+        for (String elem : list) {
             int count = Collections.frequency(list, elem);
-            if ( !map.containsKey(elem) ){
+            if (!map.containsKey(elem)) {
                 map.put(elem, count);
             }
         }
         System.out.println(map);
     }
+
     public void forString(String text) {
         String str = text;
         int count = 0;
         char ch;
-        for(char c='a'; c<='z'; c++){
-            for(int j=0; j<str.length(); j++){
+        for (char c = 'a'; c <= 'z'; c++) {
+            for (int j = 0; j < str.length(); j++) {
                 ch = str.charAt(j);
-                if (ch==c){
+                if (ch == c) {
                     count = count + 1;
                 }
             }
-            if(count != 0){
+            if (count != 0) {
                 System.out.println(c + ": " + count);
             }
             count = 0;
         }
     }
+
     public void forInts(int[] numbers) {
         int[] array = numbers;
         int count = 0;
         int num;
-        for(int i=0; i<=9; i++){
-            for(int j=0; j<array.length; j++){
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j < array.length; j++) {
                 num = array[j];
-                if (num==i){
+                if (num == i) {
                     count = count + 1;
                 }
             }
-            if(count != 0){
+            if (count != 0) {
                 System.out.println(i + ": " + count);
             }
             count = 0;
