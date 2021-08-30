@@ -24,8 +24,8 @@ public class Anagram {
 
 
     private void isAnagram(String str1, String str2) {
-        String s1 = str1.replaceAll("\\s", "").replaceAll("'", "");
-        String s2 = str2.replaceAll("\\s", "").replaceAll("'", "");
+        String s1 = str1.replaceAll("\\s", "").replace("'", "");
+        String s2 = str2.replaceAll("\\s", "").replace("'", "");
         boolean status;
         if (s1.length() != s2.length()) {
             status = false;

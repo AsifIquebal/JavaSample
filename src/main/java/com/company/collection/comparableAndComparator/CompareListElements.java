@@ -4,7 +4,6 @@ import java.util.*;
 
 public class CompareListElements {
 
-
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("A", "A", "B", "C", "C", "C", "D", "D"));
         System.out.println("\nExample 1 - Count 'a' with frequency");

@@ -13,7 +13,7 @@ public class Sorting {
             random.add((int) (Math.random() * 100));
         }
         System.out.println("Initial Set: " + random);
-        Set<Integer> sorted = new TreeSet<Integer>(new Comparator<Integer>() {
+        Set<Integer> sorted = new TreeSet<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o2.compareTo(o1);
@@ -74,6 +74,3 @@ public class Sorting {
 
 
 }
-
-
-

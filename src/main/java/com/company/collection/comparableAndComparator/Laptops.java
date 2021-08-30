@@ -45,7 +45,7 @@ public class Laptops{
                 "brand='" + brand + '\'' +
                 ", ram=" + ram +
                 ", price=" + price +
-                '}';
+                '}'+"\n";
     }
 
 
