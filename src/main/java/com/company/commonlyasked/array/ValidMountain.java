@@ -1,4 +1,4 @@
-package com.company.commonQAs.array;
+package com.company.commonlyasked.array;
 
 import org.testng.annotations.Test;
 

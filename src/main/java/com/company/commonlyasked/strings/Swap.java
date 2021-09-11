@@ -1,4 +1,4 @@
-package com.company.strings;
+package com.company.commonlyasked.strings;
 
 import org.testng.annotations.Test;
 
@@ -11,7 +11,9 @@ public class Swap {
         String b = "BBB";
         int len1 = a.length();
         a = a + b;
+        //The substring begins at the specified beginIndex and extends to the character at index endIndex - 1.
         b = a.substring(0, len1);
+        //The substring begins with the character at the specified index and extends to the end of this string.
         a = a.substring(len1);
         System.out.println("Strings After Swapping : ");
         System.out.println("1st String = " + a);
@@ -51,5 +53,3 @@ public class Swap {
 
 
 }
-
-
