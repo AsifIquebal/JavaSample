@@ -2,6 +2,11 @@ package com.company.lambda;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Lambda_01 {
 
     class IHaveTheMethodImplemented implements Hello {
@@ -142,4 +147,3 @@ interface Multiplication {
 interface Arithmatic {
     int math(int a, int b);
 }
-
