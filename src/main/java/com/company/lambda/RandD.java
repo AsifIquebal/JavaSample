@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class R_and_D {
+public class RandD {
 
     @Test
     public void test1(){

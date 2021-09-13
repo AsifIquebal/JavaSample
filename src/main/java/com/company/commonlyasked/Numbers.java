@@ -99,37 +99,6 @@ public class Numbers {
         }
     }
 
-    @Test
-    public void largestAndSmallest() {
-        int numbers[] = new int[]{32, 43, 53, 54, 32, 65, 63, 98, 43, 23};
-        //assign first element of an array to largest and smallest
-        int smallest = numbers[0];
-        int largest = numbers[0];
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] > largest)
-                largest = numbers[i];
-            else if (numbers[i] < smallest)
-                smallest = numbers[i];
-        }
-        System.out.println("Largest Number is : " + largest + "Smallest Number is : " + smallest);
-    }
-
-    @Test
-    public void firstTwoMaxValue() {
-        int nums[] = {15, 24, 95, 21, 43, 11, 79, 93};
-        int maxOne = 0;
-        int maxTwo = 0;
-        for (int n : nums) {
-            if (maxOne < n) {
-                maxTwo = maxOne;
-                maxOne = n;
-            } else if (maxTwo < n) {
-                maxTwo = n;
-            }
-        }
-        System.out.println("Max1 - " + maxOne + "Max2 - " + maxTwo);
-    }
-
     /*
     * A number which leaves 1 as a result after a sequence of steps and in each step number is replaced
     * by the sum of squares of its digit.
@@ -137,7 +106,9 @@ public class Numbers {
     Step 1: 2×2+3×3 = 4+9 = 13 // Sum of square of each digit
     Step 2: 1×1+3×3 = 1+9 = 10
     Step 3: 1×1+0x0 = 1 (A Happy Number)
-    *
+    *A number will not be a Happy Number when it makes a loop in its sequence that is it touches a number in
+    * sequence which already been touched. So to check whether a number is happy or not, we can keep a set,
+    * if the same number occurs again we flag result as not happy.
     *
     * */
 

@@ -26,17 +26,12 @@ public class PredicateDemo {
                 new Persons("Amlan", "Chackroborty", 30,"Siliguri"),
                 new Persons("Manish", "Agarwal", 29,"Siliguri")
         );
-
         Predicate<Persons> predicate1 = p -> p.getName().startsWith("A") && p.getAge()>32;
-
         for (Persons p: personsList) {
             if(predicate1.test(p)){
                 System.out.println(p.getName());
             }
         }
-
-
-
     }
 
     @Test
@@ -48,24 +43,26 @@ public class PredicateDemo {
                 new Persons("Amlan", "Chackroborty", 30,"Siliguri"),
                 new Persons("Manish", "Agarwal", 29,"Siliguri")
         );
-
-        Predicate<Persons> predicate1 = p -> p.getName().startsWith("A") || p.getName().startsWith("P") && p.getAge() >= 32;
-        Predicate<Persons> predicate2 = p -> p.getLocation().equalsIgnoreCase("Kolkata");
+        Predicate<Persons> predicate1 = p -> p.getName().startsWith("A") ;
+        Predicate<Persons> predicate2 = p -> p.getLocation().equalsIgnoreCase("Siliguri");
 
         for (Persons p: personsList) {
             if(predicate1.and(predicate2).test(p)){
+                System.out.println("Predicate AND example");
                 System.out.println(p.getName());
             }
         }
         System.out.println("----------------------------------------------");
         for (Persons p: personsList) {
             if(predicate1.or(predicate2).test(p)){
+                System.out.println("Predicate OR example");
                 System.out.println(p.getName());
             }
         }
         System.out.println("----------------------------------------------");
         for (Persons p: personsList) {
             if(predicate1.negate().test(p)){
+                System.out.println("Predicate negate example");
                 System.out.println(p.getName());
             }
         }

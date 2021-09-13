@@ -22,16 +22,13 @@ public class FunctionDemo {
     public void test02() {
         Function<Integer, Integer> f1 = i -> 2 * i;
         Function<Integer, Integer> f2 = i -> i * i;
-
         System.out.println(f1.andThen(f2).apply(2));
     }
-
 
     @Test
     public void test03() {
         Function<Integer, Integer> f1 = i -> 2 * i;
         Function<Integer, Integer> f2 = i -> i * i;
-
         System.out.println(f1.compose(f2).apply(2));
     }
 

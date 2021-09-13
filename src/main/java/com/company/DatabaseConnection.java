@@ -48,7 +48,7 @@ public class DatabaseConnection {
     }
 
     @Test
-    public void mySQL() throws ClassNotFoundException {
+    public void mySQL() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/classicmodels", "root", "asif1234");) {
@@ -59,10 +59,7 @@ public class DatabaseConnection {
                         + rs.getString(2) + "  "
                         + rs.getString(3));
 
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
     }
 
 }
