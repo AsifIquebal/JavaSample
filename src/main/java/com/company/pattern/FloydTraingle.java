@@ -2,7 +2,7 @@ package com.company.pattern;
 
 import org.testng.annotations.Test;
 
-public class FlyodTraingle {
+public class FloydTraingle {
     /*
         * 	1
             2 3
@@ -54,7 +54,7 @@ public class FlyodTraingle {
     1
     */
     @Test
-    public void reverseFlyod(){
+    public void reverseFloyd01(){
         int n = 4;
         int curr_val = n * (n + 1) / 2;
         for (int i = n; i >= 1; i--) {
@@ -65,5 +65,17 @@ public class FlyodTraingle {
         }
     }
 
+    @Test
+    public void reverseFloyd02(){
+        int n = 4;
+        int curr_val = n * (n + 1) / 2;
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= n; j++) {
+                System.out.printf("%2d  ", curr_val--);
+            }
+            n--;
+            System.out.println("");
+        }
+    }
 
 }
