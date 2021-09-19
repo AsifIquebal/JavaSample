@@ -2,11 +2,45 @@ package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 public class Numbers {
+
+
+    @Test
+    public void print1to100WithoutLoop_recursion() {
+        printNos(1, 100);
+    }
+
+    public static void printNos(int initial, int last) {
+        if (initial <= last) {
+            System.out.print(initial + " ");
+            printNos(initial + 1, last);
+        }
+    }
+
+    @Test
+    public void print1to100WithoutLoop_ArrayFillMethod() {
+        Object[] num = new Object[100];
+        Arrays.fill(num, new Object() {
+            int count = 0;
+
+            @Override
+            public String toString() {
+                return Integer.toString(++count);
+            }
+        });
+        System.out.println(Arrays.toString(num));
+    }
+
+    @Test
+    public void print1to100WithStreams() {
+        IntStream.range(1, 101).forEach(System.out::println);
+    }
 
     @Test
     public void conversion() {
@@ -27,7 +61,6 @@ public class Numbers {
             num2 = nextNum;
         }
     }
-
 
 
     // A Perfect Number is sum of its positive divisors, excluding the number itself. The First Perfect number is 6,
