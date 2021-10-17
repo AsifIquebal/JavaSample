@@ -10,26 +10,21 @@ public class FirstNonRepeatingChar {
         System.out.println("Enter String: ");
         String s = scanner.next();
         Character c;
-        Map<Character,Integer> map = new HashMap<Character,Integer>();
-        for (int i=0;i < s.length();i++)
-        {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
             c = s.charAt(i);
-            if(map.containsKey(c))
-            {
+            if (map.containsKey(c)) {
                 // increment count corresponding to c
-                map.put(  c ,  map.get(c) +1 );
-            }
-            else
-            {
-                map.put( c , 1 ) ;
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
             }
         }
         System.out.println(map);
         // Search map in order of string str
-        for (int i =0 ; i < s.length() ; i++ )
-        {
+        for (int i = 0; i < s.length(); i++) {
             c = s.charAt(i);
-            if( map.get(c)  == 1 ){
+            if (map.get(c) == 1) {
                 System.out.println("The Character is: " + c);
                 break;
             }

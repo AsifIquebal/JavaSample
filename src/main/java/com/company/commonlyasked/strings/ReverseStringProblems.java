@@ -58,7 +58,7 @@ public class ReverseStringProblems {
     }
 
     public void usingStringBuffer(StringBuffer s) {
-        System.out.println("StringBuffer is mutable and has the reverse method: " + s.reverse());
+        System.out.println("StringBuffer is mutable, Synchronized and has the reverse method: " + s.reverse());
     }
 
     public void usingStringBuilder(StringBuilder s) {

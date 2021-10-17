@@ -3,17 +3,20 @@ package com.company.collection;
 import com.company.lambda.Employee;
 import org.testng.annotations.Test;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SetDemo {
 
     @Test
     public void demo1() {
         int count[] = {34, 22, 10, 60, 30, 22};
-        Set<Integer> my_set = new HashSet<Integer>();
+        Set<Integer> my_set = new HashSet<>();
         try {
             for (int i = 0; i < 5; i++) {
-                my_set.add(count[i]);
+                System.out.println(my_set.add(count[i]));
             }
             System.out.println(my_set);
 
@@ -21,8 +24,8 @@ public class SetDemo {
             System.out.println("The sorted list is:");
             System.out.println(sortedSet);
 
-            System.out.println("The First element of the set is: " + (Integer) sortedSet.first());
-            System.out.println("The last element of the set is: " + (Integer) sortedSet.last());
+            System.out.println("The First element of the set is: " + sortedSet.first());
+            System.out.println("The last element of the set is: " + sortedSet.last());
         } catch (Exception e) {
         }
     }
@@ -82,10 +85,10 @@ public class SetDemo {
     }
 
     @Test
-    public void treeSetUsingComparator(){
-        Employee employee1 = new Employee("Emp1",1200);
-        Employee employee2 = new Employee("Emp2",1000);
-        Employee employee3 = new Employee("Emp3",2000);
+    public void treeSetUsingComparator() {
+        Employee employee1 = new Employee("Emp1", 1200);
+        Employee employee2 = new Employee("Emp2", 1000);
+        Employee employee3 = new Employee("Emp3", 2000);
         Set<Employee> setEmployees = new TreeSet<>(new SalaryComparator());
         setEmployees.add(employee1);
         setEmployees.add(employee2);
@@ -95,12 +98,13 @@ public class SetDemo {
 
 
 }
-class SalaryComparator implements Comparator<Employee>{
+
+class SalaryComparator implements Comparator<Employee> {
     @Override
     public int compare(Employee e1, Employee e2) {
-        if (e1.getSalary()>e2.getSalary()){
+        if (e1.getSalary() > e2.getSalary()) {
             return 1;
-        }else {
+        } else {
             return -1;
         }
     }

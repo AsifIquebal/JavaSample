@@ -22,6 +22,17 @@ public class Basic {
     }
 
     @Test
+    public void arrayCopyMethod() {
+        int[] scores = {1, 2, 3, 4, 5, 6};
+        System.out.println(Arrays.toString(scores));
+        System.arraycopy(scores, 2, scores, 3, 2);
+        System.out.println(Arrays.toString(scores));
+        for (int i : scores) {
+            System.out.println(i);
+        }
+    }
+
+    @Test
     public void intersectionAndUnion() {
         int nums1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int nums2[] = {12, 11, 10, 7, 8, 6};
