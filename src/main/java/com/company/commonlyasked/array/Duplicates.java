@@ -2,7 +2,10 @@ package com.company.commonlyasked.array;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Duplicates {
 
@@ -52,7 +55,21 @@ public class Duplicates {
         }
     }
 
+    @Test
+    public void usingHashMapGetOrDefaultMethod() {
+        int[] nums = {1, 2, 3, 1, 2, 4};
+        HashMap<Integer, Integer> map = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+        for (int i : nums) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        for (int i : map.keySet()) {
+            if (map.get(i) > 1)
+                result.add(i);
+        }
+        System.out.println(result);
 
+    }
 
 
 }

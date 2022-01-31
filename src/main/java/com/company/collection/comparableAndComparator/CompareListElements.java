@@ -10,7 +10,7 @@ public class CompareListElements {
         System.out.println("a : " + Collections.frequency(list, "a"));
 
         System.out.println("\nExample 2 - Count all with frequency");
-        Set<String> uniqueSet = new HashSet<String>(list);
+        Set<String> uniqueSet = new HashSet<>(list);
         for (String temp : uniqueSet) {
             System.out.println(temp + ": " + Collections.frequency(list, temp));
         }

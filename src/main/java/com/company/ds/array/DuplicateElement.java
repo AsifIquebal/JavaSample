@@ -12,11 +12,20 @@ public class DuplicateElement {
 
     // Set: traversing time O(n)
     // worst case space O(n)
+    @Test
+    public void usingSet() {
+        int[] a = {1, 2, 3, 1, 2, 4};
+        Set<Integer> s = new HashSet<>();
+        for (int i : a) {
+            if(!s.add(i)){
+                System.out.println(i + " ");
+            }
+        }
+    }
 
-
-    // Find duplicates in O(n) and O(1) for a given array of n elements
-    // elements can be in 1 to n-1
-    // Encoding: O(N) and O(1)
+    // Find duplicates in O(n) and O(1) for a given array of n elements,
+    // elements can be in 1 to n-1,
+    // Encoding: O(N) and O(1),
     @Test
     public void test_01() {
         int[] a = {1, 2, 3, 1, 3, 3, 1, 6, 6};
@@ -47,7 +56,7 @@ public class DuplicateElement {
 
     @Test
     public void test_02() {
-        int[] a = {5, 3, 2, 4, 2,1};
+        int[] a = {5, 3, 2, 4, 2, 1};
         int slow = a[0];
         int fast = a[0];
 

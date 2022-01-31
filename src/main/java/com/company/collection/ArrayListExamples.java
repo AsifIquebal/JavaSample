@@ -117,4 +117,9 @@ public class ArrayListExamples {
 
     }
 
+    @Test
+    public void subList(){
+        ArrayList<String> al = new ArrayList<>(Arrays.asList("P", "A", "S", "A", "M"));
+        System.out.println(al.subList(0,1));
+    }
 }

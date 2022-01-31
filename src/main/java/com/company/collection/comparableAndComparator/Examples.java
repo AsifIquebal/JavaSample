@@ -82,7 +82,7 @@ public class Examples {
     }
 
     @Test
-    public void ComparatorUsingAnnonymousClass() {
+    public void comparatorUsingAnonymousClass() {
         Comparator<Laptops> comparator = new Comparator<Laptops>() {
             @Override
             public int compare(Laptops l1, Laptops l2) {
@@ -101,11 +101,13 @@ public class Examples {
         laptops.add(laptop4);
 
         Collections.sort(laptops, comparator);
+        // list.sort can be used as well
+        // laptops.sort(comparator);
         laptops.forEach(System.out::println);
     }
 
     @Test
-    public void ComparatorUsingLambdaExpression() {
+    public void comparatorUsingLambdaExpression() {
         Laptops laptop0 = new Laptops("Dell", 12, 800);
         Laptops laptop1 = new Laptops("Apple", 16, 1200);
         Laptops laptop3 = new Laptops("Lenovo", 12, 1000);
@@ -130,8 +132,8 @@ public class Examples {
         laptops.forEach(System.out::println);
 
         //Sort by brand
-        laptops.sort(Comparator.comparing(e -> e.getBrand()));
         System.out.println("Sort by Brand Name============================");
+        laptops.sort(Comparator.comparing(e -> e.getBrand()));
         laptops.forEach(System.out::println);
 
         //OR you can use below
@@ -153,7 +155,8 @@ public class Examples {
         Laptops laptop4 = new Laptops("HP", 4, 900);
         List<Laptops> laptops = new ArrayList<>();
         laptops.add(laptop0);
-        laptops.add(laptop1);laptops.add(laptop2);
+        laptops.add(laptop1);
+        laptops.add(laptop2);
         laptops.add(laptop3);
         laptops.add(laptop4);
 
@@ -169,8 +172,7 @@ public class Examples {
     }
 
     @Test
-    public void chainignExample02() {
-
+    public void chainingExample02() {
         Employee employee1 = new Employee(1, "Jack", "Wills");
         Employee employee2 = new Employee(2, "Jack", "Anderson");
         Employee employee3 = new Employee(3, "Jackson", "William");
@@ -190,9 +192,6 @@ public class Examples {
 
         list.sort(compareByFirstName.thenComparing(Employee::getLastName));
         System.out.println(list);
-
-
     }
-
 
 }

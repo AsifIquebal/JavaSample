@@ -2,6 +2,7 @@ package com.company.commonlyasked.regex;
 
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,5 +54,15 @@ public class RegularExpresion_1 {
         String str = "4DR534D&234dfrt234";
         System.out.println(str.replaceAll(".(?=.{4})", "X"));
     }
+
+    @Test
+    public void splitOnNonWordChars(){
+        String str = "India is great. I am an Indian. India is my country. India will be on zero net emission by 2070";
+        List<String> words = List.of(str.split("\\W+"));
+        for(String word : words){
+            System.out.println(word);
+        }
+    }
+
 
 }
