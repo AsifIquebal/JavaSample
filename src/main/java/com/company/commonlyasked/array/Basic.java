@@ -34,8 +34,8 @@ public class Basic {
 
     @Test
     public void intersectionAndUnion() {
-        int nums1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int nums2[] = {12, 11, 10, 7, 8, 6};
+        int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] nums2 = {12, 11, 10, 7, 8, 6};
         HashSet<Integer> set1 = new HashSet<>();
         for (int i : nums1) {
             set1.add(i);

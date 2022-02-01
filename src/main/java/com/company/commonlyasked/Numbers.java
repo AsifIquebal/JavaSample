@@ -49,18 +49,7 @@ public class Numbers {
 
     }
 
-    @Test
-    public void printFibonacci() {
-        int i = 8; // generating upto 8th character
-        int num1 = 0, num2 = 1, nextNum;
-        System.out.print(num1 + " " + num2);
-        for (int x = 2; x < i; x++) {
-            nextNum = num1 + num2;
-            System.out.print(" " + nextNum);
-            num1 = num2;
-            num2 = nextNum;
-        }
-    }
+
 
 
     // A Perfect Number is sum of its positive divisors, excluding the number itself. The First Perfect number is 6,
