@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 
 public class Numbers {
 
-
     @Test
     public void print1to100WithoutLoop_recursion() {
         printNos(1, 100);
@@ -46,15 +45,12 @@ public class Numbers {
     public void conversion() {
         Integer.parseInt("12");
         Integer.valueOf("25");
-
     }
-
-
-
 
     // A Perfect Number is sum of its positive divisors, excluding the number itself. The First Perfect number is 6,
     // For example 6 is a perfect number as 1,2 and3 are its divisors and the sum of divisors= ( 1 + 2 + 3)  = 6.
     // 28 also
+
     @Test
     public void isTheGivenAPerfectNumber() {
         int n = 6;
