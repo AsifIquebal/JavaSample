@@ -83,7 +83,9 @@ public class Numbers {
 
     @Test
     public void palindrome() {
-
+        System.out.println(1%10);
+        System.out.println(1/10);
+        System.out.println(reverseANum(122));
     }
 
     public int reverseANum(int number) {
@@ -92,7 +94,6 @@ public class Numbers {
             revNum = (revNum * 10) + number % 10;
             number = number / 10;
         }
-        System.out.println(revNum);
         return revNum;
     }
 
