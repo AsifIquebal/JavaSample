@@ -133,6 +133,20 @@ public class HashMapDemo {
         return hm;
     }
 
+    //double brace initialization is considered as an antipattern
+    @Test
+    public void initializationAtOnce(){
+        List<String> list = new ArrayList<>(){{
+            add("A");add("B");
+        }};
+        System.out.println(list);
+
+        Map<String, Integer> map = new HashMap<>(){{
+            put("A",1);put("B",2);
+        }};
+        System.out.println(map);
+    }
+
     @Test
     public void countDuplicatesInArrayList() {
         ArrayList<String> list = new ArrayList<>(Arrays.asList("AB", "AB", "BA", "C", "CD", "C"));

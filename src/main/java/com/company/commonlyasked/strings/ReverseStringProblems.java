@@ -139,4 +139,30 @@ public class ReverseStringProblems {
         System.out.println(new String(s));
     }
 
+    @Test
+    public void usingTwoPointer() {
+        String str = " this is a beautiful world!";
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            System.out.println("i: " + i);
+            if (str.charAt(i) == ' ') {
+                continue;
+            }
+            int start = i;
+            while (i < str.length() && str.charAt(i) != ' ') {
+                i++;
+            }
+            System.out.println("start: " + start + ", end: " + i);
+            if (stringBuilder.length() == 0) {
+                stringBuilder.insert(0, str.substring(start, i));
+            } else {
+                stringBuilder.insert(0, ' ').insert(0, str.substring(start, i));
+            }
+        }
+        System.out.println(stringBuilder);
+
+    }
+
+
 }

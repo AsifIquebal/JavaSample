@@ -10,6 +10,71 @@ import java.util.stream.IntStream;
 
 public class Numbers {
 
+
+    @Test
+    public void binaryTest() {
+        System.out.println(Integer.toBinaryString(0));
+        System.out.println(Integer.toBinaryString(1));
+        System.out.println(Integer.toBinaryString(8));
+
+        System.out.println("bitwise AND(&)[8&1]: " + (8 & 1));
+        System.out.println("bitwise AND(&)[9&1]: " + (9 & 1));
+        System.out.println(Integer.toBinaryString(2 << 33));
+        //
+        System.out.println("================");
+        int a = 17;
+        int b = 16;
+        System.out.println(Integer.toBinaryString(a));
+        System.out.println(Integer.toBinaryString(b));
+        System.out.println(Integer.toBinaryString(a & b) + ": " + (a & b));
+    }
+
+    @Test
+    public void bitwiseXORTest() {
+        int a = 5;
+        int b = 6;
+        System.out.println(Integer.toBinaryString(a));
+        System.out.println(Integer.toBinaryString(b));
+        System.out.println(Integer.toBinaryString(a ^ b) + " : " + (a ^ b));
+    }
+
+    @Test
+    public void swapUsingXOR() {
+        int a = 5, b = 6;
+        System.out.println("a: " + a + ", b:" + b);
+        // A quick way to swap a and b
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        System.out.println("a: " + a + ", b:" + b);
+    }
+
+    @Test
+    public void oddEvenUsingAND() {
+        int n = 67;
+        System.out.println(Integer.toBinaryString(n));
+        if ((n & 1) == 0) {
+            System.out.println(n + " is even");
+        } else {
+            System.out.println(n + " is odd");
+        }
+        //System.out.print(isEven(n) == true ? "Even" : "Odd");
+    }
+
+    //XOR Operation on a number by 1 increment the value of the number by 1 if the number is even otherwise
+    // it decrements the value of the number by 1 if the value is odd
+    @Test
+    public void oddEvenUsingXOR() {
+        int n = 67;
+        // n^1 is n+1, then even, else odd
+        if ((n ^ 1) == n + 1) {
+            System.out.println(n + " is even");
+        } else {
+            System.out.println(n + " is odd");
+        }
+        //System.out.print(isEven(n) == true ? "Even" : "Odd");
+    }
+
     @Test
     public void print1to100WithoutLoop_recursion() {
         printNos(1, 100);
@@ -83,8 +148,8 @@ public class Numbers {
 
     @Test
     public void palindrome() {
-        System.out.println(1%10);
-        System.out.println(1/10);
+        System.out.println(1 % 10);
+        System.out.println(1 / 10);
         System.out.println(reverseANum(122));
     }
 

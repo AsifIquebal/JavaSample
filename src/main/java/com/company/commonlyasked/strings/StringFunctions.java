@@ -7,9 +7,25 @@ import java.util.Arrays;
 public class StringFunctions {
 
     @Test
+    public void test01(){
+        String str1;
+        String str2 = "Java";
+        //System.out.println(str1 + "" + str2);
+        //System.out.println(str2.concat(str1));
+        //System.out.println(str1.concat(str2));
+    }
+
+    @Test
     public void internMethod(){
-        String str = "JAVA";
-        str.intern();
+        String str1 = new String("JAVA");
+        String str2 = new String("JAVA");
+        System.out.println(str1==str2);// false
+        String str3 = "JAVA";
+        String str4 = "JAVA";
+        System.out.println(str3==str4);//true
+        str3 = str3.intern();
+        str4 = str4.intern();
+        System.out.println(str3==str4);//true
     }
 
     @Test
