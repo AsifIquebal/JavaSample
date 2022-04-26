@@ -27,11 +27,16 @@ public class HashMapDemo {
 
     @Test
     public void testPutIfAbsent() {
-        Map<Integer, String> hm = getMap();
+        Map<Integer, String> hm = new HashMap<>();
+        hm.put(1, "One");
+        hm.put(2, "Two");
+        hm.put(3, null);
         // checking with existing keys
-        System.out.println("Key already exists: " + hm.putIfAbsent(3, "Three"));
+        System.out.println("Key already exists: " + hm.putIfAbsent(2, "Two"));
         // checking with non-existing keys
-        System.out.println("Key is new: " + hm.putIfAbsent(6, "Six"));
+        System.out.println("Key is new: " + hm.putIfAbsent(4, "Four"));
+        // for null value which is placed as null only
+        System.out.println("Key exists but value was null: " + hm.putIfAbsent(3,"Three"));
         hm.forEach((k, v) -> System.out.println(k + " -> " + v));
     }
 
@@ -135,14 +140,16 @@ public class HashMapDemo {
 
     //double brace initialization is considered as an antipattern
     @Test
-    public void initializationAtOnce(){
-        List<String> list = new ArrayList<>(){{
-            add("A");add("B");
+    public void initializationAtOnce() {
+        List<String> list = new ArrayList<>() {{
+            add("A");
+            add("B");
         }};
         System.out.println(list);
 
-        Map<String, Integer> map = new HashMap<>(){{
-            put("A",1);put("B",2);
+        Map<String, Integer> map = new HashMap<>() {{
+            put("A", 1);
+            put("B", 2);
         }};
         System.out.println(map);
     }
@@ -166,11 +173,11 @@ public class HashMapDemo {
         HashMap<String, Integer> hashMap = new HashMap<>();
         System.out.println(hashMap.put("A", 123));
         System.out.println(hashMap.put("A", 321));
-
+        System.out.println("=============================");
         System.out.println(hashMap);
-
         System.out.println(hashMap.get("A"));
         System.out.println(hashMap.get("B"));
     }
+
 
 }

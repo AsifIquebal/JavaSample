@@ -24,6 +24,7 @@ public class Numbers {
         System.out.println("================");
         int a = 17;
         int b = 16;
+
         System.out.println(Integer.toBinaryString(a));
         System.out.println(Integer.toBinaryString(b));
         System.out.println(Integer.toBinaryString(a & b) + ": " + (a & b));
@@ -213,6 +214,20 @@ public class Numbers {
         System.out.println((num == 1) ? "Happy Number" : "Not a Happy Number");
     }
 
+
+    @Test
+    public void secondLastDigit(){
+        int i = 143;
+        System.out.println((i/10)%10);
+        String number = Integer.toString(i);
+        // java.lang.StringIndexOutOfBoundsException: String index out of range: -1 in case its length is less than 2
+        int secondLastDigit = Character.getNumericValue((number.charAt(number.length()-2)));
+        System.out.println(secondLastDigit);
+    }
+
+
+
+
     public static void main(String[] args) {
         System.out.println("Enter string or number");
         Scanner scanner = new Scanner(System.in);
@@ -229,5 +244,8 @@ public class Numbers {
             System.out.println("Input is NOT a number");
         }
     }
+
+
+
 
 }

@@ -13,9 +13,7 @@ public class RandD {
         map1.put(1,"ABC");map1.put(2,"DEF");map1.put(3,"GHI");
         Map<Integer, String> map2 = new HashMap<>();
         map2.put(1,"ABC");map2.put(2,"XYZ");map2.put(3,"GHI");
-
         System.out.println(map1.equals(map2));
-
         map1.forEach((k,v)->{
             //System.out.println("Item : " + k + " Count : " + v);
             System.out.println("key " + k + ": "
@@ -25,8 +23,4 @@ public class RandD {
             }*/
         });
     }
-
-
-
-
 }

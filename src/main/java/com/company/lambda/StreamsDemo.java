@@ -117,7 +117,7 @@ public class StreamsDemo {
                     return s.toUpperCase();
                 })
                 .anyMatch(s -> {
-                    //System.out.println("anyMatch: " + s);
+                    System.out.println("anyMatch: " + s);
                     return s.startsWith("A");
                 });
     }
@@ -150,6 +150,22 @@ public class StreamsDemo {
         Stream<String> countriesStream = Stream.of("India", "China", "France", "Germany");
         List<String> listOfCountiesName = countriesStream.collect(Collectors.toList());
         System.out.println(listOfCountiesName);
+    }
+
+    @Test
+    public void flatMapTest(){
+        List<List<Integer> > number = new ArrayList<>();
+        number.add(Arrays.asList(1, 2));
+        number.add(Arrays.asList(3, 4));
+        number.add(Arrays.asList(5, 6));
+        number.add(Arrays.asList(7, 8));
+        System.out.println("List of list-" + number);
+        // using flatmap() to flatten this list
+        List<Integer> flatList
+                = number.stream()
+                .flatMap(list -> list.stream())
+                .collect(Collectors.toList());
+        System.out.println("List generate by flatMap :"+ flatList);
     }
 
 }

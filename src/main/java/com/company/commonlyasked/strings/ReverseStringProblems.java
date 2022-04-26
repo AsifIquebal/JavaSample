@@ -164,5 +164,23 @@ public class ReverseStringProblems {
 
     }
 
-
+    @Test
+    public void abc() {
+        String s = "How are you" + " ";
+        StringBuilder rev = new StringBuilder();
+        StringBuilder word = new StringBuilder(" ");
+        char ch;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            ch = s.charAt(i);
+            if (ch != ' ') {
+                word.append(ch);
+            } else {
+                rev.insert(0, word + " ");
+                word = new StringBuilder(" ");
+            }
+            System.out.println("word: " +word + ", rv: " + rev);
+        }
+        System.out.println(rev);
+    }
 }

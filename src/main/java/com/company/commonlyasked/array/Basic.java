@@ -36,6 +36,7 @@ public class Basic {
     public void intersectionAndUnion() {
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] nums2 = {12, 11, 10, 7, 8, 6};
+        //Set<T> set = new HashSet<>(Arrays.asList(nums1));
         HashSet<Integer> set1 = new HashSet<>();
         for (int i : nums1) {
             set1.add(i);
@@ -46,23 +47,18 @@ public class Basic {
                 set2.add(i);
             }
         }
-
         System.out.println("Intersection: " + set2);
-
         for (int i : nums2) {
             set1.add(i);
         }
         System.out.println("Union: " + set1);
-
         System.out.println("-----------------");
         int[] result = new int[set2.size()];
         int i = 0;
         for (int n : set2) {
             result[i++] = n;
         }
-        for (int x = 0; x < result.length; x++) {
-            System.out.print(result[x] + " ");
-        }
+        Arrays.stream(result).forEach(e-> System.out.print(e + " "));
     }
 
     @Test
