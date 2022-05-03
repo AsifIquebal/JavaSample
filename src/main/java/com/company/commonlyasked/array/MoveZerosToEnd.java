@@ -2,6 +2,8 @@ package com.company.commonlyasked.array;
 
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class MoveZerosToEnd {
     @Test
     public void moveZeroesMethod() {
@@ -19,9 +21,7 @@ public class MoveZerosToEnd {
         for (int j = nums.length - counter; j < nums.length; j++) {
             nums[j] = 0;
         }
-        for (int num : nums) {
-            System.out.println(num);
-        }
+        Arrays.stream(nums).forEach(e -> System.out.print(e + " "));
     }
 
     @Test
@@ -40,33 +40,66 @@ public class MoveZerosToEnd {
         while (count < n) {
             arr[count++] = 0;
         }
-        printTheArray(arr);
-    }
-
-    private void printTheArray(int[] arr) {
-        System.out.println("Length: " + arr.length);
-        for (int j : arr) {
-            System.out.print(j + " ");
-        }
+        System.out.println(Arrays.toString(arr));
     }
 
     @Test
     public void moveZerosToEndUsingSingleTraversal() {
-        int[] arr = {0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
-        System.out.println("Length: " + arr.length);
-        int n = arr.length;
+        int[] array = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
+        System.out.println("Length: " + array.length);
         int count = 0;
         int temp;
         // If arr[i] is non-zero, then swap the element at index 'count' with the element at index 'i'
-        for (int i = 0; i < n; i++) {
-            if ((arr[i] != 0)) {
-                temp = arr[count];
-                arr[count++] = arr[i];
-                arr[i] = temp;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                temp = array[count];
+                array[count++] = array[i];
+                array[i] = temp;
                 //count = count + 1;
             }
         }
-        printTheArray(arr);
+        System.out.println(Arrays.toString(array));
+    }
 
+    @Test
+    public void moveZeroToEnd() {
+        int[] array = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
+        int i = 0, j = 0;
+        while (i < array.length) {
+            if (array[i] == 0) i++;
+            else {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j++;
+            }
+        }
+        System.out.println(Arrays.toString(array));
+    }
+
+
+    @Test
+    public void rearrangePositiveAndNegative() {
+        int[] arr = {2, 4, -10, 13, -7, -60, 52, 8, -19};
+        int j = 0, temp;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                if (i != j) {
+                    temp = arr[i];   // (i=2,j=0, -10),(i=4,j=1,-7)
+                    arr[i] = arr[j]; // (arr[2]=2),()
+                    arr[j] = temp;   // (arr[0]=-10),()
+                }
+                j++;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void howArrayPushWorking() {
+        int[] arr = {1, 2, 3};
+        arr[0] = 4;
+        System.out.println(Arrays.toString(arr)); // [4, 2, 3]
     }
 }
