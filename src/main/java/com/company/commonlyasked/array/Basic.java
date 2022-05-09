@@ -3,10 +3,7 @@ package com.company.commonlyasked.array;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,15 +29,59 @@ public class Basic {
         }
     }
 
+
+    @Test
+    public void mergeTwoSortedArrayAndRemoveDuplicates() {
+        int[] arr1 = {1, 3, 4, 5};
+        int[] arr2 = {2, 4, 6, 8};
+        Map<Integer, Boolean> mp = new TreeMap<>();
+        for (int j : arr1) {
+            mp.put(j, true);
+        }
+        for (int j : arr2) {
+            mp.put(j, true);
+        }
+        for (Map.Entry<Integer, Boolean> me : mp.entrySet()) {
+            System.out.print(me.getKey() + " ");
+        }
+    }
+
+    @Test
+    public void mergeTwoSortedArrayAndKeepDuplicates() {
+        int[] arr1 = {1, 3, 4, 5};
+        int[] arr2 = {2, 4, 6, 8};
+        int[] arr3 = new int[arr1.length + arr2.length];
+        System.out.println(arr3.length);
+        int k=0;
+        for (int value : arr1) {
+            arr3[k++] = value;
+        }
+        for (int i : arr2) {
+            arr3[k++] = i;
+        }
+        System.out.println(Arrays.toString(arr3));
+        int n = arr3.length;
+        for (int lastUnsortedIndex = arr3.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
+            for (int j = 0; j < lastUnsortedIndex; j++) {
+                if (arr3[j] > arr3[j + 1]) {
+                    int temp = arr3[j+1];
+                    arr3[j+1] = arr3[j];
+                    arr3[j] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr3));
+    }
+
     @Test
     public void intersectionAndUnion() {
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int[] nums2 = {12, 11, 10, 7, 8, 6};
-        //Set<T> set = new HashSet<>(Arrays.asList(nums1));
-        HashSet<Integer> set1 = new HashSet<>();
+        int[] nums2 = {12, 11, 10, 6, 7, 8};
+        /*HashSet<Integer> set1 = new HashSet<>();
         for (int i : nums1) {
             set1.add(i);
-        }
+        }*/
+        Set<Integer> set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
         HashSet<Integer> set2 = new HashSet<>();
         for (int i : nums2) {
             if (set1.contains(i)) {
@@ -49,7 +90,7 @@ public class Basic {
         }
         System.out.println("Intersection: " + set2);
         for (int i : nums2) {
-            set1.add(i);
+            System.out.println(set1.add(i));
         }
         System.out.println("Union: " + set1);
         System.out.println("-----------------");
@@ -58,7 +99,7 @@ public class Basic {
         for (int n : set2) {
             result[i++] = n;
         }
-        Arrays.stream(result).forEach(e-> System.out.print(e + " "));
+        Arrays.stream(result).forEach(e -> System.out.print(e + " "));
     }
 
     @Test
@@ -77,7 +118,6 @@ public class Basic {
         Integer[] boxedArray = IntStream.of(array).boxed().toArray(Integer[]::new);
         System.out.println(Arrays.toString(boxedArray));
         System.out.println("Class/Type : " + boxedArray.getClass().toGenericString());
-
         Set<Integer> set = IntStream.of(array).boxed().collect(Collectors.toSet());
         //or if you need a HashSet specifically
         HashSet<Integer> hashset = IntStream.of(array).boxed().collect(Collectors.toCollection(HashSet::new));
@@ -103,6 +143,16 @@ public class Basic {
                 System.out.print(a[i][j] + " ");
             }
             System.out.println();
+        }
+    }
+
+    @Test
+    public void test01() {
+        int[] a = {1, 2, 3};
+        //System.out.println("Last Element: " + a[a.length-1]);
+        //System.out.println("Second Last Element: " + a[a.length-2]);
+        for (int i = 1; i <= a.length; i++) {
+            System.out.println(a[a.length - i]);
         }
     }
 }

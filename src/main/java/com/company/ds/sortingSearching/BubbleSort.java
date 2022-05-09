@@ -11,7 +11,7 @@ public class BubbleSort {
         int[] arr = {64, 34, -25, 12, 22, -11, 90};
         System.out.println("Before Sorting: " + Arrays.toString(arr));
         bubbleSort(arr);
-        System.out.println("After Sorting \n" + Arrays.toString(arr));
+        System.out.println("After Sorting: " + Arrays.toString(arr));
     }
 
     private void bubbleSort(int[] arr) {

@@ -1,5 +1,6 @@
 package com.company.lambda;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
@@ -64,7 +65,7 @@ public class StreamsDemo {
 
     @Test
     public void test03_distinct() {
-        List<Integer> result = Stream.of(1,2,3,4,1,2,3)
+        List<Integer> result = Stream.of(1, 2, 3, 4, 1, 2, 3)
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(result);
@@ -72,7 +73,7 @@ public class StreamsDemo {
 
     @Test
     public void test04_limit() {
-        List<Integer> result = Stream.of(1,2,3,4,1,2,3)
+        List<Integer> result = Stream.of(1, 2, 3, 4, 1, 2, 3)
                 .limit(2)
                 .collect(Collectors.toList());
         System.out.println(result);
@@ -111,7 +112,7 @@ public class StreamsDemo {
 
     @Test
     public void puzzle01() {
-        Stream.of("d2", "e2","a2", "b1", "b3", "c")
+        Stream.of("d2", "e2", "a2", "b1", "b3", "c")
                 .map(s -> {
                     System.out.println("map: " + s);
                     return s.toUpperCase();
@@ -153,8 +154,8 @@ public class StreamsDemo {
     }
 
     @Test
-    public void flatMapTest(){
-        List<List<Integer> > number = new ArrayList<>();
+    public void flatMapTest() {
+        List<List<Integer>> number = new ArrayList<>();
         number.add(Arrays.asList(1, 2));
         number.add(Arrays.asList(3, 4));
         number.add(Arrays.asList(5, 6));
@@ -165,7 +166,56 @@ public class StreamsDemo {
                 = number.stream()
                 .flatMap(list -> list.stream())
                 .collect(Collectors.toList());
-        System.out.println("List generate by flatMap :"+ flatList);
+        System.out.println("List generate by flatMap :" + flatList);
+    }
+
+    @Test
+    public void createParallelStream_whenFindAnyResultIsPresent_thenCorrect() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> result = list
+                .stream().parallel()
+                .filter(num -> num < 4).findAny();
+        Assert.assertTrue(result.isPresent());
+        result.stream().forEach(System.out::println);//3
+    }
+
+    @Test
+    public void createStream_whenFindFirstResultIsPresent_thenCorrect() {
+        List<String> list = Arrays.asList("A", "B", "C", "D");
+        Optional<String> result = list.stream().findFirst();
+        Assert.assertTrue(result.isPresent());
+        //assertThat(result.get(), is("A"));
+    }
+
+    @Test
+    public void test938() {
+        List<Integer> primes = Arrays.asList(2, 3, 5, 7, 11, 13);
+        int primeGreaterThanFive = primes.stream()
+                .peek(num -> System.out.println("will filter " + num))
+                .filter(x -> x > 5)
+                .findFirst()
+                .get();
+        System.out.println(primeGreaterThanFive);
+        List<String> collect = Stream.of("one", "two", "three", "four")
+                .filter(e -> e.length() > 3)
+                .peek(e -> System.out.println("Filtered value: " + e))
+                .map(String::toUpperCase)
+                .peek(e -> System.out.println("Mapped value: " + e))
+                .collect(Collectors.toList());
+
+    }
+
+    @Test
+    public void oddEven() {
+        List<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        ints.stream()
+                .forEach(i -> {
+                    if (i % 2 == 0) {
+                        System.out.println(i + ": even ");
+                    } else {
+                        System.out.println(i + ": odd ");
+                    }
+                });
     }
 
 }

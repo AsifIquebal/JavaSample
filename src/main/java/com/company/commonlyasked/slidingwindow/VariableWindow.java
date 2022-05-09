@@ -20,8 +20,6 @@ public class VariableWindow {
             char currChar = input.charAt(j);
             if (visited.containsKey(currChar)) {
                 i = Math.max(visited.get(currChar)+1, i);
-                //System.out.println("end: " + j + ", start: " + i);
-                //System.out.println(visited);
             }
             if (output.length() < j - i + 1) {
                 output = input.substring(i, j + 1);

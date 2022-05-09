@@ -1,6 +1,12 @@
 package com.company.commonlyasked;
 
 
+import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 public class LetterCases {
 
     public static void main(String[] args) {
@@ -21,7 +27,7 @@ public class LetterCases {
         /*The codePoints() method of IntStream class is used to get a stream of code point values from the given
         sequence. It returns the ASCII values of the characters passed as an argument
         * */
-        count = s.codePoints().filter(c-> c>='A' && c<='Z').count();
+        count = s.codePoints().filter(c -> c >= 'A' && c <= 'Z').count();
         //
         s.chars().filter(c -> Character.isUpperCase(c)).count();
 
@@ -30,5 +36,35 @@ public class LetterCases {
                 (count == 1 && 'Z' - (s.charAt(0)) >= 0) ||
                 (count == s.length());
 
+    }
+
+    @Test
+    public void test02() {
+        String s = "India";
+        Stream<Character> characterStream = s.chars().mapToObj(x -> (char) x);
+        //long count = characterStream.filter(e -> Character.isUpperCase(e)).count();
+        //System.out.println(count);
+        characterStream.forEach(e -> {
+            System.out.println(e);
+        });
+    }
+
+    /*if (Character.isUpperCase(e)) {
+        System.out.println(e + "upper case");
+    } else {
+        System.out.println(e + "lower case");
+    }*/
+
+    @Test
+    public void oddEven() {
+        List<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        ints.stream()
+                .forEach(i -> {
+                    if (i % 2 == 0) {
+                        System.out.println(i + ": even ");
+                    } else {
+                        System.out.println(i + ": odd ");
+                    }
+                });
     }
 }

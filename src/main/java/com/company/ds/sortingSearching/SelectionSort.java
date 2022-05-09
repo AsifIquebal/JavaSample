@@ -6,8 +6,7 @@ import java.util.Arrays;
 
 public class SelectionSort {
     /*The selection sort algorithm works in a very simple way. It maintains two sub-array for the given array.
-    One sub-array is already sorted.
-    And the second sub-array is unsorted.
+    One sub-array is already sorted. And the second sub-array is unsorted.
     With every iteration of selection sort, an element is picked from the unsorted sub-array and
     moved to the sorted sub-array.*/
 

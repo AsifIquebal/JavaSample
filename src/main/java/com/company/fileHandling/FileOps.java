@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FileOps {
 
@@ -36,17 +37,48 @@ public class FileOps {
     }
 
     @Test
-    public void findDuplicateWord(){
+    public void findDuplicateWordInFile() {
         File file = new File("src/main/java/com/company/fileHandling/test.txt");
         String totalContent = readFile(file);
-        String[] words = totalContent.split("\\s");
-        System.out.println(Arrays.toString(words));
+        //System.out.println(totalContent);
+        String[] words = totalContent.split("\\s+");
+        //System.out.println(Arrays.toString(words));
         Set<String> stringSet = new HashSet<>();
         for (String str : words) {
             if (!stringSet.add(str)) {
                 System.out.println("Found Duplicate: " + str);
             }
         }
+    }
+
+    public String readFile(File file) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                stringBuilder.append(scanner.nextLine()).append(" ");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    @Test
+    public void findDuplicateWordInFileAndCountIt() {
+        File file = new File("src/main/java/com/company/fileHandling/test.txt");
+        String totalContent = readFile(file);
+        //System.out.println(totalContent);
+        //String[] words = totalContent.split("\\s+");
+        //System.out.println(Arrays.toString(words));
+        Map<String, Long> map = Arrays
+                .stream(totalContent.split("\\s+"))
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(map);
+        map.forEach((k,v)->{
+            if (v>1){
+                System.out.println(k + " " + v);
+            }
+        });
     }
 
     @Test
@@ -80,20 +112,6 @@ public class FileOps {
         //check file permissions for application user
     }
 
-    public String readFile(File file) {
-        StringBuilder str = new StringBuilder();
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                str.append(scanner.nextLine()).append(", ");
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        return str.toString();
-    }
 
     public void writeInFile(File file) {
         FileWriter fileWriter = null;

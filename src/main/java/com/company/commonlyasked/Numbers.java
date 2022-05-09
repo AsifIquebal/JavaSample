@@ -10,21 +10,17 @@ import java.util.stream.IntStream;
 
 public class Numbers {
 
-
     @Test
     public void binaryTest() {
         System.out.println(Integer.toBinaryString(0));
         System.out.println(Integer.toBinaryString(1));
         System.out.println(Integer.toBinaryString(8));
-
         System.out.println("bitwise AND(&)[8&1]: " + (8 & 1));
         System.out.println("bitwise AND(&)[9&1]: " + (9 & 1));
         System.out.println(Integer.toBinaryString(2 << 33));
-        //
         System.out.println("================");
         int a = 17;
         int b = 16;
-
         System.out.println(Integer.toBinaryString(a));
         System.out.println(Integer.toBinaryString(b));
         System.out.println(Integer.toBinaryString(a & b) + ": " + (a & b));
@@ -139,12 +135,11 @@ public class Numbers {
         int num = 786, sum = 0;
         while (num > 0) {
             int remainder = num % 10;
+            //System.out.println(remainder);
             sum = sum + remainder;
-            int quotient = num / 10;
-            num = quotient;
+            num = num / 10;
         }
         System.out.println(sum);
-
     }
 
     @Test
@@ -214,19 +209,16 @@ public class Numbers {
         System.out.println((num == 1) ? "Happy Number" : "Not a Happy Number");
     }
 
-
     @Test
-    public void secondLastDigit(){
-        int i = 143;
-        System.out.println((i/10)%10);
+    public void secondLastDigit() {
+        int i = 1843;
+        System.out.println(i/10);
+        System.out.println((i / 10) % 10);
         String number = Integer.toString(i);
         // java.lang.StringIndexOutOfBoundsException: String index out of range: -1 in case its length is less than 2
-        int secondLastDigit = Character.getNumericValue((number.charAt(number.length()-2)));
+        int secondLastDigit = Character.getNumericValue((number.charAt(number.length() - 2)));
         System.out.println(secondLastDigit);
     }
-
-
-
 
     public static void main(String[] args) {
         System.out.println("Enter string or number");
@@ -244,8 +236,4 @@ public class Numbers {
             System.out.println("Input is NOT a number");
         }
     }
-
-
-
-
 }
