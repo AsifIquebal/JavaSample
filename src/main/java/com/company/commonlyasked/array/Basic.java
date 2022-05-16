@@ -19,6 +19,16 @@ public class Basic {
     }
 
     @Test
+    public void listToArray() {
+        String[] str1 = {"A", "E", "I"};
+        String[] str2 = {"O", "U"};
+        List<String> list = new ArrayList<>(Arrays.asList(str1));
+        list.addAll(Arrays.asList(str2));
+        Object[] str3 = list.toArray();
+        System.out.println(Arrays.toString(str3));
+    }
+
+    @Test
     public void arrayCopyMethod() {
         int[] scores = {1, 2, 3, 4, 5, 6};
         System.out.println(Arrays.toString(scores));
@@ -27,8 +37,19 @@ public class Basic {
         for (int i : scores) {
             System.out.println(i);
         }
+        /*src – the source array.
+          srcPos – starting position in the source array.
+          dest – the destination array.
+          destPos – starting position in the destination data.
+          length – the number of array elements to be copied.
+        arraycopy(Object src, int srcPos, Object dest,int destPos, int length);*/
+        int[] arr1 = {1, 3, 4, 5};
+        int[] arr2 = {2, 4, 6, 8};
+        int[] arr3 = new int[arr1.length + arr2.length];
+        System.arraycopy(arr1, 0, arr3, 0, arr1.length);
+        System.arraycopy(arr2, 0, arr3, arr1.length, arr2.length);
+        System.out.println(Arrays.toString(arr3));
     }
-
 
     @Test
     public void mergeTwoSortedArrayAndRemoveDuplicates() {
@@ -49,23 +70,17 @@ public class Basic {
     @Test
     public void mergeTwoSortedArrayAndKeepDuplicates() {
         int[] arr1 = {1, 3, 4, 5};
-        int[] arr2 = {2, 4, 6, 8};
+        int[] arr2 = new int[]{2, 4, 6, 8};
         int[] arr3 = new int[arr1.length + arr2.length];
         System.out.println(arr3.length);
-        int k=0;
-        for (int value : arr1) {
-            arr3[k++] = value;
-        }
-        for (int i : arr2) {
-            arr3[k++] = i;
-        }
+        System.arraycopy(arr1, 0, arr3, 0, arr1.length);
+        System.arraycopy(arr2, 0, arr3, arr1.length, arr2.length);
         System.out.println(Arrays.toString(arr3));
-        int n = arr3.length;
-        for (int lastUnsortedIndex = arr3.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
-            for (int j = 0; j < lastUnsortedIndex; j++) {
+        for (int i = arr3.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
                 if (arr3[j] > arr3[j + 1]) {
-                    int temp = arr3[j+1];
-                    arr3[j+1] = arr3[j];
+                    int temp = arr3[j + 1];
+                    arr3[j + 1] = arr3[j];
                     arr3[j] = temp;
                 }
             }
@@ -112,7 +127,7 @@ public class Basic {
     }
 
     @Test
-    public void intToIntergerArray() {
+    public void intToIntegerArray() {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         System.out.println("Class/Type: " + array.getClass().toGenericString());
         Integer[] boxedArray = IntStream.of(array).boxed().toArray(Integer[]::new);
@@ -133,7 +148,7 @@ public class Basic {
     }
 
     @Test
-    public void usingReflcetion() {
+    public void usingReflection() {
         int count = 0;
         // Creating 2D array
         int[][] a = (int[][]) Array.newInstance(int.class, 3, 2);

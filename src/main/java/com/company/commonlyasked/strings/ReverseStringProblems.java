@@ -3,13 +3,40 @@ package com.company.commonlyasked.strings;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ReverseStringProblems {
-    public static void main(String[] args) {
+
+    @Test
+    public void tes01_twoPointer(){
+        String str = "Kolkata";
+        if(str == null || str.isEmpty()){
+            //System.out.println();
+            //return str;
+        }
+        char[] characters = str.toCharArray();
+        int i = 0;
+        int j = characters.length - 1;
+        while (i < j) {
+            swap(characters, i, j);
+            i++;
+            j--;
+        }
+        System.out.println(Arrays.toString(characters));
+    }
+
+    private void swap(char[] str, int i, int j) {
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+
+    @Test
+    public void test01() {
         String input;
         System.out.printf("Enter a String: ");
         Scanner read_input = new Scanner(System.in);
@@ -179,7 +206,7 @@ public class ReverseStringProblems {
                 rev.insert(0, word + " ");
                 word = new StringBuilder(" ");
             }
-            System.out.println("word: " +word + ", rv: " + rev);
+            System.out.println("word: " + word + ", rv: " + rev);
         }
         System.out.println(rev);
     }

@@ -35,27 +35,30 @@ public class CollectionClassDemo {
     }
 
     @Test
-    public void test02(){
+    public void test02() {
         // Fields do not provide type safety
         List list1 = Collections.EMPTY_LIST;
-        System.out.println("list1 size is: "+ list1.size());
+        System.out.println("list1 size is: " + list1.size());
         Set set1 = Collections.EMPTY_SET;
-        System.out.println("set1 size is: "+ set1.size());
+        System.out.println("set1 size is: " + set1.size());
         Map map1 = Collections.EMPTY_MAP;
-        System.out.println("map1 size is: "+ map1.size());
+        System.out.println("map1 size is: " + map1.size());
         // Below Methods provide type safety
         List<String> list2 = Collections.emptyList();
-        System.out.println("list2 size is: "+ list2.size());
+        System.out.println("list2 size is: " + list2.size());
         Set<String> set2 = Collections.emptySet();
-        System.out.println("set2 size is: "+ set2.size());
+        System.out.println("set2 size is: " + set2.size());
         Map<String, Date> map2 = Collections.emptyMap();
-        System.out.println("map2 size is: "+ map2.size());
+        System.out.println("map2 size is: " + map2.size());
         // Creating empty collections using new keyword
         List<String> list3 = new ArrayList<>();
-        System.out.println("list3 size is: "+ list3.size());
+        System.out.println("list3 size is: " + list3.size());
         Set<String> set3 = new HashSet<>();
-        System.out.println("set3 size is: "+ set3.size());
+        System.out.println("set3 size is: " + set3.size());
         Map<String, Date> map3 = new HashMap<>();
-        System.out.println("map3 size is: "+ map3.size());
+        System.out.println("map3 size is: " + map3.size());
     }
+
+    
+
 }

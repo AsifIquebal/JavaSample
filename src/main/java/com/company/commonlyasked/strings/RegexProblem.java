@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexProblem {
+
     public List<String> findWordsInMixedCase(String text) {
         Pattern pattern = Pattern.compile("(([A-Z]?[a-z]+)|([A-Z]))");
         Matcher matcher = pattern.matcher(text);

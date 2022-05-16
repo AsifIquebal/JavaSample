@@ -7,6 +7,24 @@ import java.util.Arrays;
 public class StringFunctions {
 
     @Test
+    public void test01_findLengthWithoutUsingLengthFunction() {
+        String helloWorld = "This is hello world";
+        System.out.println("length of helloWorld string :" + getLengthOfString(helloWorld));
+        System.out.println(getLengthOfString("abcd"));
+    }
+
+    public static int getLengthOfString(String str) {
+        int i = 0;
+        try {
+            for (i = 0; ; i++) {
+                str.charAt(i);
+            }
+        } catch (Exception e) {
+        }
+        return i;
+    }
+
+    @Test
     public void test01(){
         String str1;
         String str2 = "Java";

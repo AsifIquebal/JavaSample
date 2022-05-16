@@ -2,10 +2,7 @@ package com.company.commonlyasked.array;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Duplicates {
 
@@ -57,10 +54,10 @@ public class Duplicates {
 
     @Test
     public void usingHashMapGetOrDefaultMethod() {
-        int[] nums = {1, 2, 3, 1, 2, 4};
+        int[] numbers = {1, 2, 3, 1, 2, 4};
         HashMap<Integer, Integer> map = new HashMap<>();
         List<Integer> result = new ArrayList<>();
-        for (int i : nums) {
+        for (int i : numbers) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
         for (int i : map.keySet()) {
@@ -68,7 +65,39 @@ public class Duplicates {
                 result.add(i);
         }
         System.out.println(result);
+    }
 
+    @Test
+    private void removeDuplicateChar() {
+        char[] withDuplicateChars = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
+        String result = "";
+        //char[] withOutDuplicateChars;
+        //List<String> withDuplicateChars = new ArrayList<>();
+        int k = 0;
+        for (char c : withDuplicateChars) {
+            if (result.indexOf(c) == -1) {
+                result = result + c;
+                withDuplicateChars[k++] = c;
+            }
+        }
+        System.out.println(result.toCharArray());
+        //System.out.println(Arrays.toString(withOutDuplicateChars));
+    }
+
+    @Test
+    public void removeDuplicateIntegers(){
+        int [] a = {1,2,2,6,3,2,1};//1,2,6,3
+        Set<Integer> result = new LinkedHashSet<>();
+        List<Integer> leftOver = new ArrayList<>();
+        for (int j : a) {
+            if(!result.contains(j)){
+                result.add(j);
+            } else {
+                leftOver.add(j);
+            }
+        }
+        System.out.println(result);
+        System.out.println(leftOver);
     }
 
 
