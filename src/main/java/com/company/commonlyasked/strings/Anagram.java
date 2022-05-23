@@ -8,6 +8,37 @@ import java.util.List;
 
 public class Anagram {
 
+    /*
+     * An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+     * typically using all the original letters exactly once.
+     * For example, the word anagram itself can be rearranged into nag a ram,
+     * also the word binary into brainy and the word adobe into abode.
+     * */
+    @Test
+    public void testSimple() {
+        simple("Keep", "Peek");
+        simple("A", "b");
+    }
+
+    private void simple(String str1, String str2) {
+        String s1 = str1.toLowerCase().replaceAll("\\s", "").replace("'", "");
+        String s2 = str2.toLowerCase().replaceAll("\\s", "").replace("'", "");
+        List<Character> characterList = new ArrayList<>();
+        for (char ch : s1.toCharArray()) {
+            characterList.add(ch);
+        }
+        System.out.println(characterList);
+        for (char ch : s2.toCharArray()) {
+            characterList.remove(Character.valueOf(ch));
+        }
+        if (characterList.isEmpty()) {
+            System.out.println(str1 + " and " + str2 + ", are anagrams");
+        } else {
+            System.out.println(str1 + " and " + str2 + ", are not anagrams");
+        }
+
+
+    }
 
     @Test
     public void solution01() {
@@ -88,7 +119,6 @@ public class Anagram {
     public void countOFManipulation() {
         System.out.println(countManipulations("cde", "abc"));
     }
-
 
 
 }

@@ -26,4 +26,15 @@ public class RegexProblem {
         findWordsInMixedCase("thisHasASingleLetterWord");
     }
 
+
+    @Test
+    public void test02() {
+        int ch1 = 'a';
+        int ch2 = 'b';
+        System.out.println("The ASCII value of a is: " + ch1);
+        System.out.println("The ASCII value of b is: " + ch2);
+        for (int i = 0; i <= 255; i++) {
+            System.out.println(" The ASCII value of " + (char) i + "  =  " + i);
+        }
+    }
 }

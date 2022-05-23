@@ -24,7 +24,6 @@ public class HashMapDemo {
         hashMap.get("hmkey");
     }
 
-
     @Test
     public void testPutIfAbsent() {
         Map<Integer, String> hm = new HashMap<>();
@@ -91,7 +90,6 @@ public class HashMapDemo {
         hMapNumbers.put(2, "Two");
         hMapNumbers.put(1, "One");
         System.out.println("HashMap contains...");
-
         for (Integer key : hMapNumbers.keySet()) {
             System.out.println("Key: " + key + ", Value: " + hMapNumbers.get(key));
         }
@@ -138,7 +136,7 @@ public class HashMapDemo {
         return hm;
     }
 
-    //double brace initialization is considered as an antipattern
+    //double brace initialization is considered as an anti-pattern
     @Test
     public void initializationAtOnce() {
         List<String> list = new ArrayList<>() {{
@@ -171,12 +169,11 @@ public class HashMapDemo {
     @Test
     public void verifyPutMethod() {
         HashMap<String, Integer> hashMap = new HashMap<>();
-        System.out.println(hashMap.put("A", 123));
-        System.out.println(hashMap.put("A", 321));
-        System.out.println("=============================");
-        System.out.println(hashMap);
-        System.out.println(hashMap.get("A"));
-        System.out.println(hashMap.get("B"));
+        System.out.println(hashMap.put("A", 123));// null as A was not present earlier
+        System.out.println(hashMap.put("A", 321));//123, that's the last value associated
+        System.out.println(hashMap);//{A=321}
+        System.out.println(hashMap.get("A"));//321
+        System.out.println(hashMap.get("B"));//null
     }
 
 

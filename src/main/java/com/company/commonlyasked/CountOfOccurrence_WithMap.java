@@ -1,5 +1,8 @@
 package com.company.commonlyasked;
 
+import com.mysql.cj.util.StringUtils;
+import org.testng.annotations.Test;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,14 +61,15 @@ public class CountOfOccurrence_WithMap {
     }
 
 
-    public void forString2(String str){
+    public void forString2(String str) {
         Map<Character, Integer> map = new HashMap<>();
-        for(int i=0; i <str.length(); i++){
+        /*String str1 = "aab";
+        char[] chars = str1.toCharArray();*/
+        for (int i = 0; i < str.length(); i++) {
             Character key = str.charAt(i);
-            if (map.containsKey(key)){
+            if (map.containsKey(key)) {
                 map.put(key, map.get(key) + 1);
-            }
-            else {
+            } else {
                 map.put(key, 1);
             }
         }
@@ -73,11 +77,15 @@ public class CountOfOccurrence_WithMap {
     }
 
     // Java 8
-    public void byJava8(String str){
+    @Test
+    public void byJava8() {
+        String str = "abcabcd";
         Map<String, Long> map =
                 Arrays
-                .stream(str.split(""))
-                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+                        .stream(str.split(""))
+                        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(map);
+        //if(obj instanceof StringUtils)
     }
 
 }

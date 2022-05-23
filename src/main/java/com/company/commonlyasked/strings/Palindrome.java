@@ -54,6 +54,15 @@ public class Palindrome {
         }
     }
 
+    // above with 2 counters, but below with only 1
+    public static boolean isP(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < (chars.length / 2); i++) {
+            if (chars[i] != chars[(chars.length - i - 1)])
+                return false;
+        }
+        return true;
+    }
 
     @Test
     public void usingStatck(){

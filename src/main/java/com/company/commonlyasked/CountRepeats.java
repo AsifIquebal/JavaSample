@@ -10,7 +10,7 @@ import java.util.TreeSet;
 public class CountRepeats {
     @Test
     public void test01() {
-        int nums[] = {655, 578, 786};
+        int[] nums = {655, 578, 786};
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             char[] n = String.valueOf(nums[i]).toCharArray();
@@ -39,7 +39,7 @@ public class CountRepeats {
             Set<Character> repeatChar = new TreeSet<>();
             for (char c1 : s1Array) {
                 if (!set.add(c1)) {
-                    // System.out.print(c1 + " "); //if you want to print each occurance of the repeating character
+                    // System.out.print(c1 + " "); //if you want to print each occurrence of the repeating character
                     repeatChar.add(c1);
                     repeat = true;
                     // return true; //end the loop if you don't want to cache the repeating characters

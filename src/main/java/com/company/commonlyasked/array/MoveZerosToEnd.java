@@ -85,11 +85,9 @@ public class MoveZerosToEnd {
         int j = 0, temp;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 0) {
-                if (i != j) {
-                    temp = arr[i];   // (i=2,j=0, -10),(i=4,j=1,-7)
-                    arr[i] = arr[j]; // (arr[2]=2),()
-                    arr[j] = temp;   // (arr[0]=-10),()
-                }
+                temp = arr[i];   // (i=2,j=0, -10),(i=4,j=1,-7)
+                arr[i] = arr[j]; // (arr[2]=2),()
+                arr[j] = temp;   // (arr[0]=-10),()
                 j++;
             }
         }
