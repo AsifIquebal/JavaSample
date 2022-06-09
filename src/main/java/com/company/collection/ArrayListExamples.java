@@ -2,11 +2,52 @@ package com.company.collection;
 
 import org.testng.annotations.Test;
 
+import java.io.*;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class ArrayListExamples {
+
+    @Test
+    public void serialize() {
+        ArrayList<String> list = new ArrayList();
+        list.add("Boston");
+        list.add("Dallas");
+        list.add("New York");
+        // serialize
+        try {
+            // The inputfile  will be having ArrayList object in the form of stream of bytes
+            FileOutputStream fileOS = new FileOutputStream("inputfile");
+            ObjectOutputStream objOS = new ObjectOutputStream(fileOS);
+            objOS.writeObject(list);
+            objOS.close();
+            fileOS.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        ArrayList<String> list1 = new ArrayList();
+        // de-serialize
+        try {
+            FileInputStream fileIS = new FileInputStream("inputfile");
+            ObjectInputStream objIS = new ObjectInputStream(fileIS);
+            list1 = (ArrayList) objIS.readObject();
+            objIS.close();
+            fileIS.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return;
+        } catch (ClassNotFoundException ex2) {
+            System.out.println(" Class Not Found Exception");
+            ex2.printStackTrace();
+            return;
+        }
+        for (String s : list1) {
+            System.out.println(s);
+        }
+
+    }
+
 
     @Test
     public void addMethod() {
@@ -60,7 +101,9 @@ public class ArrayListExamples {
     @Test
     public void trimToSizeDemo() throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> list = new ArrayList<>(5);
-        list.add(10);list.add(20);list.add(30);
+        list.add(10);
+        list.add(20);
+        list.add(30);
         Field field = ArrayList.class.getDeclaredField("elementData");
         field.setAccessible(true);
         System.out.println(field.getName());
@@ -118,8 +161,8 @@ public class ArrayListExamples {
     }
 
     @Test
-    public void subList(){
+    public void subList() {
         ArrayList<String> al = new ArrayList<>(Arrays.asList("P", "A", "S", "A", "M"));
-        System.out.println(al.subList(0,1));
+        System.out.println(al.subList(0, 1));
     }
 }

@@ -1,4 +1,4 @@
-package com.company.commonlyasked;
+package com.company.commonlyasked.strings;
 
 import org.testng.annotations.Test;
 

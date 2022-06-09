@@ -68,7 +68,7 @@ public class Duplicates {
     }
 
     @Test
-    private void removeDuplicateChar() {
+    public void removeDuplicateChar() {
         char[] withDuplicateChars = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
         String result = "";
         //char[] withOutDuplicateChars;
@@ -77,7 +77,7 @@ public class Duplicates {
         for (char c : withDuplicateChars) {
             if (result.indexOf(c) == -1) {
                 result = result + c;
-                withDuplicateChars[k++] = c;
+                //withDuplicateChars[k++] = c;
             }
         }
         System.out.println(result.toCharArray());

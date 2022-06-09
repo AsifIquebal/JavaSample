@@ -12,6 +12,21 @@ import static org.testng.AssertJUnit.assertEquals;
 public class StreamsDemo {
 
     @Test
+    public void reduceExample(){
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        // 1st argument, init value = 0
+        System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a + b));
+        OptionalInt sum1 = Arrays.stream(numbers).reduce((a, b) -> a + b);
+        System.out.println(sum1.isEmpty());//false
+
+        System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a > b ? a : b));  // 10
+        System.out.println(Arrays.stream(numbers).reduce(0, Integer::max));            // 10
+
+        System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a < b ? a : b));  // 0
+        System.out.println(Arrays.stream(numbers).reduce(0, Integer::min));
+    }
+
+    @Test
     public void test01() {
         List<String> list = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl", "");
         System.out.println("List: " + list);

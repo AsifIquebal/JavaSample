@@ -47,8 +47,9 @@ public class DatabaseConnection {
         connection.close();
     }
 
+    // MySQL
     @Test
-    public void mySQL() throws ClassNotFoundException, SQLException {
+    public void mySQL01() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/classicmodels", "root", "asif1234");) {
@@ -62,4 +63,42 @@ public class DatabaseConnection {
         }
     }
 
+    @Test
+    public void mySQL02() {
+        String url = "jdbc:mysql://localhost:3306/classicmodels";
+        String username = "root";
+        String password = "root";
+        String query = "SELECT VERSION()";
+        try (Connection con = DriverManager.getConnection(url, username, password);
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                System.out.println(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Test
+    public void mySQL03() {
+        String url = "jdbc:mysql://localhost:3306/classicmodels";
+        String username = "root";
+        String password = "root";
+        String query = "select * from employees";
+        try (Connection con = DriverManager.getConnection(url, username, password);
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (rs.next()) {
+                for (int i = 1; i < columnsNumber; i++) {
+                    System.out.print(rs.getString(i) + " ");
+                }
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

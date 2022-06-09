@@ -12,9 +12,9 @@ import java.util.regex.Pattern;
 public class ReverseStringProblems {
 
     @Test
-    public void tes01_twoPointer(){
+    public void tes01_twoPointer() {
         String str = "Kolkata";
-        if(str == null || str.isEmpty()){
+        if (str == null || str.isEmpty()) {
             //System.out.println();
             //return str;
         }
@@ -33,6 +33,20 @@ public class ReverseStringProblems {
         char temp = str[i];
         str[i] = str[j];
         str[j] = temp;
+    }
+
+    @Test
+    public void test02_usingRecursion() {
+        reverse("Hello World!");
+    }
+
+    private void reverse(String str) {
+        if ((str == null) || (str.length() <= 1))
+            System.out.println(str);
+        else {
+            System.out.print(str.charAt(str.length() - 1));
+            reverse(str.substring(0, str.length() - 1));
+        }
     }
 
     @Test

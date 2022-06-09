@@ -2,17 +2,66 @@ package com.company.fileHandling;
 
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class FileOps {
+
+    @Test
+    public void removeDuplicateLines() throws IOException {
+        PrintWriter pw = new PrintWriter("./src/main/java/com/company/fileHandling/output.txt");
+        BufferedReader br = new BufferedReader(new FileReader("./src/main/java/com/company/fileHandling/test.txt"));
+        String line = br.readLine();
+        HashSet<String> hs = new HashSet<>();
+        while (line != null) {
+            // write only if not present in hashset
+            if (hs.add(line)) {
+                pw.println(line);
+            }
+            line = br.readLine();
+        }
+        pw.flush();
+        br.close();
+        pw.close();
+        System.out.println("File operation performed successfully");
+    }
+
+    @Test
+    public void test_BufferedReaderExample() {
+        FileInputStream fis = null;
+        BufferedReader bufferedReader = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            fis = new FileInputStream("src/main/java/com/company/fileHandling/test.txt");
+            bufferedReader = new BufferedReader(new InputStreamReader(fis));
+            System.out.println("File content below:");
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                // append is an overloaded method for string, char, chars etc.
+                // below will append lines all together, so we will miss out the new line chars
+                stringBuilder.append(line);
+                //System.out.println(line);
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(FileOps.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                assert bufferedReader != null;
+                bufferedReader.close();
+                fis.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FileOps.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println(stringBuilder);
+    }
 
     @Test
     public void test01() {
@@ -74,8 +123,8 @@ public class FileOps {
                 .stream(totalContent.split("\\s+"))
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(map);
-        map.forEach((k,v)->{
-            if (v>1){
+        map.forEach((k, v) -> {
+            if (v > 1) {
                 System.out.println(k + " " + v);
             }
         });

@@ -9,6 +9,56 @@ import java.util.stream.Collectors;
 public class HashMapDemo {
 
     @Test
+    public void swapKeyValue() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Key1",10);map.put("Key2",22);map.put("Key3",2);
+        Map<Integer, String> swapped = map.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+        System.out.println(swapped);
+    }
+
+    @Test
+    public void sortByValue() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("X", 26);
+        map.put("Asif", 12);
+        map.put("Meena", 10);
+        map.put("Geeta", 22);
+        map.put("Harry", 20);
+        map.put("Lawrence", 6);
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+        Map<String, Integer> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        System.out.println(result);
+        map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .forEachOrdered(x -> map.put(x.getKey(), x.getValue()));
+    }
+
+    @Test
+    public void sortByKey() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("X", 26);
+        map.put("Asif", 12);
+        map.put("Meena", 10);
+        map.put("Geeta", 22);
+        map.put("Harry", 20);
+        map.put("Lawrence", 6);
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByKey());
+        Map<String, Integer> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        System.out.println(result);
+    }
+
+    @Test
     public void identityHashMap() {
         Map<String, String> ihm = new IdentityHashMap<>();
         ihm.put("ihmkey", "ihmvalue");
@@ -35,7 +85,7 @@ public class HashMapDemo {
         // checking with non-existing keys
         System.out.println("Key is new: " + hm.putIfAbsent(4, "Four"));
         // for null value which is placed as null only
-        System.out.println("Key exists but value was null: " + hm.putIfAbsent(3,"Three"));
+        System.out.println("Key exists but value was null: " + hm.putIfAbsent(3, "Three"));
         hm.forEach((k, v) -> System.out.println(k + " -> " + v));
     }
 
@@ -111,7 +161,7 @@ public class HashMapDemo {
     }
 
     @Test
-    public void sortByValue() {
+    public void sortByValue1() {
         HashMap<Integer, String> hMapNumbers = new HashMap<>();
         hMapNumbers.put(4, "Four");
         hMapNumbers.put(10, "Ten");
