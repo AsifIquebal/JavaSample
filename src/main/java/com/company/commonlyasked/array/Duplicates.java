@@ -16,35 +16,17 @@ public class Duplicates {
                     System.out.println(a[j]);
             }
         }
-        /*for (int i = 0; i < a.length; i++) {
-            int counter = 1;
-
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[i] == (a[j])) {
-                    counter++;
-                    System.out.println(a[j]);
-                    //break;
-                }
-            }
-            if(counter>1){
-                System.out.println(a[i] +":"+ counter);
-
-            }*/
     }
 
 
     @Test
-    public void test_02() {
+    public void test02_usingArraysSort() {
         int[] a = {1, 2, 3, 1, 3, 4, 1, 4, 3, 1, 3, 5, 5, 5, 5, 6};
         Arrays.sort(a);
-        System.out.println(Arrays.toString(a));
         int count = 1;
         for (int i = 0; i < a.length; i++) {
-            System.out.println("for loop: i : " + i);
-            System.out.println("Condition1: " + (a.length - 1));
-            System.out.println("Condition2: a[i]: " + a[i] + ", a[i+1]: " + a[i + 1]);
             if (i == a.length - 1 || a[i] != a[i + 1]) {
-                System.out.println(a[i] + "::: " + count);
+                System.out.println(a[i] + " : " + count);
                 count = 1;
             } else {
                 count++;
@@ -69,12 +51,12 @@ public class Duplicates {
 
     @Test
     public void removeDuplicateChar() {
-        char[] withDuplicateChars = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
+        char[] charArray = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
         String result = "";
         //char[] withOutDuplicateChars;
         //List<String> withDuplicateChars = new ArrayList<>();
         int k = 0;
-        for (char c : withDuplicateChars) {
+        for (char c : charArray) {
             if (result.indexOf(c) == -1) {
                 result = result + c;
                 //withDuplicateChars[k++] = c;
@@ -99,6 +81,5 @@ public class Duplicates {
         System.out.println(result);
         System.out.println(leftOver);
     }
-
 
 }
