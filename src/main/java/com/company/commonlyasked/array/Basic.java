@@ -162,12 +162,30 @@ public class Basic {
     }
 
     @Test
-    public void test01() {
+    public void test01_reverseDirection() {
         int[] a = {1, 2, 3};
-        //System.out.println("Last Element: " + a[a.length-1]);
-        //System.out.println("Second Last Element: " + a[a.length-2]);
+        System.out.println("Last Element: " + a[a.length-1]);
+        System.out.println("Second Last Element: " + a[a.length-2]);
         for (int i = 1; i <= a.length; i++) {
             System.out.println(a[a.length - i]);
         }
     }
+
+
+    @Test
+    public void findSummationPairs(){
+        int[] nums = {3,5,7,10,12};
+        int sum = 17;
+        Set<Integer> set = new HashSet<>();
+        for(int num : nums){
+            int temp = sum - num;
+            if(set.contains(temp)){
+                System.out.println("Pair found for sum " + sum + "(" + temp + "," + num+")");
+            }
+            set.add(num);
+        }
+    }
+
+
+
 }
