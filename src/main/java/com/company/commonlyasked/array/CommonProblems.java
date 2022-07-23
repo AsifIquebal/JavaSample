@@ -12,12 +12,11 @@ public class CommonProblems {
     @Test
     public void test01() {
         int[] array = {15, 24, 95, 21, 43, 11, 79, 93};
-        getSecondLargest(array);
+        getSecondHighest(array);
     }
 
-    public void getSecondLargest(int[] arr) {
+    public void getSecondHighest(int[] arr) {
         int i, first, second;
-        /* There should be atleast two elements */
         if (arr.length < 2) {
             System.out.print(" Invalid Input ");
         }
@@ -51,7 +50,7 @@ public class CommonProblems {
                 second = n;
             }
         }
-        System.out.println("Max1 - " + first + "Max2 - " + second);
+        System.out.println("Max1 - " + first + ", Max2 - " + second);
     }
 
     @Test

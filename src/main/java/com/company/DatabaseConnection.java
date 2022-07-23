@@ -59,7 +59,6 @@ public class DatabaseConnection {
                 System.out.println(rs.getInt(1) + "  "
                         + rs.getString(2) + "  "
                         + rs.getString(3));
-
         }
     }
 
@@ -97,6 +96,24 @@ public class DatabaseConnection {
                 }
                 System.out.println();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getTotalNumberOfTablesInDatabase() {
+        String url = "jdbc:mysql://localhost:3306/classicmodels";
+        String username = "root";
+        String password = "root";
+        String query = "SELECT count(*) AS TOTALNUMBEROFTABLES\n" +
+                "   FROM INFORMATION_SCHEMA.TABLES\n" +
+                "   WHERE TABLE_SCHEMA = 'classicmodels';";
+        try (Connection con = DriverManager.getConnection(url, username, password);
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            rs.next();
+            System.out.println(rs.getString(1));
         } catch (SQLException e) {
             e.printStackTrace();
         }

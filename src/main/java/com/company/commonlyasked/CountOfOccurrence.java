@@ -113,12 +113,12 @@ public class CountOfOccurrence {
     }
 
     @Test
-    public void count3() {
+    public void test03UsingCollectionsFequency() {
         List<String> list = new ArrayList<>(Arrays.asList("1", "2", "3", "1", "2", "4", "5"));
         Map<String, Integer> map = new HashMap<>();
         for (String elem : list) {
-            int count = Collections.frequency(list, elem);
             if (!map.containsKey(elem)) {
+                int count = Collections.frequency(list, elem);
                 map.put(elem, count);
             }
         }

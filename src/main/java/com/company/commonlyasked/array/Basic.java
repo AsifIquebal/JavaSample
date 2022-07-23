@@ -171,21 +171,4 @@ public class Basic {
         }
     }
 
-
-    @Test
-    public void findSummationPairs(){
-        int[] nums = {3,5,7,10,12};
-        int sum = 17;
-        Set<Integer> set = new HashSet<>();
-        for(int num : nums){
-            int temp = sum - num;
-            if(set.contains(temp)){
-                System.out.println("Pair found for sum " + sum + "(" + temp + "," + num+")");
-            }
-            set.add(num);
-        }
-    }
-
-
-
 }

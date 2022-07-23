@@ -44,40 +44,19 @@ public class MoveZerosToEnd {
     }
 
     @Test
-    public void moveZerosToEndUsingSingleTraversal() {
-        int[] array = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
-        System.out.println("Length: " + array.length);
-        int count = 0;
-        int temp;
-        // If arr[i] is non-zero, then swap the element at index 'count' with the element at index 'i'
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != 0) {
-                temp = array[count];
-                array[count++] = array[i];
-                array[i] = temp;
-                //count = count + 1;
-            }
-        }
-        System.out.println(Arrays.toString(array));
-    }
-
-    @Test
-    public void moveZeroToEnd() {
-        int[] array = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
+    public void moveZerosToEnd() {
+        int[] array = {0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
         int i = 0, j = 0;
         while (i < array.length) {
-            if (array[i] == 0) i++;
-            else {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j++;
+            if (array[i] != 0) {
+                int temp = array[j];
+                array[j++] = array[i];
+                array[i] = temp;
             }
+            i++;
         }
         System.out.println(Arrays.toString(array));
     }
-
 
     @Test
     public void rearrangePositiveAndNegative() {
