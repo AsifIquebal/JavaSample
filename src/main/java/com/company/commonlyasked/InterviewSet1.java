@@ -35,7 +35,37 @@ public class InterviewSet1 {
     }
 
     //endregion
+    // region Factorial
+    private static int factorial(int n) {
+        if (n == 0) return 1;
+        else return (n * factorial(n - 1));
+    }
 
+    @Test
+    public void usingRecursion() {
+        int fact = 1;
+        int number = 25;//It is the number to calculate factorial
+        fact = factorial(number);
+        System.out.println("Factorial of " + number + " is: " + fact);
+    }
+
+    //endregion
+    //region Largest and Smallest
+    @Test
+    public void largestAndSmallest() {
+        int[] numbers = new int[]{32, 43, 53, 54, 32, 65, 63, 98, 43, 23};
+        //assign first element of an array to largest and smallest
+        int smallest = numbers[0];
+        int largest = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest) largest = numbers[i];
+            else if (numbers[i] < smallest) smallest = numbers[i];
+        }
+        System.out.println("Largest Number is : " + largest + "Smallest Number is : " + smallest);
+    }
+
+    //endregion
+    //region moves zeros
     @Test
     public void moveZerosToEnd() {
         int[] array = {0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
@@ -51,17 +81,56 @@ public class InterviewSet1 {
         System.out.println(Arrays.toString(array));
     }
 
+    //endregion
+    //region Summation Pairs
     @Test
-    public void findSummationPairs(){
-        int[] nums = {3,5,7,10,12};
+    public void findSummationPairs() {
+        int[] nums = {3, 5, 7, 10, 12};
         int sum = 17;
         Set<Integer> set = new HashSet<>();
-        for(int num : nums){
+        for (int num : nums) {
             int temp = sum - num;
-            if(set.contains(temp)){
-                System.out.println("Pair found for sum " + sum + "(" + temp + "," + num+")");
+            if (set.contains(temp)) {
+                System.out.println("Pair found for sum " + sum + "(" + temp + "," + num + ")");
             }
             set.add(num);
         }
     }
+
+    //endregion
+    //region Remove adjacent vowels from String // TODO
+    /* Remove vowels only if it is consecutive
+        input = {"A","S","I","E","F","X","O","U","V","I","T"}
+        output = {"A","S","F","X","V","I","T"}
+        */
+    private boolean isVowel(char c) {
+        return (c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u');
+    }
+
+    @Test
+    public void removeVowels() {
+        String str = "asiefxouvit";
+        for (int i = 1; i < str.length(); i++) {
+            if ((!isVowel(str.charAt(i - 1))) || (!isVowel(str.charAt(i)))) {
+                System.out.print(str.charAt(i));
+            }
+        }
+    }
+
+    //endregion
+    @Test
+    public void test_findOutTrailingNumberOfZeros() {
+        int res = 0;
+        int n = 11;//the number for the factorial result needs to be checked for trailing zeros
+        if (n < 5) {
+            System.out.println("No Trailing Zeros!");
+        } else {
+            for (int i = 5; i <= n; i = i * 5) {
+                res = res + n / i;
+            }
+            System.out.println(res);
+        }
+
+    }
+
 }

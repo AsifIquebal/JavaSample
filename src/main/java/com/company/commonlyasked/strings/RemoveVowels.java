@@ -11,10 +11,7 @@ public class RemoveVowels {
     @Test
     public void test01() {
 
-        /* Remove vowels only if it is consecutive
-        input = {"A","S","I","E","F","X","O","U","V","I","T"}
-        output = {"A","S","F","X","V","I","T"}
-        */
+
 
         String str = "asiefxouvit";
         List<Character> collect = str.chars().mapToObj(c -> (char) c).collect(Collectors.toList());

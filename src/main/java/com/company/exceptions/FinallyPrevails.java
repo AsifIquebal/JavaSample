@@ -1,14 +1,30 @@
 package com.company.exceptions;
 
 import org.testng.annotations.Test;
+public class FinallyPrevails {
 
-public class finallyPrevails {
+    @Test
+    public void finallyTrumpsSortOf() {
+        System.out.println(test());
+    }
 
+    public int printX() {
+        System.out.println("X");
+        return 2;
+    }
+
+    public int test() {
+        try {
+            return printX();
+        }
+        finally {
+            System.out.println("finally trumps return... sort of");
+        }
+    }
     @Test
     public void testFinallyBlock(){
         System.out.println(demo1());
     }
-
     public int demo1(){
         try {
             int i = 10;
@@ -19,7 +35,6 @@ public class finallyPrevails {
             return 12;
         }
     }
-
     @Test
     public void demo2(){
         try{
@@ -29,7 +44,6 @@ public class finallyPrevails {
             System.out.println("World");
         }
     }
-
     @Test
     public String t2(){
         try {
@@ -41,10 +55,5 @@ public class finallyPrevails {
 
         }
     }
-
-    public static void main(String[] args) {
-
-    }
-
 
 }
