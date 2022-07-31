@@ -2,9 +2,7 @@ package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class InterviewSet4 {
@@ -81,14 +79,75 @@ public class InterviewSet4 {
         boxes.add("rubber");
         System.out.println("Bags Contains :" + bags);
         System.out.println("Boxes Contains :" + boxes);
-
         // Apply retainAll() method to boxes passing bags as parameter
         boxes.retainAll(bags);
-
         // Displaying both the lists after operation
-        System.out.println("\nAfter Applying retainAll()" +
-                " method to Boxes\n");
+        System.out.println("\nAfter Applying retainAll()" + " method to Boxes\n");
         System.out.println("Bags Contains :" + bags);
         System.out.println("Boxes Contains :" + boxes);
+    }
+
+    @Test
+    public void findLargestAndSmallestNumber() {
+        Integer[] arr = {34, 22, 10, 60, 30, 22};
+        Set<Integer> set = new HashSet<>(Arrays.asList(arr));
+        System.out.println(set);
+        TreeSet<Integer> sortedSet = new TreeSet<>(set);
+        System.out.println("The sorted list is:");
+        System.out.println(sortedSet);
+        System.out.println("Smallest: " + sortedSet.first());
+        System.out.println("Largest: " + sortedSet.last());
+    }
+
+    @Test
+    public void test01() {
+        int[] array = {15, 24, 95, 21, 43, 11, 79, 93};
+        getSecondHighest(array);
+    }
+
+    public void getSecondHighest(int[] arr) {
+        int i, first, second;
+        if (arr.length < 2) {
+            System.out.print(" Invalid Input ");
+        }
+        first = second = Integer.MIN_VALUE;
+        for (i = 0; i < arr.length; i++) {
+            /* If current element is greater than first then update both first and second */
+            if (arr[i] > first) {
+                second = first;
+                first = arr[i];
+            }
+            /* If arr[i] is in between first and second then update second  */
+            else if (arr[i] > second && arr[i] != first)
+                second = arr[i];
+        }
+        if (second == Integer.MIN_VALUE)
+            System.out.print("There is no second largest" + " element\n");
+        else
+            System.out.print("The second largest element" + " is " + second);
+    }
+
+    @Test
+    public void firstTwoMaxValue() {
+        int[] nums = {15, 24, 95, 21, 43, 11, 79, 93};
+        int first = 0;
+        int second = 0;
+        for (int n : nums) {
+            if (first < n) {
+                second = first;
+                first = n;
+            } else if (second < n) {
+                second = n;
+            }
+        }
+        System.out.println("Max1 - " + first + ", Max2 - " + second);
+    }
+
+    @Test
+    public void givenListContainsDuplicates_whenRemovingDuplicatesPreservingOrderWithPlainJava_thenCorrect() {
+        List<Integer> listWithDuplicates = new ArrayList<>(Arrays.asList(5, 0, 3, 1, 2, 3, 0, 0));
+        List<Integer> listWithoutDuplicates = new ArrayList<>(new LinkedHashSet<>(listWithDuplicates));
+        System.out.println(listWithoutDuplicates);
+        //[5, 0, 3, 1, 2]
     }
 }

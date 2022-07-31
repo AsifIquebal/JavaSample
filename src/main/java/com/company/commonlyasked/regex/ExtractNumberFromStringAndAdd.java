@@ -1,4 +1,4 @@
-package com.company.commonlyasked;
+package com.company.commonlyasked.regex;
 
 import java.util.Scanner;
 

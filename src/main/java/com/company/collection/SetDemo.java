@@ -12,7 +12,7 @@ public class SetDemo {
 
     @Test
     public void demo1() {
-        int count[] = {34, 22, 10, 60, 30, 22};
+        int[] count = {34, 22, 10, 60, 30, 22};
         Set<Integer> my_set = new HashSet<>();
         try {
             for (int i = 0; i < 5; i++) {
