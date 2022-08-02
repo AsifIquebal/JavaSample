@@ -64,6 +64,8 @@ public class InterviewSet4 {
         // use retainAll() method to find common elements
         set1.retainAll(set2);
         System.out.println("Common elements- " + set1);
+
+        
     }
 
     @Test

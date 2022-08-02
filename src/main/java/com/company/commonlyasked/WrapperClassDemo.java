@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 public class WrapperClassDemo {
     @Test
     public void test01(){
-        Integer n1 = new Integer(100);
-        Integer n2 = new Integer(100);
+        Integer n1 = 100;
+        Integer n2 = 100;
 
         Integer n3 = 127;
         Integer n4 = 127;
