@@ -8,28 +8,12 @@ import java.util.stream.Stream;
 
 public class FindingWordInString {
 
-
     @Test
     public void getIndexMethod() {
         String s = "it is what it is";
         System.out.println("First occurrence of is : " + s.indexOf("is"));
         //str.indexOf("is", str.indexOf("is") + 1);
         System.out.println("Second occurrence of is: " + s.indexOf("is", s.indexOf("is") + 1));
-    }
-
-    @Test
-    public void frequencyOfDuplicatesInAString() {
-        String str = "India is great. I am an Indian. India is my country. India will be on zero net emission by 2070";
-        List<String> words = List.of(str.split("\\W+"));
-        System.out.println(words);
-        // getting the unique words
-        HashSet<String> uniqueWords = new HashSet<>(words);
-
-        for (String word : uniqueWords) {
-            if (Collections.frequency(words, word) > 1) {
-                System.out.println(word + ": " + Collections.frequency(words, word));
-            }
-        }
     }
 
     @Test
@@ -89,27 +73,5 @@ public class FindingWordInString {
         System.out.println(wordCounter);
     }
 
-    @Test
-    public void sortWords() {
-        String[] names = {"Rahul", "Ajay", "Gourav", "Riya"};
-        Arrays.sort(names);
-        System.out.println("The names in alphabetical order are: ");
-        for (int i = 0; i < names.length; i++) {
-            System.out.println(names[i]);
-        }
-        // brute force approach
-        String text = "I am a Student, learning java";
-        String[] words = text.split("\\W+");
-        String temp;
-        for (int i = 0; i < words.length; i++) {
-            for (int j = i + 1; j < words.length; j++) {
-                if (words[i].compareTo(words[j]) > 0) {
-                    temp = words[i];
-                    words[i] = words[j];
-                    words[j] = temp;
-                }
-            }
-        }
-        System.out.println(Arrays.toString(words));
-    }
+
 }

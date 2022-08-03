@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Swap {
     @Test
-    public void swapWithout3rdStringVariable() throws IOException {
+    public void swapWithout3rdStringVariable() {
         String a = "AAA";
         String b = "BBB";
         int len1 = a.length();
