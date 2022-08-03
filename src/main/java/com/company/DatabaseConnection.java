@@ -73,6 +73,7 @@ public class DatabaseConnection {
              ResultSet rs = st.executeQuery(query)) {
             if (rs.next()) {
                 System.out.println(rs.getString(1));
+
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -93,6 +94,7 @@ public class DatabaseConnection {
             while (rs.next()) {
                 for (int i = 1; i < columnsNumber; i++) {
                     System.out.print(rs.getString(i) + " ");
+                    System.out.print(rs.getObject(1) + " ");
                 }
                 System.out.println();
             }

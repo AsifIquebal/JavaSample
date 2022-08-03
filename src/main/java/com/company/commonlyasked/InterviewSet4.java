@@ -36,10 +36,7 @@ public class InterviewSet4 {
             arrayToSearch = arrayOne;
         }
         HashSet<Integer> intersection = new HashSet<>();
-        HashSet<Integer> hashedArray = new HashSet<>();
-        for (Integer entry : arrayToHash) {
-            hashedArray.add(entry);
-        }
+        HashSet<Integer> hashedArray = new HashSet<>(Arrays.asList(arrayToHash));
         for (Integer entry : arrayToSearch) {
             if (hashedArray.contains(entry)) {
                 intersection.add(entry);
@@ -64,8 +61,6 @@ public class InterviewSet4 {
         // use retainAll() method to find common elements
         set1.retainAll(set2);
         System.out.println("Common elements- " + set1);
-
-        
     }
 
     @Test
