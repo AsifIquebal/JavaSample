@@ -18,9 +18,9 @@ public class RandD {
             //System.out.println("Item : " + k + " Count : " + v);
             System.out.println("key " + k + ": "
                     + map1.get(k).equals(map2.get(k)));
-            /*if("E".equals(k)){
+            if("E".equals(k)){
                 System.out.println("Demo E");
-            }*/
+            }
         });
     }
 }

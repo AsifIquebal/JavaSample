@@ -45,7 +45,8 @@ public class StreamsDemo {
         List<String> filtered = list.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
         System.out.println("Filtered List: " + filtered);
 
-        String mergedString = list.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
+        String mergedString = list.stream()
+                .filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
         System.out.println("Merged String: " + mergedString);
 
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);

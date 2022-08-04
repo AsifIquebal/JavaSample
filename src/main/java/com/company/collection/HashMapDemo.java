@@ -11,7 +11,9 @@ public class HashMapDemo {
     @Test
     public void swapKeyValue() {
         Map<String, Integer> map = new HashMap<>();
-        map.put("Key1",10);map.put("Key2",22);map.put("Key3",2);
+        map.put("Key1", 10);
+        map.put("Key2", 22);
+        map.put("Key3", 2);
         Map<Integer, String> swapped = map.entrySet()
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
@@ -226,5 +228,50 @@ public class HashMapDemo {
         System.out.println(hashMap.get("B"));//null
     }
 
+    @Test
+    public void replaceNullValue() {
+        Map<Integer, String> hashMap = new HashMap<>();
+        hashMap.put(1, "One");
+        hashMap.put(2, "Two");
+        hashMap.put(3, null);
+        hashMap.put(4, "Four");
+        System.out.println(hashMap);
+        hashMap.replace(3, null, "Three");
+        System.out.println(hashMap);
+    }
+
+    @Test
+    public void updateNullValue(){
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("RED", "#FF0000");
+        hashMap.put("BLACK", null);
+        hashMap.put("BLUE", "#0000FF");
+        hashMap.put("GREEN", "#008000");
+        hashMap.put("WHITE", null);
+        hashMap = hashMap.entrySet()
+                .stream()
+                .map(entry -> {
+                    if (entry.getValue() == null) {
+                        //
+                        entry.setValue("#######"); // set the default value
+                    }
+                    return entry;
+                })
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(hashMap);
+    }
+    @Test
+    public void replaceAllMethod() {
+        HashMap<String, Integer> map1 = new HashMap<>();
+        map1.put("key1", 1);
+        map1.put("key2", 2);
+        map1.put("key3", 3);
+        map1.put("key4", 4);
+        System.out.println("HashMap1: " + map1);
+        map1.replaceAll((key, oldValue) -> oldValue * oldValue);
+
+
+    }
 
 }
