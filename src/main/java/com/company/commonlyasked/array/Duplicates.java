@@ -49,37 +49,4 @@ public class Duplicates {
         System.out.println(result);
     }
 
-    @Test
-    public void removeDuplicateChar() {
-        char[] charArray = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
-        String result = "";
-        //char[] withOutDuplicateChars;
-        //List<String> withDuplicateChars = new ArrayList<>();
-        int k = 0;
-        for (char c : charArray) {
-            if (result.indexOf(c) == -1) {
-                result = result + c;
-                //withDuplicateChars[k++] = c;
-            }
-        }
-        System.out.println(result.toCharArray());
-        //System.out.println(Arrays.toString(withOutDuplicateChars));
-    }
-
-    @Test
-    public void removeDuplicateIntegers(){
-        int [] a = {1,2,2,6,3,2,1};//1,2,6,3
-        Set<Integer> result = new LinkedHashSet<>();
-        List<Integer> leftOver = new ArrayList<>();
-        for (int j : a) {
-            if(!result.contains(j)){
-                result.add(j);
-            } else {
-                leftOver.add(j);
-            }
-        }
-        System.out.println(result);
-        System.out.println(leftOver);
-    }
-
 }

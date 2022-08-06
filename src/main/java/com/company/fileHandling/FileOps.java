@@ -13,25 +13,6 @@ import java.util.stream.Collectors;
 
 public class FileOps {
 
-    @Test
-    public void removeDuplicateLines() throws IOException {
-        PrintWriter pw = new PrintWriter("./src/main/java/com/company/fileHandling/output.txt");
-        BufferedReader br = new BufferedReader(new FileReader("./src/main/java/com/company/fileHandling/test.txt"));
-        String line = br.readLine();
-        HashSet<String> hs = new HashSet<>();
-        while (line != null) {
-            // write only if not present in hashset
-            if (hs.add(line)) {
-                pw.println(line);
-            }
-            line = br.readLine();
-        }
-        pw.flush();
-        br.close();
-        pw.close();
-        System.out.println("File operation performed successfully");
-        
-    }
 
     @Test
     public void test_BufferedReaderExample() {

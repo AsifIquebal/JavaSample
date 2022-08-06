@@ -12,7 +12,7 @@ public class Basic {
     @Test
     public void t1() {
         int i = 4;
-        int ia[][][] = new int[i][i = 3][i];
+        int[][][] ia = new int[i][i = 3][i];
         System.out.println(ia.length);
         System.out.println(ia[0].length);
         System.out.println(ia[0][0].length);
@@ -123,7 +123,7 @@ public class Basic {
         System.out.println(Arrays.toString(array1));
         int[][] array2 = {{1, 2}, {3, 4}, {5, 6, 7}};
         System.out.println(Arrays.deepToString(array2));
-        System.out.println(array1);
+        System.out.println(Arrays.toString(array1));
     }
 
     @Test

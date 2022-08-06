@@ -17,9 +17,9 @@ public class CollectionClassDemo {
         Collections.sort(al);
         System.out.println("After Sorting: " + al);
         // Descending order Sorting
-        ArrayList<String> al2 = new ArrayList<String>(Arrays.asList("Picasso", "Asif", "Sudip", "Amlan", "Manish"));
+        ArrayList<String> al2 = new ArrayList<>(Arrays.asList("Picasso", "Asif", "Sudip", "Amlan", "Manish"));
         System.out.println("Before Sorting: " + al2);
-        Collections.sort(al2, Collections.reverseOrder());
+        al2.sort(Collections.reverseOrder());
         //Collections.reverse(al);
         System.out.println("After Reverse Sorting: " + al2);
 

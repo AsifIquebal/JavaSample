@@ -11,7 +11,7 @@ public class ArrayListExamples {
 
     @Test
     public void serialize() {
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Boston");
         list.add("Dallas");
         list.add("New York");

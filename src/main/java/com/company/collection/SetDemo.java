@@ -55,7 +55,6 @@ public class SetDemo {
         b = 10;
         set.add(b);
         System.out.println(set);
-
     }
 
     @Test
@@ -69,7 +68,6 @@ public class SetDemo {
             System.out.println(s);
         }
     }
-
 
     // TreeSet doesn't allow even a single null element. On doing so Null Pointer Exception on run time will be thrown
     @Test

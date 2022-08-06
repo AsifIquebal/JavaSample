@@ -24,7 +24,7 @@ public class IteratorDemo {
     public void failSafe() {
         // import java.util.concurrent.ConcurrentHashMap;
         // Creating a ConcurrentHashMap
-        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
         map.put("ONE", 1);
         map.put("TWO", 2);
         map.put("THREE", 3);

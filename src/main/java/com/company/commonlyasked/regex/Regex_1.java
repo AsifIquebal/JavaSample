@@ -111,19 +111,10 @@ public class Regex_1 {
         }
         System.out.println(contents);
 
-        BufferedWriter bw = null;
-        try {
-            bw = new BufferedWriter(new FileWriter(tmpFileName));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(tmpFileName))) {
             bw.write(contents);
         } catch (Exception e) {
             return;
-        } finally {
-
-            try {
-                if (bw != null)
-                    bw.close();
-            } catch (IOException e) {
-            }
         }
         File oldFile = new File(oldFileName);
         oldFile.delete();
