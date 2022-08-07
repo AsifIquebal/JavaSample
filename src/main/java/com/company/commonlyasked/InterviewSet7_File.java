@@ -78,8 +78,8 @@ public class InterviewSet7_File {
     @Test
     public void extractDigitsFromAllFiles() throws IOException {
         File directoryPath = new File("src/main/java/com/company/fileHandling/");
-        FilenameFilter textFilter = (dir, name) -> name.toLowerCase().endsWith(".txt");
-        File[] files = directoryPath.listFiles(textFilter);
+        FilenameFilter filenameFilter = (dir, name) -> name.toLowerCase().endsWith(".txt");
+        File[] files = directoryPath.listFiles(filenameFilter);
         assert files != null;
         for (File file : files) {
             System.out.println(file.getCanonicalPath());

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class InterviewSet1 {
+public class InterviewSet1_Numbers {
 
     //region Fibonacci numbers
     @Test

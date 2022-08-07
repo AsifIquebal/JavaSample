@@ -2,7 +2,7 @@ package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
-public class InterviewSet2 {
+public class InterviewSet2_Bit {
     @Test
     public void perfectNumber() {
         // A Perfect Number is sum of its positive divisors, excluding the number itself. The First Perfect number is 6,

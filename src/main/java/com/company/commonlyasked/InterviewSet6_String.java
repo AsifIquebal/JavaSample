@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class InterviewSet6 {
+public class InterviewSet6_String {
     @Test
     public void frequencyOfDuplicatesInAString() {
         String str = "India is great. I am an Indian. India is my country. India will be on zero net emission by 2070";

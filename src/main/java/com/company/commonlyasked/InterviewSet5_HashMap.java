@@ -5,7 +5,8 @@ import org.testng.annotations.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class InterviewSet5 {
+public class InterviewSet5_HashMap {
+
     @Test
     public void swapKeyValue() {
         Map<String, Integer> map = new HashMap<>();

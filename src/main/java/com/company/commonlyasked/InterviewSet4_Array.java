@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class InterviewSet4 {
-
+public class InterviewSet4_Array {
 
     @Test
     public void findNumberInAnArray() {
@@ -146,5 +145,27 @@ public class InterviewSet4 {
         List<Integer> listWithoutDuplicates = new ArrayList<>(new LinkedHashSet<>(listWithDuplicates));
         System.out.println(listWithoutDuplicates);
         //[5, 0, 3, 1, 2]
+    }
+
+    public void maxProfit1(int[] prices) {
+        int j = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < prices[i - 1]) {
+                j = i;
+            }
+            if ((prices[i] >= prices[i - 1])) {
+                if ((i + 1 == prices.length) || (prices[i] > prices[i + 1])) {
+                    int profit = prices[i] - prices[j];
+                    System.out.println("Buy on day " + (j + 1) + " and sell on day " + (i + 1) + " with profit:" + profit);
+                }
+            }
+        }
+    }
+
+    @Test
+    public void findTheDaysForProfitInStocks() {
+        int[] prices = {20, 100, 180, 260, 710,15, 535, 695, 500};
+        //int[] prices = {1, 5, 2, 3, 7, 6, 4, 5};
+        maxProfit1(prices);
     }
 }
