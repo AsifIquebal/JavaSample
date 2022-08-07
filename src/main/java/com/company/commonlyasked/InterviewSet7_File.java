@@ -45,7 +45,7 @@ public class InterviewSet7_File {
                 input = scanner.nextLine();
                 stringBuilder.append(input).append(" ");
             }
-            //System.out.println("Contents of the file: " + sb);
+            System.out.println("Contents of the file: " + stringBuilder);
             System.out.println(" ");
         }
     }

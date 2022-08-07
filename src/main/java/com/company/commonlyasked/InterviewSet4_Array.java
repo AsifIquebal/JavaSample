@@ -164,8 +164,35 @@ public class InterviewSet4_Array {
 
     @Test
     public void findTheDaysForProfitInStocks() {
-        int[] prices = {20, 100, 180, 260, 710,15, 535, 695, 500};
+        int[] prices = {20, 100, 180, 260, 710, 15, 535, 695, 500};
         //int[] prices = {1, 5, 2, 3, 7, 6, 4, 5};
         maxProfit1(prices);
+    }
+
+    public int maxDiff(int[] arr) {
+        int max_diff = arr[1] - arr[0];
+        int min = arr[0];
+        int i;
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+            if ((arr[i] - min) > max_diff) {
+                System.out.println("max:" + arr[i] + ", min:" + min);
+                max_diff = arr[i] - min;
+            }
+
+        }
+        return max_diff;
+    }
+
+    @Test
+    public void maxDifference() {
+        // Java program to find Maximum difference// between two elements such that larger// element appears after the smaller number
+        /* The function assumes that there are at least two elements in array.
+    The function returns a negative value if the array is sorted in decreasing order.
+    Returns 0 if elements are equal */
+        int[] arr = {10, 20, 90, 1, 110, 115, 200, 150};
+        System.out.println("MaximumDifference is " + maxDiff(arr));
     }
 }
