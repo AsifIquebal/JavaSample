@@ -64,23 +64,12 @@ public class InterviewSet4_Array {
 
     @Test
     public void reatinAllMethodOfArrayList() {
-        ArrayList<String> bags = new ArrayList<>();
-        bags.add("pen");
-        bags.add("pencil");
-        bags.add("paper");
-        ArrayList<String> boxes = new ArrayList<>();
-        boxes.add("pen");
-        boxes.add("paper");
-        boxes.add("books");
-        boxes.add("rubber");
-        System.out.println("Bags Contains :" + bags);
-        System.out.println("Boxes Contains :" + boxes);
-        // Apply retainAll() method to boxes passing bags as parameter
+        ArrayList<String> bags = new ArrayList<>(Arrays.asList("pen", "pencil", "paper"));
+        ArrayList<String> boxes = new ArrayList<>(Arrays.asList("pen", "paper", "books", "rubber"));
         boxes.retainAll(bags);
-        // Displaying both the lists after operation
         System.out.println("\nAfter Applying retainAll()" + " method to Boxes\n");
-        System.out.println("Bags Contains :" + bags);
-        System.out.println("Boxes Contains :" + boxes);
+        System.out.println("Bags Contains :" + bags); //[pen, pencil, paper]
+        System.out.println("Boxes Contains :" + boxes);//[pen, paper]
     }
 
     @Test

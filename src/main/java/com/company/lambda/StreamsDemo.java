@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -12,7 +13,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class StreamsDemo {
 
     @Test
-    public void reduceExample(){
+    public void reduceExample() {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         // 1st argument, init value = 0
         System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a + b));
@@ -25,6 +26,20 @@ public class StreamsDemo {
         System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a < b ? a : b));  // 0
         System.out.println(Arrays.stream(numbers).reduce(0, Integer::min));
     }
+
+    @Test
+    public void samples() {
+        List<Integer> distinctElements = Stream.of(1, 2, 2, 4, 4, 6, 6).distinct().collect(Collectors.toList());
+        System.out.println(distinctElements);
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        OptionalDouble average = Arrays.stream(numbers).average();
+        System.out.println(average.getAsDouble());
+        System.out.println(Arrays.stream(numbers).max());
+        System.out.println(Arrays.stream(numbers).min().getAsInt());
+    }
+    //IntStream intStream = Arrays.stream(numbers).distinct()
+    //Filter & lambda usage: Average value of the numbers bigger than 5.
+    //OptionalDouble average = intStream.filter(value -> value > 5).average();
 
     @Test
     public void test01() {

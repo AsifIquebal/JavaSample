@@ -7,22 +7,34 @@ import java.util.function.Supplier;
 
 public class SupplierDemo {
 
-    @Test
-    public void test01(){
-        Supplier<Date> s = ()->new Date();
+    public void print(Supplier<String> text) {
+        System.out.println(text.get());
+    }
 
+    @Test
+    public void test03() {
+        //Pass lambdas to the print counter.
+        //Each returns an String.
+        print(() -> "Hello");
+        print(() -> "World!");
+    }
+
+    @Test
+    public void test01() {
+        Supplier<Date> s = () -> new Date();
         System.out.println(s.get());
     }
 
     @Test
-    public void test02(){
-        Supplier<String> s = ()->{
+    public void test02() {
+        Supplier<String> s = () -> {
             String otp = "";
-            for (int i=0; i<6; i++){
-                otp = otp + (int)(Math.random()*10);
+            for (int i = 0; i < 6; i++) {
+                otp = otp + (int) (Math.random() * 10);
             }
             return otp;
         };
         System.out.println(s.get());
     }
+
 }
