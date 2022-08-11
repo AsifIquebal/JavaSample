@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class InterviewSet4_Array {
+public class InterviewSet4_Array01 {
 
     @Test
     public void findNumberInAnArray() {
