@@ -136,4 +136,37 @@ public class InterviewSet1_Numbers {
 
     }
 
+    @Test
+    public void primeNumber() {
+        printPrime(10);
+    }
+
+    private boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        if (n <= 3) {
+            return true;
+        }
+        // This is checked so that we can skip middle five numbers in below loop
+        if (n % 2 == 0 || n % 3 == 0) {
+            return false;
+        }
+        // one of the divisors must be smaller than or equal to √n. So we check for divisibility only till √n.
+        for (int i = 5; i * i <= n; i = i + 6) {
+            if (n % i == 0 || n % (i + 2) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void printPrime(int n) {
+        for (int i = 2; i <= n; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
 }
