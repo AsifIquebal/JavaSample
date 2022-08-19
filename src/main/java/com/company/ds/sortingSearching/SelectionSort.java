@@ -18,7 +18,7 @@ public class SelectionSort {
                     index = j;//searching for lowest index
                 }
             }
-            swap(arr,lastUnsortedIndex,index);
+            swap(arr, lastUnsortedIndex, index);
         }
     }
 
@@ -32,6 +32,7 @@ public class SelectionSort {
         System.out.println("After Selection Sort");
         System.out.println(Arrays.toString(arr1));
     }
+
     private void swap(int[] array, int i, int j) {
         if (i == j) {
             return;
@@ -39,5 +40,29 @@ public class SelectionSort {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
+    }
+
+    public void sort(int[] arr) {
+        int n = arr.length;
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+            }
+            // Swap the found minimum element with the first element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    @Test
+    public void test_02() {
+        int[] arr1 = {9, 14, 3, 2, 43, 11, 58, 22};
+        sort(arr1);
+        System.out.println(Arrays.toString(arr1));
     }
 }

@@ -142,6 +142,7 @@ public class InterviewSet4_Array01 {
             if (prices[i] < prices[i - 1]) {
                 j = i;
             }
+            // find peak, compare it with previous and next
             if ((prices[i] >= prices[i - 1])) {
                 if ((i + 1 == prices.length) || (prices[i] > prices[i + 1])) {
                     int profit = prices[i] - prices[j];
