@@ -39,8 +39,8 @@ public class Demo_Thread {
 
         a.start();
         b.start();
-        a.join();
-        b.join();
+        //a.join();
+        //b.join();
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         System.out.println("Time taken: "+ timeElapsed.toMillis() +" milliseconds");
