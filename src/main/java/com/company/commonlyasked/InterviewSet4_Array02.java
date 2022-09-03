@@ -2,11 +2,25 @@ package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class InterviewSet4_Array02 {
+
+    @Test
+    public void removeDuplicateIntegers(){
+        int [] a = {1,2,2,6,3,2,1};//1,2,6,3
+        Set<Integer> result = new LinkedHashSet<>();
+        List<Integer> leftOver = new ArrayList<>();
+        for (int j : a) {
+            if(!result.contains(j)){
+                result.add(j);
+            } else {
+                leftOver.add(j);
+            }
+        }
+        System.out.println(result);
+        System.out.println(leftOver);
+    }
 
     @Test
     public void pairSum() {

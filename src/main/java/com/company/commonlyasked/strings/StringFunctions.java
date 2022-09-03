@@ -54,9 +54,10 @@ public class StringFunctions {
     }
 
     @Test
-    public void test01() {
-        String str1;
+    public void compareTo01() {
+        String str1 = "I";
         String str2 = "Java";
+        System.out.println(str1.compareTo(str2));
         //System.out.println(str1 + "" + str2);
         //System.out.println(str2.concat(str1));
         //System.out.println(str1.concat(str2));
@@ -97,6 +98,16 @@ public class StringFunctions {
             System.out.println(x);
         System.out.println(strings.length);
         System.out.println("Tester".substring(0, 4));
+    }
+
+    @Test
+    public void substring01(){
+        String s = "Harbison";
+        System.out.println(s +"[# of chars " + s.length() + "]: " + s.substring(3));
+        // below is empty string not null
+        System.out.println("hello: " + s.substring(8).length());//hello: 0
+        //java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+        System.out.println("hello: " + s.substring(9));
     }
 
     @Test
@@ -161,8 +172,7 @@ public class StringFunctions {
         System.out.println("string joined by and : " + combined);
 
         // joining elements from a list of String
-        String joined = String
-                .join("|", Arrays.asList("Java", "Android", "Oracle"));
+        String joined = String.join("|", Arrays.asList("Java", "Android", "Oracle"));
         System.out.println("String joined by pipe from list : " + joined);
 
         // joining String elements of an array

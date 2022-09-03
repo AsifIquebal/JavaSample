@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 
 public class InterviewSet6_String01 {
+
     @Test
     public void frequencyOfDuplicatesInAString() {
         String str = "India is great. I am an Indian. India is my country. India will be on zero net emission by 2070";
@@ -19,13 +20,14 @@ public class InterviewSet6_String01 {
             }
         }
     }
+
     @Test
     public void sortWords() {
         String[] names = {"Rahul", "Ajay", "Gourav", "Riya"};
         Arrays.sort(names);
         System.out.println("The names in alphabetical order are: ");
-        for (int i = 0; i < names.length; i++) {
-            System.out.println(names[i]);
+        for (String name : names) {
+            System.out.println(name);
         }
         // brute force approach
         String text = "I am a Student, learning java";
@@ -84,19 +86,5 @@ public class InterviewSet6_String01 {
         //System.out.println(Arrays.toString(withOutDuplicateChars));
     }
 
-    @Test
-    public void removeDuplicateIntegers(){
-        int [] a = {1,2,2,6,3,2,1};//1,2,6,3
-        Set<Integer> result = new LinkedHashSet<>();
-        List<Integer> leftOver = new ArrayList<>();
-        for (int j : a) {
-            if(!result.contains(j)){
-                result.add(j);
-            } else {
-                leftOver.add(j);
-            }
-        }
-        System.out.println(result);
-        System.out.println(leftOver);
-    }
+
 }

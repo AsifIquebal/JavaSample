@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -13,7 +12,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class StreamsDemo {
 
     @Test
-    public void reduceExample() {
+    public void reduce01() {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         // 1st argument, init value = 0
         System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a + b));
@@ -25,6 +24,17 @@ public class StreamsDemo {
 
         System.out.println(Arrays.stream(numbers).reduce(0, (a, b) -> a < b ? a : b));  // 0
         System.out.println(Arrays.stream(numbers).reduce(0, Integer::min));
+    }
+
+    @Test
+    public void reduce02() {
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        Optional<Integer> result = list.stream().limit(5).reduce((a, b) -> a + b);
+        System.out.println(result.isPresent());
+        // try to avoid using get(), instead use Optional, such as orElse()
+        int intResult = list.stream().limit(5).reduce((a, b) -> a + b).get();
+        int intResult3 = list.stream().limit(5).reduce((a, b) -> a + b).orElse(0);
+        System.out.println(intResult);
     }
 
     @Test
