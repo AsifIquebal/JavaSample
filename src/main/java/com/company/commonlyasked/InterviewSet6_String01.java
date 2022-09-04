@@ -72,19 +72,21 @@ public class InterviewSet6_String01 {
     @Test
     public void removeDuplicateChar() {
         char[] charArray = {'e', 'a', 'b', 'a', 'c', 'd', 'b', 'd', 'c', 'e'};
-        String result = "";
-        //char[] withOutDuplicateChars;
-        //List<String> withDuplicateChars = new ArrayList<>();
-        int k = 0;
+        StringBuilder result = new StringBuilder();
         for (char c : charArray) {
-            if (result.indexOf(c) == -1) {
-                result = result + c;
-                //withDuplicateChars[k++] = c;
+            if (result.toString().indexOf(c) == -1) {
+                result.append(c);
             }
         }
-        System.out.println(result.toCharArray());
-        //System.out.println(Arrays.toString(withOutDuplicateChars));
+        System.out.println(result.toString().toCharArray());
     }
 
+    @Test
+    public void removeWhiteSpace(){
+        String s = "Demo (World).";
+        System.out.println(s.replaceAll("[^a-zA-Z.]","")); //Demo World
+        String s1 = "Demo World. This is a text. "; //HelloWorld.Thisisatext.
+        System.out.println(s1.replaceAll("\\s+",""));
+    }
 
 }

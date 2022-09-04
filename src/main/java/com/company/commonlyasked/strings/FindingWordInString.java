@@ -44,7 +44,7 @@ public class FindingWordInString {
 
     @Test
     public void demo() {
-        String str = "x is x is x is x";
+        String str = "a x is x is x is x";
         int i = str.indexOf('x');
         while (i >= 0) {
             System.out.println(i);
