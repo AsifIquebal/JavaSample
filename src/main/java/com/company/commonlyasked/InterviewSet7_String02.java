@@ -1,19 +1,42 @@
-package com.company.commonlyasked.strings;
+package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Palindrome {
+public class InterviewSet7_String02 {
+
+    public String reverseRecursively(String str) {
+        if (str.length() < 2) {
+            return str;
+        }
+        //return str.charAt(0) + reverseRecursively(str.substring(1));
+        return reverseRecursively(str.substring(1)) + str.charAt(0);
+    }
+
+    @Test
+    public void test01() {
+        System.out.println(reverseRecursively("hello world"));
+        r2("another");
+    }
+
+    public void r2(String str) {
+        if ((str == null) || (str.length() <= 1)) {
+            System.out.println(str);
+        } else {
+            System.out.print(str.charAt(str.length() - 1));
+            r2(str.substring(0, str.length() - 1));
+        }
+    }
 
     @Test
     public void test1() {
         String input = "This noon, Anna drove the racecar.";
-        String[] strings = input.split("\\W");
+        String[] stringArray = input.split("\\W");
 
         List<String> palindromicWord = new ArrayList<>();
-        for (String string : strings) {
+        for (String string : stringArray) {
             if (string.equalsIgnoreCase(getReverseString(string)) && !string.isEmpty()) {
                 palindromicWord.add(string);
             }
@@ -22,12 +45,12 @@ public class Palindrome {
     }
 
     public String getReverseString(String str) {
-        StringBuilder string = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         char[] chars = str.toCharArray();
         for (int i = chars.length - 1; i >= 0; i--) {
-            string.append(chars[i]);
+            stringBuilder.append(chars[i]);
         }
-        return string.toString();
+        return stringBuilder.toString();
     }
 
     @Test
@@ -65,7 +88,7 @@ public class Palindrome {
     }
 
     @Test
-    public void usingStatck(){
+    public void usingStatck() {
         //TODO
         /*
         * Find the length of the string say len. Now, find the mid as mid = len / 2.
@@ -75,5 +98,4 @@ Till the end of the string, keep popping elements from the stack and compare the
 If there is a mismatch then the string is not a palindrome. If all the elements match then the string is a palindrome.
         * */
     }
-
 }

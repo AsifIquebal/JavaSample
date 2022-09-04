@@ -83,7 +83,7 @@ public class HashMapDemo {
         hm.put(2, "Two");
         hm.put(3, null);
         // checking with existing keys
-        System.out.println("Key already exists: " + hm.putIfAbsent(2, "Two"));
+        System.out.println("Key already exists: " + hm.putIfAbsent(2, "TwoAgain"));
         // checking with non-existing keys
         System.out.println("Key is new: " + hm.putIfAbsent(4, "Four"));
         // for null value which is placed as null only
@@ -96,6 +96,8 @@ public class HashMapDemo {
         Map<Integer, String> hm = getMap();
         // checking with existing keys
         System.out.println("Key already exists: " + hm.getOrDefault(3, "Three"));
+        //
+        System.out.println(hm.get(6));
         // checking with non-existing keys
         System.out.println("Key is new: " + hm.getOrDefault(6, "Default Value"));
         hm.forEach((k, v) -> System.out.println(k + " -> " + v));

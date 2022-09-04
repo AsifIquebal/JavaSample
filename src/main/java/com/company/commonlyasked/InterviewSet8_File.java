@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class InterviewSet7_File {
+public class InterviewSet8_File {
     @Test
     public void removeDuplicateLines() throws IOException {
         PrintWriter printWriter = new PrintWriter("./src/main/java/com/company/fileHandling/output.txt");
