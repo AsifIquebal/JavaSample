@@ -64,18 +64,6 @@ public class Numbers {
     }
 
     @Test
-    public void sumOfDigits() {
-        int num = 786, sum = 0;
-        while (num > 0) {
-            int remainder = num % 10;
-            //System.out.println(remainder);
-            sum = sum + remainder;
-            num = num / 10;
-        }
-        System.out.println(sum);
-    }
-
-    @Test
     public void palindrome() {
         System.out.println(1 % 10);
         System.out.println(1 / 10);
@@ -140,17 +128,6 @@ public class Numbers {
             System.out.println("Num at end of outer loop: " + num);
         }
         System.out.println((num == 1) ? "Happy Number" : "Not a Happy Number");
-    }
-
-    @Test
-    public void secondLastDigit() {
-        int i = 1843;
-        System.out.println(i/10);
-        System.out.println((i / 10) % 10);
-        String number = Integer.toString(i);
-        // java.lang.StringIndexOutOfBoundsException: String index out of range: -1 in case its length is less than 2
-        int secondLastDigit = Character.getNumericValue((number.charAt(number.length() - 2)));
-        System.out.println(secondLastDigit);
     }
 
     public static void main(String[] args) {

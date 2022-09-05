@@ -8,6 +8,44 @@ import java.util.Set;
 
 public class InterviewSet1_Numbers {
 
+    @Test
+    public void sumOfDigits() {
+        int num = 786, sum = 0;
+        while (num > 0) {
+            int remainder = num % 10;
+            //System.out.println(remainder);
+            sum = sum + remainder;
+            num = num / 10;
+        }
+        System.out.println(sum);
+    }
+
+    @Test
+    public void secondLastDigit() {
+        int i = 1843;
+        System.out.println(i / 10);
+        System.out.println((i / 10) % 10);
+        String number = Integer.toString(i);
+        // java.lang.StringIndexOutOfBoundsException: String index out of range: -1 in case its length is less than 2
+        int secondLastDigit = Character.getNumericValue((number.charAt(number.length() - 2)));
+        System.out.println(secondLastDigit);
+    }
+
+    @Test
+    public void swapIntegers() {
+        int x = 10;
+        int y = 20;
+        System.out.println("Before swap:");
+        System.out.println("x value: " + x);
+        System.out.println("y value: " + y);
+        x = x + y;
+        y = x - y;
+        x = x - y;
+        System.out.println("After swap:");
+        System.out.println("x value: " + x);
+        System.out.println("y value: " + y);
+    }
+
     //region Fibonacci numbers
     @Test
     public void printFibonacci() {

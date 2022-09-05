@@ -2,8 +2,8 @@ package com.company.commonlyasked;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class InterviewSet7_String02 {
 
@@ -28,6 +28,31 @@ public class InterviewSet7_String02 {
             System.out.print(str.charAt(str.length() - 1));
             r2(str.substring(0, str.length() - 1));
         }
+    }
+
+    @Test
+    public void countCharacters() {
+        String str = "ababc";
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            Character character = str.charAt(i);
+            if (map.containsKey(character)) {
+                map.put(character, map.get(character) + 1);
+            } else {
+                map.put(character, 1);
+            }
+        }
+        System.out.println(map);
+    }
+
+    @Test
+    public void byJava8() {
+        String str = "abcabcd";
+        Map<String, Long> map =
+                Arrays
+                        .stream(str.split(""))
+                        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(map);
     }
 
     @Test

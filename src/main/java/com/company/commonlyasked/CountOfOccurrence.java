@@ -12,7 +12,6 @@ public class CountOfOccurrence {
     public static void main(String[] args) {
         CountOfOccurrence countOfOccurrence = new CountOfOccurrence();
         countOfOccurrence.forString1("ababdzzy");
-        countOfOccurrence.forString2("ababdzzy");
         int[] num = {1, 2, 2, 1, 3};
         countOfOccurrence.forInts(num);
     }
@@ -57,29 +56,10 @@ public class CountOfOccurrence {
         System.out.println(map);
     }
 
-    public void forString2(String str) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < str.length(); i++) {
-            Character key = str.charAt(i);
-            if (map.containsKey(key)) {
-                map.put(key, map.get(key) + 1);
-            } else {
-                map.put(key, 1);
-            }
-        }
-        System.out.println(map);
-    }
+
 
     // Java 8
-    @Test
-    public void byJava8() {
-        String str = "abcabcd";
-        Map<String, Long> map =
-                Arrays
-                        .stream(str.split(""))
-                        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-        System.out.println(map);
-    }
+
 
     @Test
     public void countArray() {
