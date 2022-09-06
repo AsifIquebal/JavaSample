@@ -3,6 +3,7 @@ package com.company.commonlyasked;
 import org.testng.annotations.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class InterviewSet4_Array01 {
@@ -36,9 +37,9 @@ public class InterviewSet4_Array01 {
         }
         HashSet<Integer> intersection = new HashSet<>();
         HashSet<Integer> hashedArray = new HashSet<>(Arrays.asList(arrayToHash));
-        for (Integer entry : arrayToSearch) {
-            if (hashedArray.contains(entry)) {
-                intersection.add(entry);
+        for (Integer element : arrayToSearch) {
+            if (hashedArray.contains(element)) {
+                intersection.add(element);
             }
         }
         Integer[] arr = new Integer[intersection.size()];
@@ -49,17 +50,14 @@ public class InterviewSet4_Array01 {
     public void findCommon() {
         int[] arr1 = {1, 4, 9, 16, 25, 36, 49, 64, 81, 100};
         int[] arr2 = {100, 9, 64, 7, 36, 5, 16, 3, 4, 1};
-        Set<Integer> set1 = new HashSet<>();
-        Set<Integer> set2 = new HashSet<>();
-        for (int i : arr1) {
-            set1.add(i);
-        }
-        for (int i : arr2) {
-            set2.add(i);
-        }
+        Set<Integer> set1 = Arrays.stream(arr1).boxed().collect(Collectors.toSet());
+        Set<Integer> set2 = Arrays.stream(arr2).boxed().collect(Collectors.toSet());
         // use retainAll() method to find common elements
         set1.retainAll(set2);
-        System.out.println("Common elements- " + set1);
+        System.out.println("Common elements: " + set1);
+        // use removeAll for opposite
+        //Set<String> set3 = new LinkedHashSet<String>(set2);
+        //set3.removeAll(set1);
     }
 
     @Test

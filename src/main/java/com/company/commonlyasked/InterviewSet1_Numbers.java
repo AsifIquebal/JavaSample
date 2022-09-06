@@ -71,8 +71,8 @@ public class InterviewSet1_Numbers {
         }
         Arrays.stream(num).forEach(x -> System.out.print(x + " "));
     }
-
     //endregion
+
     // region Factorial
     private static int factorial(int n) {
         if (n == 0) return 1;
@@ -88,6 +88,7 @@ public class InterviewSet1_Numbers {
     }
 
     //endregion
+
     //region Largest and Smallest
     @Test
     public void largestAndSmallest() {
@@ -106,6 +107,7 @@ public class InterviewSet1_Numbers {
     }
 
     //endregion
+
     //region moves zeros
     @Test
     public void moveZerosToEnd() {
@@ -138,16 +140,6 @@ public class InterviewSet1_Numbers {
         }
     }
 
-    //endregion
-    //region Remove adjacent vowels from String // TODO
-    /* Remove vowels only if it is consecutive
-        input = {"A","S","I","E","F","X","O","U","V","I","T"}
-        output = {"A","S","F","X","V","I","T"}
-        */
-    private boolean isVowel(char c) {
-        return (c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u');
-    }
-
     @Test
     public void removeVowels() {
         String str = "asiefxouvit";
@@ -156,6 +148,16 @@ public class InterviewSet1_Numbers {
                 System.out.print(str.charAt(i));
             }
         }
+    }
+
+    //endregion
+    //region Remove adjacent vowels from String // TODO
+    /* Remove vowels only if it is consecutive
+        input = {"A","S","I","E","F","X","O","U","V","I","T"}
+        output = {"A","S","F","X","V","I","T"}
+        */
+    private boolean isVowel(char c) {
+        return (c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u');
     }
 
     //endregion
@@ -179,6 +181,14 @@ public class InterviewSet1_Numbers {
         printPrime(10);
     }
 
+    private void printPrime(int n) {
+        for (int i = 2; i <= n; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
     private boolean isPrime(int n) {
         if (n <= 1) {
             return false;
@@ -197,14 +207,6 @@ public class InterviewSet1_Numbers {
             }
         }
         return true;
-    }
-
-    private void printPrime(int n) {
-        for (int i = 2; i <= n; i++) {
-            if (isPrime(i)) {
-                System.out.print(i + " ");
-            }
-        }
     }
 
 }
