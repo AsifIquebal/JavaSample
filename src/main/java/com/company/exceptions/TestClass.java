@@ -4,15 +4,6 @@ import org.testng.annotations.Test;
 
 public class TestClass {
 
-    D d = new D(2);
-
-    @Test
-    public void test01(){
-        System.out.println(d);
-        d = new D(30);
-        System.out.println(d);
-    }
-
     @Test
     public String t2(){
         try {
