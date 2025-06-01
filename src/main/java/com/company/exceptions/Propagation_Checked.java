@@ -3,6 +3,7 @@ package com.company.exceptions;
 import java.io.IOException;
 
 public class Propagation_Checked {
+
     void m() throws IOException {
         throw new java.io.IOException("device error"); //checked exception
     }
