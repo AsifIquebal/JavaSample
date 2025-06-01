@@ -90,7 +90,7 @@ public class Basic {
 
     @Test
     public void intersectionAndUnion() {
-        int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9,1,2};
         int[] nums2 = {12, 11, 10, 6, 7, 8};
         /*HashSet<Integer> set1 = new HashSet<>();
         for (int i : nums1) {
@@ -103,11 +103,11 @@ public class Basic {
                 set2.add(i);
             }
         }
-        System.out.println("Intersection: " + set2);
+        System.out.println("Intersection[common elements]: " + set2);
         for (int i : nums2) {
             System.out.println(set1.add(i));
         }
-        System.out.println("Union: " + set1);
+        System.out.println("Union[combined without duplicates]: " + set1);
         System.out.println("-----------------");
         int[] result = new int[set2.size()];
         int i = 0;
@@ -120,6 +120,7 @@ public class Basic {
     @Test
     public void printArray() {
         int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("implicit call to toString: " + array1);
         System.out.println(Arrays.toString(array1));
         int[][] array2 = {{1, 2}, {3, 4}, {5, 6, 7}};
         System.out.println(Arrays.deepToString(array2));
